@@ -20,6 +20,10 @@ class ViewController:
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
 
+    @IBOutlet weak var switchLabel: UILabel!
+    
+    @IBOutlet weak var switch1: UISwitch!
+    
     let pickerData = ["Mozzarella","Gorgonzola","Provolone","Brie","Maytag Blue","Sharp Cheddar","Monterrey Jack","Stilton","Gouda","Goat Cheese", "Asiago"]
     
     override func viewDidLoad() {
@@ -27,9 +31,31 @@ class ViewController:
         myPicker.dataSource = self
         myPicker.delegate = self
         myLabel.text = "Pick yer cheeze!"
-        button1.setTitle("Click for a secret", for: .normal)
+        button1.setTitle("", for: .normal)
         button2.setTitle("", for: .normal)
+        switchLabel.text = "Show buttons below"
+        switch1.isOn = false
+        switch1.setOn(false, animated: false)
+        if(switch1.isOn)
+        {
+            switchLabel.text = "Switch is on"
+        }
+        else
+        {
+            switchLabel.text = "Switch is off"
+        }
     }
+    
+    @IBAction func switch2(_ sender: UISwitch) {
+        if(switch1.isOn)
+        {
+            switchLabel.text = "Switch is on"
+        }
+        else
+        {
+            switchLabel.text = "Switch is off"
+        }
+    }    
     
     @IBAction func button1(_ sender: Any) {
         button1.setTitle("apple sucks", for: .normal)
