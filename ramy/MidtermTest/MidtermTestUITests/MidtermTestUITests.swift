@@ -2,7 +2,7 @@
 //  MidtermTestUITests.swift
 //  MidtermTestUITests
 //
-//  Created by Student on 10/3/17.
+//  Created by Student on 10/4/17.
 //  Copyright © 2017 Student. All rights reserved.
 //
 
