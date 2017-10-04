@@ -20,8 +20,10 @@ class VC2: UIViewController {
         VC2Label.text = "And how many bottles of wine?"
         VC2Label.textAlignment = NSTextAlignment.center
         VC2Label.font = UIFont(name: VC2Label.font.fontName, size: 16)
-        wineNumber.text = Int(wineStepper.value).description
-        wineStepper.minimumValue = 3
+        
+        let minimumWine = 3
+        wineNumber.text = minimumWine.description
+        wineStepper.minimumValue = Double(minimumWine)
     }
 
     override func didReceiveMemoryWarning() {
