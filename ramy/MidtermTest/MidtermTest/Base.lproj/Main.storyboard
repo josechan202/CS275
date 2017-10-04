@@ -54,10 +54,10 @@
             </objects>
             <point key="canvasLocation" x="1056.8" y="123.68815592203899"/>
         </scene>
-        <!--View Controller-->
+        <!--VC2-->
         <scene sceneID="2Cc-sG-Yy4">
             <objects>
-                <viewController id="7KL-Xy-72C" sceneMemberID="viewController">
+                <viewController id="7KL-Xy-72C" customClass="VC2" customModule="MidtermTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d3H-pd-Pzd"/>
                         <viewControllerLayoutGuide type="bottom" id="a20-n6-9rY"/>
@@ -73,9 +73,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-XN-c9A">
+                                <rect key="frame" x="213" y="242" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="wineStepper:" destination="7KL-Xy-72C" eventType="valueChanged" id="bFU-QE-E23"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRD-af-i5h">
+                                <rect key="frame" x="110" y="242" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="VC2Label" destination="sQf-G4-SdH" id="DfR-QA-e25"/>
+                        <outlet property="wineNumber" destination="aRD-af-i5h" id="M5O-XN-dZj"/>
+                        <outlet property="wineStepper" destination="Ifb-XN-c9A" id="UMS-wQ-fa0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtq-KX-2vn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

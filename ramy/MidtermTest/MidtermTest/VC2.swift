@@ -10,10 +10,18 @@ import UIKit
 
 class VC2: UIViewController {
 
+    @IBOutlet weak var VC2Label: UILabel!
+    @IBOutlet weak var wineNumber: UILabel!
+    @IBOutlet weak var wineStepper: UIStepper!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        VC2Label.text = "And how many bottles of wine?"
+        VC2Label.textAlignment = NSTextAlignment.center
+        VC2Label.font = UIFont(name: VC2Label.font.fontName, size: 16)
+        wineNumber.text = Int(wineStepper.value).description
+        wineStepper.minimumValue = 3
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +29,9 @@ class VC2: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func wineStepper(_ sender: UIStepper) {
+        wineNumber.text = Int(sender.value).description
+    }
 
     /*
     // MARK: - Navigation
