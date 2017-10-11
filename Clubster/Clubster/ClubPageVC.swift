@@ -23,7 +23,7 @@ class ClubPageVC: UIViewController {
     }
     
     
-    
+    /*
     @IBAction func backToHomePage(_ sender: Any) {
         // ! vs ? in the context:
         // ! will immediately assume the cast is valid, and will attempt
@@ -35,7 +35,7 @@ class ClubPageVC: UIViewController {
         //nextVC.stringPassed = myLabel.text! + " press \(ctr2), load \(ctr1)";
         navigationController?.pushViewController(nextVC, animated: true)
     }
-    
+    */
     
     override func viewDidLoad() {
         super.viewDidLoad()
