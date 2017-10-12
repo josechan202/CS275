@@ -16,11 +16,22 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var rootNextButton: UIButton!
 
     //for cheeseWheel
-    let pickerData = ["Mozzarella","Gorgonzola","Provolone","Brie","Maytag Blue","Sharp Cheddar","Monterrey Jack","Stilton","Gouda","Goat Cheese", "Asiago"]
+    var pickerData = ["Mozzarella","Gorgonzola","Provolone","Brie","Maytag Blue","Sharp Cheddar","Monterrey Jack","Stilton","Gouda","Goat Cheese", "Asiago"]
     
+    @IBOutlet weak var textBox: UITextField!
+    
+    @IBAction func enterCheese(_ sender: Any) {
+        if let cheese = textBox.text{
+            if cheese != ""{
+                pickerData.append(cheese);
+                cheeseWheel.dataSource = self
+                cheeseWheel.delegate = self
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        textBox.placeholder = "username"
         cheeseWheel.dataSource = self
         cheeseWheel.delegate = self
 
