@@ -23,9 +23,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBAction func enterCheese(_ sender: Any) {
         if let cheese = textBox.text{
             if cheese != ""{
-                pickerData.append(cheese);
-                cheeseWheel.dataSource = self
-                cheeseWheel.delegate = self
+                pickerData.append(cheese)
+                cheeseWheel.reloadAllComponents()
+                //cheeseWheel.dataSource = self
+                //cheeseWheel.delegate = self
             }
         }
     }
