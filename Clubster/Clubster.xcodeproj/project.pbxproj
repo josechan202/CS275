@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D2E83F91F99414D002B4BE9 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E83F51F99414D002B4BE9 /* User+CoreDataClass.swift */; };
+		0D2E83FA1F99414D002B4BE9 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E83F61F99414D002B4BE9 /* User+CoreDataProperties.swift */; };
+		0D2E83FB1F99414D002B4BE9 /* Club+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E83F71F99414D002B4BE9 /* Club+CoreDataClass.swift */; };
+		0D2E83FC1F99414D002B4BE9 /* Club+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E83F81F99414D002B4BE9 /* Club+CoreDataProperties.swift */; };
 		0DD204E21F8D26AD003A5C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD204E11F8D26AD003A5C19 /* AppDelegate.swift */; };
 		0DD204E41F8D26AD003A5C19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD204E31F8D26AD003A5C19 /* ViewController.swift */; };
 		0DD204EA1F8D26AD003A5C19 /* Clubster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DD204E81F8D26AD003A5C19 /* Clubster.xcdatamodeld */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D2E83F51F99414D002B4BE9 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0D2E83F61F99414D002B4BE9 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0D2E83F71F99414D002B4BE9 /* Club+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Club+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0D2E83F81F99414D002B4BE9 /* Club+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Club+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0DD204DE1F8D26AD003A5C19 /* Clubster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clubster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DD204E11F8D26AD003A5C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DD204E31F8D26AD003A5C19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +70,10 @@
 		0DD204E01F8D26AD003A5C19 /* Clubster */ = {
 			isa = PBXGroup;
 			children = (
+				0D2E83F51F99414D002B4BE9 /* User+CoreDataClass.swift */,
+				0D2E83F61F99414D002B4BE9 /* User+CoreDataProperties.swift */,
+				0D2E83F71F99414D002B4BE9 /* Club+CoreDataClass.swift */,
+				0D2E83F81F99414D002B4BE9 /* Club+CoreDataProperties.swift */,
 				0DD204E11F8D26AD003A5C19 /* AppDelegate.swift */,
 				0DD204E31F8D26AD003A5C19 /* ViewController.swift */,
 				0DD204EB1F8D26AD003A5C19 /* Assets.xcassets */,
@@ -150,10 +162,14 @@
 			files = (
 				0DD204F91F8D5508003A5C19 /* ClubPageVC.swift in Sources */,
 				0DD204EA1F8D26AD003A5C19 /* Clubster.xcdatamodeld in Sources */,
+				0D2E83FA1F99414D002B4BE9 /* User+CoreDataProperties.swift in Sources */,
 				0DD204F71F8D32D2003A5C19 /* HomeVC.swift in Sources */,
+				0D2E83FB1F99414D002B4BE9 /* Club+CoreDataClass.swift in Sources */,
 				0DD204FB1F8D5635003A5C19 /* SettingsPageController.swift in Sources */,
 				0DD204E41F8D26AD003A5C19 /* ViewController.swift in Sources */,
 				0DD204E21F8D26AD003A5C19 /* AppDelegate.swift in Sources */,
+				0D2E83F91F99414D002B4BE9 /* User+CoreDataClass.swift in Sources */,
+				0D2E83FC1F99414D002B4BE9 /* Club+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +331,7 @@
 				0DD204F51F8D26AD003A5C19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
