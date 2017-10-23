@@ -8,10 +8,14 @@
 
 import UIKit
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController, UITableViewDataSource {
 
+    var subscriptionStrings = [String]()
+    
     @IBOutlet weak var homeLabel: UILabel!
     
+    @IBOutlet weak var subList: UITableView!
+    @IBOutlet weak var welcomeLabel: UILabel!
     @IBAction func toSettings(_ sender: Any) {
         // ! vs ? in the context:
         // ! will immediately assume the cast is valid, and will attempt
@@ -35,6 +39,18 @@ class HomeVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        let text = UserSingleton.sharedInstance.user!.getUsername()
+        welcomeLabel.text = "Welcome, \(text)"
+        
+        subList.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        subList.dataSource = self
+        
+        print(UserSingleton.sharedInstance.user!.subscriptions!.count)
+        
+        for club in UserSingleton.sharedInstance.user!.subscriptions!{
+            let club_name = (club as! Club).name!
+            subscriptionStrings.append(club_name)
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -43,7 +59,22 @@ class HomeVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
+        return subscriptionStrings.count
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt
+        indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        
+        cell!.textLabel!.text = subscriptionStrings[indexPath.row]
+        
+        return cell!
+    }
+    
     /*
     // MARK: - Navigation
 
