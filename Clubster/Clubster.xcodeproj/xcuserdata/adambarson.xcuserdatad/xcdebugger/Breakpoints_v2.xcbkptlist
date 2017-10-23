@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Clubster/ViewController.swift"
-            timestampString = "530395650.584018"
+            timestampString = "530455717.562161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "getUserData()"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "saveName(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

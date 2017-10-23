@@ -41,8 +41,8 @@ public class HTTPRequestHandler {
         task.resume()
     }
     
-    public class func login(username : String, password : String,
-                                      successHandler: @escaping (_ response: String) -> Void)->Void {
+    public class func login(username : String?, password : String?,
+                            successHandler: @escaping (_ clubList : [String]?, _ success: Bool) -> Void)->Void {
         let url = URL(string: "https://www.uvm.edu/~abarson/rest/login.php")!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -60,18 +60,6 @@ public class HTTPRequestHandler {
                 print("error=\(error!)")
                 return
             }
-            do {
-                // Convert the data to JSON
-                let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
-                
-                if let json = jsonSerialized, let explanation = json["clubs"] {
-                    print(explanation)
-                } else {
-                    print("not serialized")
-                }
-            }  catch let error as NSError {
-                print(error.localizedDescription)
-            }
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
@@ -81,6 +69,27 @@ public class HTTPRequestHandler {
             let responseString = String(data: data, encoding: .utf8)
             
             print("responseString = \(responseString!)")
+            
+            do {
+                // Convert the data to JSON
+                let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+                
+                if let json = jsonSerialized, json["success"] as! Bool{
+                    print("Successfully logged in " + username!)
+                    
+                    successHandler(json["clubs"] as! [String], true)
+                } else {
+                    print("not serialized")
+                    successHandler(nil, false)
+                    
+                }
+            }  catch let error as NSError {
+                print(response)
+                successHandler(nil, false)
+            }
+            
+            
+            
         }
         
         task.resume()

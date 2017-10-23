@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  Clubster
 //
-//  Created by Adam Barson on 10/19/17.
+//  Created by Adam Barson on 10/22/17.
 //  Copyright © 2017 Adam Barson. All rights reserved.
 //
 
@@ -16,7 +16,7 @@ extension User {
         return NSFetchRequest<User>(entityName: "User")
     }
 
-    @NSManaged public var user_code: String?
+    @NSManaged public var username: String?
     @NSManaged public var subscriptions: NSSet?
 
 }

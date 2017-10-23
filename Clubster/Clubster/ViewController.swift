@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTextBox: UITextField!
     @IBOutlet weak var messageTextLabel: UILabel!
     
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var apiCallTest: UILabel!
     
     @objc var users = [User]()
@@ -23,6 +24,44 @@ class ViewController: UIViewController {
         let username = userNameTextBox.text
         let password = passwordTextBox.text
         
+        loginButton.isEnabled = false
+        
+        HTTPRequestHandler.login(username: username!, password: password!) {
+            ( clubList, success ) in
+            if (success){
+                let appDelegate =
+                    UIApplication.shared.delegate as! AppDelegate
+                
+                let managedContext = appDelegate.persistentContainer.viewContext
+                let entity =  NSEntityDescription.entity(forEntityName: "User", in:managedContext)
+                let user = User(entity: entity!, insertInto: managedContext)
+                user.username = username
+                
+                for club_id in clubList!{
+                    let club_name = Configuration.CLUB_MAP[club_id]
+                    let entity =  NSEntityDescription.entity(forEntityName: "Club", in:managedContext)
+                    let club = Club(entity: entity!, insertInto: managedContext)
+                    club.club_code = club_id
+                    club.name = club_name
+                    print(club_name!)
+                    user.addToSubscriptions(club)
+                }
+                
+                UserSingleton.sharedInstance.setUser(userIn: user)
+                
+                DispatchQueue.main.async {
+                    self.toHome()
+                    self.loginButton.isEnabled = true
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.loginButton.isEnabled = true
+                    self.messageTextLabel.text = "Invalid username or password";
+                }
+                
+            }
+        }
+        /*
         var userOk : Bool
         if let user = username{
             userOk = checkUserName(username: user)
@@ -49,22 +88,22 @@ class ViewController: UIViewController {
         } else {
             messageTextLabel.text = "Invalid username or password"
         }
-        
+        */
         // ! vs ? in the context:
         // ! will immediately assume the cast is valid, and will attempt
         // to downcast, throwing an exception if the cast is invalid
         // ? will try to cast, but will simply evaluate the variable to nil if the cast is invalid
     }
     
-    func checkUserName(username : String) -> Bool{
-        return username == "Adam"
+    func toHome(){
+        let nextVC =
+            self.storyboard?.instantiateViewController(withIdentifier:
+                "HomeVC") as! HomeVC
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
-    func checkPassword(password : String) -> Bool{
-        return password == "password"
-    }
-    
-    @objc func saveName(_ user_code: String)
+    //Not doing anything
+    @objc func saveName(_ username: String)
     {
         let appDelegate =
             UIApplication.shared.delegate as! AppDelegate
@@ -74,7 +113,7 @@ class ViewController: UIViewController {
         let entity =  NSEntityDescription.entity(forEntityName: "User", in:managedContext)
         let user = User(entity: entity!, insertInto: managedContext)
         
-        user.user_code = user_code
+        user.username = username
         
         do {
             try managedContext.save()
@@ -83,13 +122,15 @@ class ViewController: UIViewController {
         }
     }
     
+    //Not doing anything at the moment
+    /**
+     Load the user's data from core data, if it exists.
+    */
     func getUserData(){
         let appDelegate =
         UIApplication.shared.delegate as! AppDelegate
         
         let managedContext = appDelegate.persistentContainer.viewContext
-        
-        //let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
 
@@ -121,7 +162,7 @@ class ViewController: UIViewController {
                     {
                         
                     }
-                    print(u.user_code!)
+                    print(u.username!)
                 }
                 
             }
@@ -137,11 +178,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*
         //getUserData()
         HTTPRequestHandler.makeGetRequest(successHandler: {
             (response) in
             self.apiCallTest.text = response;
         })
+        */
         userNameTextBox.placeholder = "username"
         passwordTextBox.placeholder = "password"
         userNameTextBox.autocorrectionType = UITextAutocorrectionType.no
