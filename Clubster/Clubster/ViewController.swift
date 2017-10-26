@@ -10,6 +10,10 @@ import UIKit
 import CoreData
 
 class ViewController: UIViewController {
+    
+    //made static so it can be reffered to in other windows
+    //made username var. correct so not everyone can change
+    static var username:String?
 
     @IBOutlet weak var userNameTextBox: UITextField!
     @IBOutlet weak var passwordTextBox: UITextField!
@@ -21,12 +25,13 @@ class ViewController: UIViewController {
     @objc var users = [User]()
     
     @IBAction func changeScreen(_ sender: Any) {
-        let username = userNameTextBox.text
+        ViewController.username = userNameTextBox.text
         let password = passwordTextBox.text
+        
         
         loginButton.isEnabled = false
         
-        HTTPRequestHandler.login(username: username!, password: password!) {
+        HTTPRequestHandler.login(username: ViewController.username!, password: password!) {
             ( clubList, success ) in
             if (success){
                 let appDelegate =
@@ -35,7 +40,7 @@ class ViewController: UIViewController {
                 let managedContext = appDelegate.persistentContainer.viewContext
                 let entity =  NSEntityDescription.entity(forEntityName: "User", in:managedContext)
                 let user = User(entity: entity!, insertInto: managedContext)
-                user.username = username
+                user.username = ViewController.username
                 
                 for club_id in clubList!{
                     let club_name = Configuration.CLUB_MAP[club_id]

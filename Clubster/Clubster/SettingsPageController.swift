@@ -10,8 +10,14 @@ import UIKit
 
 class SettingsPageController: UIViewController {
 
+    //define stuff
+    @IBOutlet weak var welcomeText: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        welcomeText.text = "Welcome" + ViewController.username!
+        welcomeText.center = self.view.center
 
         // Do any additional setup after loading the view.
     }
