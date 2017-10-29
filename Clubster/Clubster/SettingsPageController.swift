@@ -12,13 +12,31 @@ class SettingsPageController: UIViewController {
 
     //define stuff
     @IBOutlet weak var welcomeText: UILabel!
+    @IBOutlet weak var clubsIRunButton: UIButton!
+    @IBOutlet weak var clubsImMemberButton: UIButton!
+    @IBOutlet weak var nearbyEventsButton: UIButton!
+    @IBOutlet weak var messagesButton: UIButton!
+    @IBOutlet weak var myAccountButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        welcomeText.text = "Welcome" + ViewController.username!
+        //set Hello message
+        if((UserSingleton.sharedInstance.user?.getUsername()) != nil)
+        {
+            welcomeText.text = "Welcome" + (UserSingleton.sharedInstance.user?.getUsername())!
+        }
+        else
+        {
+            welcomeText.text = "Welcome Guest"
+        }
         welcomeText.center = self.view.center
+        
+        //set buttons
+        clubsIRunButton.layer.borderColor = UIColor.black.cgColor
 
+        
+        
         // Do any additional setup after loading the view.
     }
 
