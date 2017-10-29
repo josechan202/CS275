@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsPageController: UIViewController {
 
-    //define stuff
+    //define stuff for visuals
     @IBOutlet weak var welcomeText: UILabel!
     @IBOutlet weak var clubsIRunButton: UIButton!
     @IBOutlet weak var clubsImMemberButton: UIButton!
@@ -18,13 +18,34 @@ class SettingsPageController: UIViewController {
     @IBOutlet weak var messagesButton: UIButton!
     @IBOutlet weak var myAccountButton: UIButton!
     
+    //define button actions
+    @IBAction func clubsIRunButton(_ sender: Any) {
+        let nextVC =
+            self.storyboard?.instantiateViewController(withIdentifier:
+                "HomeVC") as! HomeVC
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    @IBAction func clubsImMemberButton(_ sender: Any) {
+        let nextVC =
+            self.storyboard?.instantiateViewController(withIdentifier:
+                "HomeVC") as! HomeVC
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    @IBAction func nearbyEventsButton(_ sender: Any) {
+    }
+    @IBAction func messagesButton(_ sender: Any) {
+    }
+    @IBAction func myAccountButton(_ sender: Any) {
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //set Hello message
         if((UserSingleton.sharedInstance.user?.getUsername()) != nil)
         {
-            welcomeText.text = "Welcome" + (UserSingleton.sharedInstance.user?.getUsername())!
+            welcomeText.text = "Welcome" + UserSingleton.sharedInstance.user!.getUsername()
         }
         else
         {
@@ -34,8 +55,20 @@ class SettingsPageController: UIViewController {
         
         //set buttons
         clubsIRunButton.layer.borderColor = UIColor.black.cgColor
-
-        
+        clubsIRunButton.setTitle("Clubs I Run", for: .normal)
+        clubsIRunButton.setImage(UIImage(named: "images/settingsPage/clubsIRun.png"), for: .normal)
+        clubsImMemberButton.layer.borderColor = UIColor.black.cgColor
+        clubsImMemberButton.setTitle("Clubs I'm a member of", for: .normal)
+        clubsImMemberButton.setImage(UIImage(named: "images/settingsPage/clubsImMember.png"), for: .normal)
+        nearbyEventsButton.layer.borderColor = UIColor.black.cgColor
+        nearbyEventsButton.setTitle("Nearby Events", for: .normal)
+        nearbyEventsButton.setImage(UIImage(named: "images/settingsPage/nearbyEvents.png"), for: .normal)
+        messagesButton.layer.borderColor = UIColor.black.cgColor
+        messagesButton.setTitle("Messages", for: .normal)
+        messagesButton.setImage(UIImage(named: "images/settingsPage/messages.png"), for: .normal)
+        myAccountButton.layer.borderColor = UIColor.black.cgColor
+        myAccountButton.setTitle("my text here", for: .normal)
+        myAccountButton.setImage(UIImage(named: "images/settingsPage/myAccount.png"), for: .normal)
         
         // Do any additional setup after loading the view.
     }
