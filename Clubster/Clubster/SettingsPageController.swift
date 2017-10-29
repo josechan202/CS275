@@ -22,10 +22,6 @@ class SettingsPageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //to create for loop later
-        let buttons = [clubsIRunButton, clubsImMemberButton, nearbyEventsButton, messagesButton, myAccountButton]
-
-        
         //set Hello message
         if((UserSingleton.sharedInstance.user?.getUsername()) != nil)
         {
@@ -38,11 +34,13 @@ class SettingsPageController: UIViewController {
         welcomeText.textAlignment = .center
         
         //set buttons
+        let buttons = [clubsIRunButton, clubsImMemberButton, nearbyEventsButton, messagesButton, myAccountButton]
         for i in 0 ..< numberOfButtons
         {
             buttons[i]?.layer.borderColor = UIColor.black.cgColor
             buttons[i]?.layer.borderWidth = 2
             buttons[i]?.layer.cornerRadius = 5
+            buttons[i]?.setTitleShadowColor(UIColor.gray, for: .highlighted)
             
         }
         clubsIRunButton.setTitle("Clubs I Run", for: .normal)
@@ -61,12 +59,24 @@ class SettingsPageController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func changeButtonView(_ button:UIButton!){
+        if (button?.layer.borderWidth == 2)
+        {
+            button.layer.borderWidth = 8
+        }
+        else
+        {
+            button.layer.borderWidth = 2
+        }
+    }
+    
     //define button actions
     @IBAction func clubsIRunButton(_ sender: Any) {
         let nextVC =
             storyboard?.instantiateViewController(withIdentifier:
                 "clubsIRunVC") as! clubsIRunVC
         navigationController?.pushViewController(nextVC, animated: true)
+        changeButtonView(clubsIRunButton)
     }
     @IBAction func clubsImMemberButton(_ sender: Any) {
         let nextVC =
