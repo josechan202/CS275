@@ -89,12 +89,27 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVw-ia-juv">
-                                <rect key="frame" x="16" y="100" width="343" height="63"/>
+                                <rect key="frame" x="16" y="160" width="343" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2c-4N-RKn">
-                                <rect key="frame" x="16" y="170" width="343" height="63"/>
+                                <rect key="frame" x="16" y="231" width="343" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Roa-IN-8Aa">
+                                <rect key="frame" x="16" y="302" width="343" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3d1-Ou-yun">
+                                <rect key="frame" x="16" y="373" width="343" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAc-Br-GzH">
+                                <rect key="frame" x="16" y="444" width="343" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                             </button>
@@ -102,7 +117,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="ClubsIRun" destination="jVw-ia-juv" id="oiW-nd-a52"/>
                         <outlet property="WelcomText" destination="zeJ-Jo-ziO" id="gb7-PL-dYl"/>
+                        <outlet property="clubsIRunButton" destination="jVw-ia-juv" id="8fC-PF-91h"/>
+                        <outlet property="clubsImMemberButton" destination="T2c-4N-RKn" id="Df4-Gv-Z1d"/>
+                        <outlet property="messagesButton" destination="3d1-Ou-yun" id="G4D-5Q-BvW"/>
+                        <outlet property="myAccountButton" destination="MAc-Br-GzH" id="yM0-mW-tGO"/>
+                        <outlet property="nearbyEventsButton" destination="Roa-IN-8Aa" id="rze-7W-oWZ"/>
                         <outlet property="welcomeText" destination="zeJ-Jo-ziO" id="Kl2-1j-Hum"/>
                     </connections>
                 </viewController>
