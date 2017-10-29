@@ -17,7 +17,6 @@ class HomeVC: UIViewController, UITableViewDataSource {
     @IBOutlet weak var subList: UITableView!
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBAction func toSettings(_ sender: Any) {
-        print("Is it working?")
         // ! vs ? in the context:
         // ! will immediately assume the cast is valid, and will attempt
         // to downcast, throwing an exception if the cast is invalid

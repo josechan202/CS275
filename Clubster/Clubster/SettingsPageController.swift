@@ -9,26 +9,62 @@
 import UIKit
 
 class SettingsPageController: UIViewController {
-
+    let numberOfButtons:Int = 5
+    
     //define stuff for visuals
+    @IBOutlet weak var welcomeText: UILabel!
     @IBOutlet weak var clubsIRunButton: UIButton!
     @IBOutlet weak var clubsImMemberButton: UIButton!
     @IBOutlet weak var nearbyEventsButton: UIButton!
     @IBOutlet weak var messagesButton: UIButton!
     @IBOutlet weak var myAccountButton: UIButton!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //to create for loop later
+        let buttons = [clubsIRunButton, clubsImMemberButton, nearbyEventsButton, messagesButton, myAccountButton]
+
+        
+        //set Hello message
+        if((UserSingleton.sharedInstance.user?.getUsername()) != nil)
+        {
+            welcomeText.text = "Welcome, " + UserSingleton.sharedInstance.user!.getUsername()
+        }
+        else
+        {
+            welcomeText.text = "Welcome, Guest"
+        }
+        welcomeText.textAlignment = .center
+        
+        //set buttons
+        for i in 0 ..< numberOfButtons
+        {
+            buttons[i]?.layer.borderColor = UIColor.black.cgColor
+            buttons[i]?.layer.borderWidth = 2
+            buttons[i]?.layer.cornerRadius = 5
+            
+        }
+        clubsIRunButton.setTitle("Clubs I Run", for: .normal)
+        clubsIRunButton.setImage(UIImage(named: "images/settingsPage/clubsIRun.png"), for: .normal)
+        
+        clubsImMemberButton.layer.borderColor = UIColor.black.cgColor
+        clubsImMemberButton.setTitle("Clubs I'm a member of", for: .normal)
+        clubsImMemberButton.setImage(UIImage(named: "images/settingsPage/clubsImMember.png"), for: .normal)
+        nearbyEventsButton.setTitle("Nearby Events", for: .normal)
+        nearbyEventsButton.setImage(UIImage(named: "images/settingsPage/nearbyEvents.png"), for: .normal)
+        messagesButton.setTitle("Messages", for: .normal)
+        messagesButton.setImage(UIImage(named: "images/settingsPage/messages.png"), for: .normal)
+        myAccountButton.setTitle("My Account", for: .normal)
+        myAccountButton.setImage(UIImage(named: "images/settingsPage/myAccount.png"), for: .normal)
+        
+        // Do any additional setup after loading the view.
+    }
     
     //define button actions
     @IBAction func clubsIRunButton(_ sender: Any) {
-        let nextVC =
-            self.storyboard?.instantiateViewController(withIdentifier:
-                "clubsIRunVC") as! clubsIRunVC
-        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @IBAction func clubsImMemberButton(_ sender: Any) {
-        let nextVC =
-            self.storyboard?.instantiateViewController(withIdentifier:
-                "HomeVC") as! HomeVC
-        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @IBAction func nearbyEventsButton(_ sender: Any) {
     }
@@ -38,39 +74,6 @@ class SettingsPageController: UIViewController {
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        /*
-        //set Hello message
-        if((UserSingleton.sharedInstance.user?.getUsername()) != nil)
-        {
-            welcomeText.text = "Welcome" + UserSingleton.sharedInstance.user!.getUsername()
-        }
-        else
-        {
-            welcomeText.text = "Welcome Guest"
-        }
-        welcomeText.center = self.view.center
-        
-        //set buttons
-        clubsIRunButton.layer.borderColor = UIColor.black.cgColor
-        clubsIRunButton.setTitle("Clubs I Run", for: .normal)
-        clubsIRunButton.setImage(UIImage(named: "images/settingsPage/clubsIRun.png"), for: .normal)
-        clubsImMemberButton.layer.borderColor = UIColor.black.cgColor
-        clubsImMemberButton.setTitle("Clubs I'm a member of", for: .normal)
-        clubsImMemberButton.setImage(UIImage(named: "images/settingsPage/clubsImMember.png"), for: .normal)
-        nearbyEventsButton.layer.borderColor = UIColor.black.cgColor
-        nearbyEventsButton.setTitle("Nearby Events", for: .normal)
-        nearbyEventsButton.setImage(UIImage(named: "images/settingsPage/nearbyEvents.png"), for: .normal)
-        messagesButton.layer.borderColor = UIColor.black.cgColor
-        messagesButton.setTitle("Messages", for: .normal)
-        messagesButton.setImage(UIImage(named: "images/settingsPage/messages.png"), for: .normal)
-        myAccountButton.layer.borderColor = UIColor.black.cgColor
-        myAccountButton.setTitle("my text here", for: .normal)
-        myAccountButton.setImage(UIImage(named: "images/settingsPage/myAccount.png"), for: .normal)
-        */
-        // Do any additional setup after loading the view.
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
