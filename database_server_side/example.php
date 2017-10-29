@@ -12,7 +12,7 @@
 	$net_id = $_GET['net_id'];
 	
 	//instantiate the database connection
-	$dbUserName = get_current_user() . '_reader';
+	$dbUserName = 'abarson' . '_reader';
 	$whichPass = "r"; //flag for which one to use.
 	$dbName = DATABASE_NAME;
 	$thisDatabaseReader = new Database($dbUserName, $whichPass, $dbName);

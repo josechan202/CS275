@@ -10,6 +10,21 @@ import UIKit
 
 class ClubPageVC: UIViewController {
 
+    
+    @IBOutlet weak var clubNameLabe: UILabel!
+    
+    @IBOutlet weak var clubImage: UIImageView!
+    
+    @IBOutlet weak var contentLabel: UILabel!
+    
+    @IBOutlet weak var contentBody: UITextView!
+    
+    @IBAction func subscribeButton(_ sender: Any) {
+    }
+    
+    @IBAction func clubTabBar(_ sender: UISegmentedControl) {
+    }
+    
     @IBAction func toSettings(_ sender: Any) {
         // ! vs ? in the context:
         // ! will immediately assume the cast is valid, and will attempt
