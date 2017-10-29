@@ -41,11 +41,15 @@
   //Otherwise, test if we are receiving a POST request
   elseif($_SERVER['REQUEST_METHOD']=="POST")
   {
+  	$entityBody = file_get_contents('php://input');
+  	$requestBody = json_decode($entityBody) or die("Could not decode JSON");
+  	
 	//extract the username and the age variable from the header
-	$name = $_GET["name"];
-	$age = $_GET["age"];
+	
+	$username = $_GET["username"];
+	$password = $_GET["password"];
 	//create the database writerObject
-	$dbUserName = get_current_user() . '_writer';
+	$dbUserName = 'abarson' . '_writer';
 	$whichPass = "w"; //flag for which one to use.
 	$dbName = DATABASE_NAME;
 	$thisDatabaseWriter = new Database($dbUserName, $whichPass, $dbName);

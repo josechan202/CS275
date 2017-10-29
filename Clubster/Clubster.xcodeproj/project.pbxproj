@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D2E83FB1F99414D002B4BE9 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E83F71F99414D002B4BE9 /* Club.swift */; };
+		0D2E83FC1F99414D002B4BE9 /* Club+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E83F81F99414D002B4BE9 /* Club+CoreDataProperties.swift */; };
+		0D6C25141F9A810700C891D0 /* UserSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C25131F9A810700C891D0 /* UserSingleton.swift */; };
+		0DA630791F9D2E1800EA3AFC /* HTTPRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA630781F9D2E1800EA3AFC /* HTTPRequestHandler.swift */; };
+		0DA6307B1F9D85DA00EA3AFC /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA6307A1F9D85DA00EA3AFC /* Configuration.swift */; };
+		0DA6308A1F9D99DB00EA3AFC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA630881F9D99DB00EA3AFC /* User.swift */; };
+		0DA6308B1F9D99DB00EA3AFC /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA630891F9D99DB00EA3AFC /* User+CoreDataProperties.swift */; };
 		0DD204E21F8D26AD003A5C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD204E11F8D26AD003A5C19 /* AppDelegate.swift */; };
 		0DD204E41F8D26AD003A5C19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD204E31F8D26AD003A5C19 /* ViewController.swift */; };
 		0DD204EA1F8D26AD003A5C19 /* Clubster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DD204E81F8D26AD003A5C19 /* Clubster.xcdatamodeld */; };
@@ -19,6 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D2E83F71F99414D002B4BE9 /* Club.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
+		0D2E83F81F99414D002B4BE9 /* Club+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Club+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0D6C25131F9A810700C891D0 /* UserSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
+		0DA630781F9D2E1800EA3AFC /* HTTPRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestHandler.swift; sourceTree = "<group>"; };
+		0DA6307A1F9D85DA00EA3AFC /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		0DA630881F9D99DB00EA3AFC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0DA630891F9D99DB00EA3AFC /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0DD204DE1F8D26AD003A5C19 /* Clubster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clubster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DD204E11F8D26AD003A5C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DD204E31F8D26AD003A5C19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +76,10 @@
 		0DD204E01F8D26AD003A5C19 /* Clubster */ = {
 			isa = PBXGroup;
 			children = (
+				0DA630881F9D99DB00EA3AFC /* User.swift */,
+				0DA630891F9D99DB00EA3AFC /* User+CoreDataProperties.swift */,
+				0D2E83F71F99414D002B4BE9 /* Club.swift */,
+				0D2E83F81F99414D002B4BE9 /* Club+CoreDataProperties.swift */,
 				0DD204E11F8D26AD003A5C19 /* AppDelegate.swift */,
 				0DD204E31F8D26AD003A5C19 /* ViewController.swift */,
 				0DD204EB1F8D26AD003A5C19 /* Assets.xcassets */,
@@ -72,6 +90,9 @@
 				0DD204F61F8D32D2003A5C19 /* HomeVC.swift */,
 				0DD204F81F8D5508003A5C19 /* ClubPageVC.swift */,
 				0DD204FA1F8D5635003A5C19 /* SettingsPageController.swift */,
+				0D6C25131F9A810700C891D0 /* UserSingleton.swift */,
+				0DA630781F9D2E1800EA3AFC /* HTTPRequestHandler.swift */,
+				0DA6307A1F9D85DA00EA3AFC /* Configuration.swift */,
 			);
 			path = Clubster;
 			sourceTree = "<group>";
@@ -148,12 +169,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D6C25141F9A810700C891D0 /* UserSingleton.swift in Sources */,
 				0DD204F91F8D5508003A5C19 /* ClubPageVC.swift in Sources */,
+				0DA6308A1F9D99DB00EA3AFC /* User.swift in Sources */,
+				0DA630791F9D2E1800EA3AFC /* HTTPRequestHandler.swift in Sources */,
 				0DD204EA1F8D26AD003A5C19 /* Clubster.xcdatamodeld in Sources */,
 				0DD204F71F8D32D2003A5C19 /* HomeVC.swift in Sources */,
+				0D2E83FB1F99414D002B4BE9 /* Club.swift in Sources */,
+				0DA6307B1F9D85DA00EA3AFC /* Configuration.swift in Sources */,
 				0DD204FB1F8D5635003A5C19 /* SettingsPageController.swift in Sources */,
 				0DD204E41F8D26AD003A5C19 /* ViewController.swift in Sources */,
+				0DA6308B1F9D99DB00EA3AFC /* User+CoreDataProperties.swift in Sources */,
 				0DD204E21F8D26AD003A5C19 /* AppDelegate.swift in Sources */,
+				0D2E83FC1F99414D002B4BE9 /* Club+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +343,7 @@
 				0DD204F51F8D26AD003A5C19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

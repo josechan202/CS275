@@ -8,7 +8,7 @@ class Database {
     }
     private function connect($dbUserName, $whichPass, $dbName) {
         require("pass.php");
-        $debugMe = true;
+        $debugMe = false;
         switch ($whichPass) {
             case "a":
                 $dbUserPass = $dbAdmin;
