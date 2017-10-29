@@ -23,6 +23,7 @@
 		0DD204F91F8D5508003A5C19 /* ClubPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD204F81F8D5508003A5C19 /* ClubPageVC.swift */; };
 		0DD204FB1F8D5635003A5C19 /* SettingsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD204FA1F8D5635003A5C19 /* SettingsPageController.swift */; };
 		0DD204FE1F8D5BBB003A5C19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DD204FC1F8D5BBB003A5C19 /* Main.storyboard */; };
+		743074E41FA651710061B8AC /* clubsIRunVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743074E31FA651710061B8AC /* clubsIRunVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		0DD204F81F8D5508003A5C19 /* ClubPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubPageVC.swift; sourceTree = "<group>"; };
 		0DD204FA1F8D5635003A5C19 /* SettingsPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPageController.swift; sourceTree = "<group>"; };
 		0DD204FD1F8D5BBB003A5C19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		743074E31FA651710061B8AC /* clubsIRunVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = clubsIRunVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				0D6C25131F9A810700C891D0 /* UserSingleton.swift */,
 				0DA630781F9D2E1800EA3AFC /* HTTPRequestHandler.swift */,
 				0DA6307A1F9D85DA00EA3AFC /* Configuration.swift */,
+				743074E31FA651710061B8AC /* clubsIRunVC.swift */,
 			);
 			path = Clubster;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			files = (
 				0D6C25141F9A810700C891D0 /* UserSingleton.swift in Sources */,
 				0DD204F91F8D5508003A5C19 /* ClubPageVC.swift in Sources */,
+				743074E41FA651710061B8AC /* clubsIRunVC.swift in Sources */,
 				0DA6308A1F9D99DB00EA3AFC /* User.swift in Sources */,
 				0DA630791F9D2E1800EA3AFC /* HTTPRequestHandler.swift in Sources */,
 				0DD204EA1F8D26AD003A5C19 /* Clubster.xcdatamodeld in Sources */,

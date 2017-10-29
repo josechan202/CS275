@@ -11,7 +11,6 @@ import UIKit
 class SettingsPageController: UIViewController {
 
     //define stuff for visuals
-    @IBOutlet weak var welcomeText: UILabel!
     @IBOutlet weak var clubsIRunButton: UIButton!
     @IBOutlet weak var clubsImMemberButton: UIButton!
     @IBOutlet weak var nearbyEventsButton: UIButton!
@@ -22,7 +21,7 @@ class SettingsPageController: UIViewController {
     @IBAction func clubsIRunButton(_ sender: Any) {
         let nextVC =
             self.storyboard?.instantiateViewController(withIdentifier:
-                "HomeVC") as! HomeVC
+                "clubsIRunVC") as! clubsIRunVC
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @IBAction func clubsImMemberButton(_ sender: Any) {
@@ -41,7 +40,7 @@ class SettingsPageController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        /*
         //set Hello message
         if((UserSingleton.sharedInstance.user?.getUsername()) != nil)
         {
@@ -69,7 +68,7 @@ class SettingsPageController: UIViewController {
         myAccountButton.layer.borderColor = UIColor.black.cgColor
         myAccountButton.setTitle("my text here", for: .normal)
         myAccountButton.setImage(UIImage(named: "images/settingsPage/myAccount.png"), for: .normal)
-        
+        */
         // Do any additional setup after loading the view.
     }
 

@@ -133,18 +133,35 @@
                     </view>
                     <connections>
                         <outlet property="ClubsIRun" destination="jVw-ia-juv" id="oiW-nd-a52"/>
-                        <outlet property="WelcomText" destination="zeJ-Jo-ziO" id="gb7-PL-dYl"/>
-                        <outlet property="clubsIRunButton" destination="jVw-ia-juv" id="8fC-PF-91h"/>
+                        <outlet property="clubsIRunButton" destination="jVw-ia-juv" id="qdL-Y5-SPh"/>
                         <outlet property="clubsImMemberButton" destination="T2c-4N-RKn" id="Df4-Gv-Z1d"/>
                         <outlet property="messagesButton" destination="3d1-Ou-yun" id="G4D-5Q-BvW"/>
                         <outlet property="myAccountButton" destination="MAc-Br-GzH" id="yM0-mW-tGO"/>
                         <outlet property="nearbyEventsButton" destination="Roa-IN-8Aa" id="rze-7W-oWZ"/>
-                        <outlet property="welcomeText" destination="zeJ-Jo-ziO" id="Kl2-1j-Hum"/>
+                        <outlet property="welcomeText" destination="zeJ-Jo-ziO" id="mUv-y0-pWc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DgB-Mu-Fmz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1701.5999999999999" y="-630.13493253373315"/>
+        </scene>
+        <!--ClubsI RunVC-->
+        <scene sceneID="6Oh-0k-BZg">
+            <objects>
+                <viewController id="AH9-lq-PAQ" customClass="clubsIRunVC" customModule="Clubster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ffa-3J-Xfa"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q5p-aZ-ASp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rBA-o9-snC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aBj-vE-Y2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2452" y="-630"/>
         </scene>
         <!--Club PageVC-->
         <scene sceneID="V3x-9A-SbM">
