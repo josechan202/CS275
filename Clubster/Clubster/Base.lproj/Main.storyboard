@@ -147,7 +147,7 @@
         <!--ClubsI RunVC-->
         <scene sceneID="6Oh-0k-BZg">
             <objects>
-                <viewController id="AH9-lq-PAQ" customClass="clubsIRunVC" customModule="Clubster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="clubsIRunVC" id="AH9-lq-PAQ" customClass="clubsIRunVC" customModule="Clubster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ffa-3J-Xfa"/>
                         <viewControllerLayoutGuide type="bottom" id="Q5p-aZ-ASp"/>
@@ -161,6 +161,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBj-vE-Y2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2452" y="-630"/>
+        </scene>
+        <!--Clubs Im MemberVC-->
+        <scene sceneID="XXJ-9s-2XX">
+            <objects>
+                <viewController storyboardIdentifier="clubsImMemberVC" id="Fzr-Ij-NNO" customClass="clubsImMemberVC" customModule="Clubster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TZo-DQ-0cH"/>
+                        <viewControllerLayoutGuide type="bottom" id="TFR-N7-kEy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9qA-Km-rJ6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ds3-TP-TKW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3073" y="-632"/>
+        </scene>
+        <!--MessagesVC-->
+        <scene sceneID="mz4-Oq-qjb">
+            <objects>
+                <viewController storyboardIdentifier="messagesVC" id="2wZ-zD-F6y" customClass="messagesVC" customModule="Clubster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Am8-RT-hLj"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tb8-dO-Rue"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="P9N-hk-kL2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GCb-0h-e6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4314" y="-630"/>
+        </scene>
+        <!--My AccountVC-->
+        <scene sceneID="w6a-gd-twu">
+            <objects>
+                <viewController storyboardIdentifier="myAccountVC" id="k6W-5A-FSA" customClass="myAccountVC" customModule="Clubster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I69-9O-Il2"/>
+                        <viewControllerLayoutGuide type="bottom" id="UPt-77-DAG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w8Z-Cd-xJ5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lOj-fB-zBm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4940" y="-630"/>
         </scene>
         <!--Club PageVC-->
         <scene sceneID="V3x-9A-SbM">
@@ -196,6 +250,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IPs-R9-9SJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2276" y="144.3778110944528"/>
+        </scene>
+        <!--Nearby EventsVC-->
+        <scene sceneID="wgi-Gs-FGg">
+            <objects>
+                <viewController storyboardIdentifier="nearbyEventsVC" id="Gxy-Ut-Z3f" customClass="nearbyEventsVC" customModule="Clubster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="692-TP-hbB"/>
+                        <viewControllerLayoutGuide type="bottom" id="mAh-JT-GIg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zu6-Xb-vHx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q6q-Vl-Bu4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3692" y="-630"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">

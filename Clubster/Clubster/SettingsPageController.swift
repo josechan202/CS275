@@ -63,14 +63,34 @@ class SettingsPageController: UIViewController {
     
     //define button actions
     @IBAction func clubsIRunButton(_ sender: Any) {
+        let nextVC =
+            storyboard?.instantiateViewController(withIdentifier:
+                "clubsIRunVC") as! clubsIRunVC
+        navigationController?.pushViewController(nextVC, animated: true)
     }
     @IBAction func clubsImMemberButton(_ sender: Any) {
+        let nextVC =
+            storyboard?.instantiateViewController(withIdentifier:
+                "clubsImMemberVC") as! clubsImMemberVC
+        navigationController?.pushViewController(nextVC, animated: true)
     }
     @IBAction func nearbyEventsButton(_ sender: Any) {
+        let nextVC =
+            storyboard?.instantiateViewController(withIdentifier:
+                "nearbyEventsVC") as! nearbyEventsVC
+        navigationController?.pushViewController(nextVC, animated: true)
     }
     @IBAction func messagesButton(_ sender: Any) {
+        let nextVC =
+            storyboard?.instantiateViewController(withIdentifier:
+                "messagesVC") as! messagesVC
+        navigationController?.pushViewController(nextVC, animated: true)
     }
     @IBAction func myAccountButton(_ sender: Any) {
+        let nextVC =
+            storyboard?.instantiateViewController(withIdentifier:
+                "myAccountVC") as! myAccountVC
+        navigationController?.pushViewController(nextVC, animated: true)
     }
     
     
