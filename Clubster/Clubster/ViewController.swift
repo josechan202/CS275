@@ -19,6 +19,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var apiCallTest: UILabel!
     
     @objc var users = [User]()
+    @IBOutlet var loginImg: UIImageView!
+    
+    
+    
     
     @IBAction func changeScreen(_ sender: Any) {
         let username = userNameTextBox.text
@@ -123,6 +127,7 @@ class ViewController: UIViewController {
         }
     }
     
+    
     //Not doing anything at the moment
     /**
      Load the user's data from core data, if it exists.
@@ -195,6 +200,7 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
 
 
 }
