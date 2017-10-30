@@ -23,6 +23,11 @@
 		0DD204F91F8D5508003A5C19 /* ClubPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD204F81F8D5508003A5C19 /* ClubPageVC.swift */; };
 		0DD204FB1F8D5635003A5C19 /* SettingsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD204FA1F8D5635003A5C19 /* SettingsPageController.swift */; };
 		0DD204FE1F8D5BBB003A5C19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DD204FC1F8D5BBB003A5C19 /* Main.storyboard */; };
+		743074E41FA651710061B8AC /* clubsIRunVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743074E31FA651710061B8AC /* clubsIRunVC.swift */; };
+		743EB1371FA6825700BC38B8 /* nearbyEventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB1361FA6825700BC38B8 /* nearbyEventsVC.swift */; };
+		743EB1391FA682BD00BC38B8 /* messagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB1381FA682BD00BC38B8 /* messagesVC.swift */; };
+		743EB13B1FA6832C00BC38B8 /* myAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB13A1FA6832C00BC38B8 /* myAccountVC.swift */; };
+		743EB13D1FA685F100BC38B8 /* clubsImMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +49,11 @@
 		0DD204F81F8D5508003A5C19 /* ClubPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubPageVC.swift; sourceTree = "<group>"; };
 		0DD204FA1F8D5635003A5C19 /* SettingsPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPageController.swift; sourceTree = "<group>"; };
 		0DD204FD1F8D5BBB003A5C19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		743074E31FA651710061B8AC /* clubsIRunVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = clubsIRunVC.swift; sourceTree = "<group>"; };
+		743EB1361FA6825700BC38B8 /* nearbyEventsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nearbyEventsVC.swift; sourceTree = "<group>"; };
+		743EB1381FA682BD00BC38B8 /* messagesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messagesVC.swift; sourceTree = "<group>"; };
+		743EB13A1FA6832C00BC38B8 /* myAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myAccountVC.swift; sourceTree = "<group>"; };
+		743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = clubsImMemberVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +103,11 @@
 				0D6C25131F9A810700C891D0 /* UserSingleton.swift */,
 				0DA630781F9D2E1800EA3AFC /* HTTPRequestHandler.swift */,
 				0DA6307A1F9D85DA00EA3AFC /* Configuration.swift */,
+				743074E31FA651710061B8AC /* clubsIRunVC.swift */,
+				743EB1361FA6825700BC38B8 /* nearbyEventsVC.swift */,
+				743EB1381FA682BD00BC38B8 /* messagesVC.swift */,
+				743EB13A1FA6832C00BC38B8 /* myAccountVC.swift */,
+				743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */,
 			);
 			path = Clubster;
 			sourceTree = "<group>";
@@ -171,6 +186,8 @@
 			files = (
 				0D6C25141F9A810700C891D0 /* UserSingleton.swift in Sources */,
 				0DD204F91F8D5508003A5C19 /* ClubPageVC.swift in Sources */,
+				743074E41FA651710061B8AC /* clubsIRunVC.swift in Sources */,
+				743EB1371FA6825700BC38B8 /* nearbyEventsVC.swift in Sources */,
 				0DA6308A1F9D99DB00EA3AFC /* User.swift in Sources */,
 				0DA630791F9D2E1800EA3AFC /* HTTPRequestHandler.swift in Sources */,
 				0DD204EA1F8D26AD003A5C19 /* Clubster.xcdatamodeld in Sources */,
@@ -178,7 +195,10 @@
 				0D2E83FB1F99414D002B4BE9 /* Club.swift in Sources */,
 				0DA6307B1F9D85DA00EA3AFC /* Configuration.swift in Sources */,
 				0DD204FB1F8D5635003A5C19 /* SettingsPageController.swift in Sources */,
+				743EB13B1FA6832C00BC38B8 /* myAccountVC.swift in Sources */,
 				0DD204E41F8D26AD003A5C19 /* ViewController.swift in Sources */,
+				743EB1391FA682BD00BC38B8 /* messagesVC.swift in Sources */,
+				743EB13D1FA685F100BC38B8 /* clubsImMemberVC.swift in Sources */,
 				0DA6308B1F9D99DB00EA3AFC /* User+CoreDataProperties.swift in Sources */,
 				0DD204E21F8D26AD003A5C19 /* AppDelegate.swift in Sources */,
 				0D2E83FC1F99414D002B4BE9 /* Club+CoreDataProperties.swift in Sources */,
