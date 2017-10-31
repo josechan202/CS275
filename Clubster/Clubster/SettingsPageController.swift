@@ -59,24 +59,12 @@ class SettingsPageController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func changeButtonView(_ button:UIButton!){
-        if (button?.layer.borderWidth == 2)
-        {
-            button.layer.borderWidth = 8
-        }
-        else
-        {
-            button.layer.borderWidth = 2
-        }
-    }
-    
     //define button actions
     @IBAction func clubsIRunButton(_ sender: Any) {
         let nextVC =
             storyboard?.instantiateViewController(withIdentifier:
                 "clubsIRunVC") as! clubsIRunVC
         navigationController?.pushViewController(nextVC, animated: true)
-        changeButtonView(clubsIRunButton)
     }
     @IBAction func clubsImMemberButton(_ sender: Any) {
         let nextVC =
