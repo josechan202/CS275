@@ -265,6 +265,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="clubCells" destination="0Ab-3f-sHI" id="fav-tG-WWW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IPs-R9-9SJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

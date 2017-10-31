@@ -9,6 +9,11 @@
 import UIKit
     
 class ClubPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+        @IBOutlet weak var clubCells: UITableView!
+    
+        
+    
+    
         //Populate table with database info and display
         let list = ["Soccer", "Basketball", "Broomball", "Frisbee"] // example info
     

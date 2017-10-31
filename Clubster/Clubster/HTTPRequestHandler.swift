@@ -95,5 +95,11 @@ public class HTTPRequestHandler {
         task.resume()
     }
     
+    public class func getClubs(){
+        let url = URL(string: "https://www.uvm.edu/~abarson/rest/clubexample.php")!
+        
+        task.resume()
+    }
+    
     private init(){}
 }
