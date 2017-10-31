@@ -22,6 +22,12 @@ class ViewController: UIViewController {
     @IBOutlet var loginImg: UIImageView!
     
     
+    @IBAction func toSignUp(_ sender: Any) {
+        let nextVC =
+            self.storyboard?.instantiateViewController(withIdentifier:
+                "SignUpVC") as! SignUpVC
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
     
     
     @IBAction func changeScreen(_ sender: Any) {
@@ -66,38 +72,6 @@ class ViewController: UIViewController {
                 
             }
         }
-        /*
-        var userOk : Bool
-        if let user = username{
-            userOk = checkUserName(username: user)
-        } else {
-            userOk = false
-        }
-        
-        var passOk : Bool
-        if let password = password{
-            passOk = checkPassword(password: password)
-        } else {
-            passOk = false
-        }
-        
-        if (passOk && userOk){
-            saveName(username!)
-            print("Saving " + username!)
-            messageTextLabel.text = username! + password!
-            let nextVC =
-                storyboard?.instantiateViewController(withIdentifier:
-                    "HomeVC") as! HomeVC
-            //nextVC.stringPassed = myLabel.text! + " press \(ctr2), load \(ctr1)";
-            navigationController?.pushViewController(nextVC, animated: true)
-        } else {
-            messageTextLabel.text = "Invalid username or password"
-        }
-        */
-        // ! vs ? in the context:
-        // ! will immediately assume the cast is valid, and will attempt
-        // to downcast, throwing an exception if the cast is invalid
-        // ? will try to cast, but will simply evaluate the variable to nil if the cast is invalid
     }
     
     func toHome(){
