@@ -7,8 +7,22 @@
 //
 
 import UIKit
+    
+class ClubPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+        //Populate table with database info and display
+        let list = ["Soccer", "Basketball", "Broomball", "Frisbee"] // example info
+    
+        public func tableView(_ tableview: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return(list.count)
+        }
+        
+        public func tableView(_ tableview: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+            let ClubName = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "ClubName")
+            ClubName.textLabel?.text = list[indexPath.row]
+            return(ClubName)
+        }
+    
 
-class ClubPageVC: UIViewController {
 
     
     @IBOutlet weak var clubNameLabe: UILabel!
