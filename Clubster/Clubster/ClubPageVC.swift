@@ -7,23 +7,24 @@
 //
 
 import UIKit
-    
-class ClubPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-        //Populate table with database info and display
-        let list = ["Soccer", "Basketball", "Broomball", "Frisbee"] // example info
-    
-        public func tableView(_ tableview: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return(list.count)
-        }
-        
-        public func tableView(_ tableview: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-            let ClubName = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "ClubName")
-            ClubName.textLabel?.text = list[indexPath.row]
-            return(ClubName)
-        }
-    
 
+public class MyClub {
+    var name: String
+    var description: String
+    var info: String
+    
+    init(name: String, description: String, info: String) {
+        self.name = name
+        self.description = description
+        self.info = info
+    }
+}
 
+var testClub = MyClub(name: "Super Secret Club", description: "Shhhhhhhh! This club is super secret!", info: "www.super-secret-club.com")
+
+    
+class ClubPageVC: UIViewController {
+    
     
     @IBOutlet weak var clubNameLabe: UILabel!
     
@@ -37,6 +38,13 @@ class ClubPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func clubTabBar(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            contentLabel.text = "Description"
+            contentBody.text = testClub.description
+        } else if sender.selectedSegmentIndex == 1 {
+            contentLabel.text = "Info"
+            contentBody.text = testClub.info
+        }
     }
     
     @IBAction func toSettings(_ sender: Any) {
@@ -70,6 +78,9 @@ class ClubPageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        clubNameLabe.text = testClub.name
+        contentLabel.text = "Description"
+        contentBody.text = testClub.description
     }
 
     override func didReceiveMemoryWarning() {
