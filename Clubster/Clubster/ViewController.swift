@@ -158,6 +158,20 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        HTTPRequestHandler.getClubs() {
+            (response) in
+            for club in response{
+                print((club as! NSDictionary)["club_id"] as! String)
+                print((club as! NSDictionary)["clubname"] as! String)
+                var club_id = (club as! NSDictionary)["club_id"] as! String
+                var club_name = (club as! NSDictionary)["clubname"] as! String
+                Configuration.CLUB_MAP[club_id] = club_name
+                //print(club_id)
+                //print(club_name)
+            }
+        }
+        
         /*
         //getUserData()
         HTTPRequestHandler.makeGetRequest(successHandler: {

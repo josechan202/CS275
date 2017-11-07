@@ -10,6 +10,35 @@ import Foundation
 
 public class HTTPRequestHandler {
     
+    public class func getClubs(successHandler: @escaping (_ response: NSArray) -> Void)->Void {
+        let url = URL(string: "https://www.uvm.edu/~abarson/rest/clubexample.php")
+        
+        var end = ""
+        
+        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            
+            if let data = data {
+                do {
+                    // Convert the data to JSON
+                    let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+                    
+                    if let json = jsonSerialized, let explanation = json["clubs"] as? NSArray {
+                        //print(explanation)
+                        //end = explanation as! String
+                        successHandler(explanation)
+                    } else {
+                        end = "Failed to load"
+                        print("not serialized")
+                    }
+                }  catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        task.resume()
+    }
     
     public class func makeGetRequest(successHandler: @escaping (_ response: String) -> Void)->Void {
         let url = URL(string: "https://www.uvm.edu/~abarson/rest/example.php?net_id=abarson")
