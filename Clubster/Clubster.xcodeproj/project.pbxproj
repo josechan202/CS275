@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D2E83FB1F99414D002B4BE9 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E83F71F99414D002B4BE9 /* Club.swift */; };
 		0D2E83FC1F99414D002B4BE9 /* Club+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E83F81F99414D002B4BE9 /* Club+CoreDataProperties.swift */; };
+		0D61A9481FB2626100B9969B /* AllClubsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D61A9471FB2626100B9969B /* AllClubsVC.swift */; };
 		0D6C25141F9A810700C891D0 /* UserSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C25131F9A810700C891D0 /* UserSingleton.swift */; };
 		0DA630791F9D2E1800EA3AFC /* HTTPRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA630781F9D2E1800EA3AFC /* HTTPRequestHandler.swift */; };
 		0DA6307B1F9D85DA00EA3AFC /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA6307A1F9D85DA00EA3AFC /* Configuration.swift */; };
@@ -29,12 +30,12 @@
 		743EB13B1FA6832C00BC38B8 /* myAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB13A1FA6832C00BC38B8 /* myAccountVC.swift */; };
 		743EB13D1FA685F100BC38B8 /* clubsImMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */; };
 		D6051FD31FA7E0E700739011 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6051FD21FA7E0E700739011 /* SignUpVC.swift */; };
-		D6EFD90B1FB24329001DA80F /* AllClubsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EFD90A1FB24329001DA80F /* AllClubsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0D2E83F71F99414D002B4BE9 /* Club.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
 		0D2E83F81F99414D002B4BE9 /* Club+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Club+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0D61A9471FB2626100B9969B /* AllClubsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllClubsVC.swift; sourceTree = "<group>"; };
 		0D6C25131F9A810700C891D0 /* UserSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
 		0DA630781F9D2E1800EA3AFC /* HTTPRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestHandler.swift; sourceTree = "<group>"; };
 		0DA6307A1F9D85DA00EA3AFC /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		743EB13A1FA6832C00BC38B8 /* myAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myAccountVC.swift; sourceTree = "<group>"; };
 		743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = clubsImMemberVC.swift; sourceTree = "<group>"; };
 		D6051FD21FA7E0E700739011 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
-		D6EFD90A1FB24329001DA80F /* AllClubsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllClubsVC.swift; path = ../../../../../../../../Users/a/b/abarson/Desktop/workspace/Clubster/Clubster/AllClubsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +113,7 @@
 				743EB1381FA682BD00BC38B8 /* messagesVC.swift */,
 				743EB13A1FA6832C00BC38B8 /* myAccountVC.swift */,
 				743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */,
-				D6EFD90A1FB24329001DA80F /* AllClubsVC.swift */,
+				0D61A9471FB2626100B9969B /* AllClubsVC.swift */,
 			);
 			path = Clubster;
 			sourceTree = "<group>";
@@ -204,7 +204,7 @@
 				0DD204FB1F8D5635003A5C19 /* SettingsPageController.swift in Sources */,
 				743EB13B1FA6832C00BC38B8 /* myAccountVC.swift in Sources */,
 				0DD204E41F8D26AD003A5C19 /* ViewController.swift in Sources */,
-				D6EFD90B1FB24329001DA80F /* AllClubsVC.swift in Sources */,
+				0D61A9481FB2626100B9969B /* AllClubsVC.swift in Sources */,
 				743EB1391FA682BD00BC38B8 /* messagesVC.swift in Sources */,
 				743EB13D1FA685F100BC38B8 /* clubsImMemberVC.swift in Sources */,
 				0DA6308B1F9D99DB00EA3AFC /* User+CoreDataProperties.swift in Sources */,
