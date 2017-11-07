@@ -16,6 +16,15 @@ class HomeVC: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var subList: UITableView!
     @IBOutlet weak var welcomeLabel: UILabel!
+    @IBAction func toAllClubs(_ sender: Any) {
+        let nextVC =
+            storyboard?.instantiateViewController(withIdentifier:
+                "AllClubsVC") as! AllClubsVC
+        //nextVC.stringPassed = myLabel.text! + " press \(ctr2), load \(ctr1)";
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    
     @IBAction func toSettings(_ sender: Any) {
         // ! vs ? in the context:
         // ! will immediately assume the cast is valid, and will attempt
