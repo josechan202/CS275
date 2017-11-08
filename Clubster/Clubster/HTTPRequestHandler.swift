@@ -97,7 +97,7 @@ public class HTTPRequestHandler {
             
             let responseString = String(data: data, encoding: .utf8)
             
-            print("responseString = \(responseString!)")
+            print("json response = \(responseString!)")
             
             do {
                 // Convert the data to JSON

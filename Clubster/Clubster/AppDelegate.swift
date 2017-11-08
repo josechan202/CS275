@@ -16,7 +16,77 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        var users = [User]()
+        
+        let appDelegate = self
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        
+        //fetch user from CoreData, if one exists
+        do {
+            let results =
+                try managedContext.fetch(fetchRequest)
+            
+            users = results
+            
+            for u in users
+            {
+                users.append(u)
+            }
+        } catch let error as NSError {
+            print("fetch or save failed \(error), \(error.userInfo)")
+        }
+        
+        if (users.count > 2){
+            print("Warning: something very wrong. We should not have two users in CoreData.")
+        }
+        
+        
+        
+        var user : User?
+        if (users.count > 0){
+            user = users[0]
+            let username = user!.username!
+            print("User \(username) fetched from CoreData")
+        } else {
+            print("No users found in CoreData")
+        }
+        
+        //fetch all club ids and club names from DB
+        print("Fetching clubs from DB...")
+        HTTPRequestHandler.getClubs() {
+            (response) in
+            for club in response{
+                let club_id = (club as! NSDictionary)["club_id"] as! String
+                let club_name = (club as! NSDictionary)["clubname"] as! String
+                Configuration.CLUB_MAP[club_id] = club_name
+            }
+            print("Fetched \(Configuration.CLUB_MAP.values.count) clubs")
+        }
+        
+        //if no user found, go straight to login screen
+        if user == nil {
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        
+            window?.rootViewController = UINavigationController(rootViewController: vc)
+            self.window?.makeKeyAndVisible()
+        } else { //if user found, go to home page
+            UserSingleton.sharedInstance.setUser(userIn: user!)
+            
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+            
+            window?.rootViewController = UINavigationController(rootViewController: vc)
+            self.window?.makeKeyAndVisible()
+        }
         return true
     }
 

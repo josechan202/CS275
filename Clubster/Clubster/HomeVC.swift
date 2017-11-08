@@ -16,6 +16,35 @@ class HomeVC: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var subList: UITableView!
     @IBOutlet weak var welcomeLabel: UILabel!
+    
+    
+    @IBAction func doLogout(_ sender: Any) {
+        let appDelegate =
+            UIApplication.shared.delegate as! AppDelegate
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let username = UserSingleton.sharedInstance.user!.username!
+        do {
+            managedContext.delete(UserSingleton.sharedInstance.user!)
+            try managedContext.save()
+            
+            print("Successfully logged out \(username)")
+            let nextVC =
+                storyboard?.instantiateViewController(withIdentifier:
+                    "LoginViewController") as! ViewController
+            //nextVC.stringPassed = myLabel.text! + " press \(ctr2), load \(ctr1)";
+            navigationController?.pushViewController(nextVC, animated: true)
+            
+        } catch let error as NSError  {
+            print("Could not logout \(error), \(error.userInfo)")
+        }
+        
+        
+        
+    }
+    
+    
     @IBAction func toAllClubs(_ sender: Any) {
         let nextVC =
             storyboard?.instantiateViewController(withIdentifier:
@@ -48,13 +77,14 @@ class HomeVC: UIViewController, UITableViewDataSource {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
         let text = UserSingleton.sharedInstance.user!.getUsername()
         welcomeLabel.text = "Welcome, \(text)"
         
         subList.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         subList.dataSource = self
-        
-        print(UserSingleton.sharedInstance.user!.subscriptions!.count)
         
         for club in UserSingleton.sharedInstance.user!.subscriptions!{
             let club_name = (club as! Club).name!
