@@ -78,7 +78,15 @@ class HomeVC: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.setHidesBackButton(true, animated: false)
+        //set background color. color provided in hex by UVM.
+        self.view.backgroundColor = UIColor(red:0.00, green:0.33, blue:0.25, alpha:1.0)
+        
+        //set style of welcome message
+        welcomeLabel.textAlignment = .center
+        welcomeLabel.font = UIFont(name: "Chalkduster", size: 25)
+        welcomeLabel.textColor = UIColor.white
+        
+        //self.navigationItem.setHidesBackButton(true, animated: false)
         
         let text = UserSingleton.sharedInstance.user!.getUsername()
         welcomeLabel.text = "Welcome, \(text)"
@@ -92,6 +100,20 @@ class HomeVC: UIViewController, UITableViewDataSource {
         }
         // Do any additional setup after loading the view.
     }
+    //start test
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Hide the navigation bar on the this view controller
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }//end test
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -22,52 +22,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ho2-Nc-BxP">
-                                <rect key="frame" x="143" y="133" width="89" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ho2-Nc-BxP">
+                                <rect key="frame" x="143" y="73" width="89" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQA-Ps-XVU">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQA-Ps-XVU">
                                 <rect key="frame" x="131" y="481" width="112" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="112" id="Oft-oU-47b"/>
+                                </constraints>
                                 <state key="normal" title="To Club Page"/>
                                 <connections>
                                     <action selector="toClubPage:" destination="1Oc-Mb-z7M" eventType="touchUpInside" id="doL-Lj-x3A"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wv4-sE-V3e">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wv4-sE-V3e">
                                 <rect key="frame" x="308" y="69" width="57" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Settings"/>
                                 <connections>
                                     <action selector="toSettings:" destination="1Oc-Mb-z7M" eventType="touchUpInside" id="XEA-mU-gBj"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KiJ-tF-mrF">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KiJ-tF-mrF">
                                 <rect key="frame" x="67" y="245" width="240" height="181"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMk-yc-ltf">
-                                <rect key="frame" x="102" y="173" width="170" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMk-yc-ltf">
+                                <rect key="frame" x="16" y="173" width="338" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgD-Yy-PAY">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgD-Yy-PAY">
                                 <rect key="frame" x="147" y="568" width="81" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="To All Clubs"/>
                                 <connections>
                                     <action selector="toAllClubs:" destination="1Oc-Mb-z7M" eventType="touchUpInside" id="dLD-l8-2Sb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZ2-Y1-3p0">
-                                <rect key="frame" x="8" y="124" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZ2-Y1-3p0">
+                                <rect key="frame" x="8" y="69" width="48" height="30"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="doLogout:" destination="1Oc-Mb-z7M" eventType="touchUpInside" id="EiP-6T-gjZ"/>
@@ -75,6 +71,25 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KiJ-tF-mrF" firstAttribute="leading" secondItem="1pJ-Rg-J15" secondAttribute="leadingMargin" constant="51" id="6bA-Un-frv"/>
+                            <constraint firstItem="jMk-yc-ltf" firstAttribute="top" secondItem="oZ2-Y1-3p0" secondAttribute="bottom" constant="74" id="Foz-HC-ZFy"/>
+                            <constraint firstItem="ho2-Nc-BxP" firstAttribute="leading" secondItem="oZ2-Y1-3p0" secondAttribute="trailing" constant="87" id="J0Q-4h-kdT"/>
+                            <constraint firstItem="oZ2-Y1-3p0" firstAttribute="top" secondItem="0kx-M6-qV1" secondAttribute="bottom" constant="49" id="Jnl-hP-GOD"/>
+                            <constraint firstItem="fQA-Ps-XVU" firstAttribute="top" secondItem="KiJ-tF-mrF" secondAttribute="bottom" constant="55" id="KP6-2W-KCk"/>
+                            <constraint firstItem="MgD-Yy-PAY" firstAttribute="top" secondItem="fQA-Ps-XVU" secondAttribute="bottom" constant="57" id="OFU-NG-qLS"/>
+                            <constraint firstItem="oZ2-Y1-3p0" firstAttribute="baseline" secondItem="ho2-Nc-BxP" secondAttribute="baseline" id="Tsi-VP-I3P"/>
+                            <constraint firstItem="OiG-Hk-acv" firstAttribute="top" secondItem="MgD-Yy-PAY" secondAttribute="bottom" constant="69" id="Yvh-8Y-Noy"/>
+                            <constraint firstItem="ho2-Nc-BxP" firstAttribute="baseline" secondItem="wv4-sE-V3e" secondAttribute="baseline" id="Zne-sr-4Qh"/>
+                            <constraint firstItem="ho2-Nc-BxP" firstAttribute="centerX" secondItem="KiJ-tF-mrF" secondAttribute="centerX" id="aES-4P-7fN"/>
+                            <constraint firstItem="fQA-Ps-XVU" firstAttribute="centerX" secondItem="MgD-Yy-PAY" secondAttribute="centerX" id="dlm-3L-khd"/>
+                            <constraint firstItem="wv4-sE-V3e" firstAttribute="leading" secondItem="ho2-Nc-BxP" secondAttribute="trailing" constant="76" id="fVt-Mi-RyV"/>
+                            <constraint firstItem="jMk-yc-ltf" firstAttribute="leading" secondItem="1pJ-Rg-J15" secondAttribute="leadingMargin" id="fdY-YF-Te5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jMk-yc-ltf" secondAttribute="trailing" constant="5" id="lPI-vn-ix0"/>
+                            <constraint firstItem="KiJ-tF-mrF" firstAttribute="top" secondItem="jMk-yc-ltf" secondAttribute="bottom" constant="51" id="nbq-F5-tAQ"/>
+                            <constraint firstItem="KiJ-tF-mrF" firstAttribute="centerX" secondItem="fQA-Ps-XVU" secondAttribute="centerX" id="rnB-oN-2eD"/>
+                            <constraint firstItem="KiJ-tF-mrF" firstAttribute="centerX" secondItem="1pJ-Rg-J15" secondAttribute="centerX" id="zjj-RD-NC6"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="homeLabel" destination="ho2-Nc-BxP" id="80E-OH-jcj"/>
