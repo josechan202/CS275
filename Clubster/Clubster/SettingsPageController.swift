@@ -22,6 +22,9 @@ class SettingsPageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //set background color. color provided in hex by UVM.
+        self.view.backgroundColor = UIColor(red:0.00, green:0.33, blue:0.25, alpha:1.0)
+        
         //set Hello message
         if((UserSingleton.sharedInstance.user?.getUsername()) != nil)
         {
@@ -32,15 +35,20 @@ class SettingsPageController: UIViewController {
             welcomeText.text = "Welcome, Guest"
         }
         welcomeText.textAlignment = .center
+        welcomeText.font = UIFont(name: "Chalkduster", size: 25)
+        welcomeText.textColor = UIColor.white
         
         //set buttons
         let buttons = [clubsIRunButton, clubsImMemberButton, nearbyEventsButton, messagesButton, myAccountButton]
         for i in 0 ..< numberOfButtons
         {
-            buttons[i]?.layer.borderColor = UIColor.black.cgColor
-            buttons[i]?.layer.borderWidth = 2
+            //buttons[i]?.layer.borderColor = UIColor.black.cgColor
+           // buttons[i]?.layer.borderWidth = 2
             buttons[i]?.layer.cornerRadius = 5
             buttons[i]?.setTitleShadowColor(UIColor.gray, for: .highlighted)
+            buttons[i]?.backgroundColor = UIColor(red:0.85, green:0.61, blue:0.07, alpha:1.0)
+            buttons[i]?.setTitleColor(UIColor(red:0.00, green:0.00, blue:0.00, alpha:1.0), for: .normal)
+
             
         }
         clubsIRunButton.setTitle("Clubs I Run", for: .normal)
