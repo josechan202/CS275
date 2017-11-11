@@ -65,7 +65,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 Configuration.CLUB_MAP[club_id] = club_name
             }
             print("Fetched \(Configuration.CLUB_MAP.values.count) clubs")
+            
         }
+        
+        /*
+         //if no user found, go straight to login screen
+         if user == nil {
+         self.window = UIWindow(frame: UIScreen.main.bounds)
+         
+         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+         let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+         
+         window?.rootViewController = UINavigationController(rootViewController: vc)
+         self.window?.makeKeyAndVisible()
+         } else { //if user found, go to home page
+         UserSingleton.sharedInstance.setUser(userIn: user!)
+         
+         self.window = UIWindow(frame: UIScreen.main.bounds)
+         
+         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+         let vc = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+         
+         window?.rootViewController = UINavigationController(rootViewController: vc)
+         self.window?.makeKeyAndVisible()
+         }
+        */
         
         //if no user found, go straight to login screen
         if user == nil {

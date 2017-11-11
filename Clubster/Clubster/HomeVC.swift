@@ -30,11 +30,24 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             try managedContext.save()
             
             print("Successfully logged out \(username)")
-            let nextVC =
+            
+            /*let nextVC =
                 storyboard?.instantiateViewController(withIdentifier:
                     "LoginViewController") as! ViewController
             //nextVC.stringPassed = myLabel.text! + " press \(ctr2), load \(ctr1)";
-            navigationController?.pushViewController(nextVC, animated: true)
+            navigationController?.pushViewController(nextVC, animated: true)*/
+            
+            let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+            
+           // let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
+            //let nav = UINavigationController(rootViewController: vc!)
+            
+            let nextVC =
+                self.storyboard?.instantiateViewController(withIdentifier:
+                    "loginNavigationController")
+            
+            appDelegate.window?.rootViewController = nextVC
+            appDelegate.window?.makeKeyAndVisible()
             
         } catch let error as NSError  {
             print("Could not logout \(error), \(error.userInfo)")

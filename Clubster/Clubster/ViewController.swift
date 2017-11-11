@@ -62,7 +62,7 @@ class ViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     self.toHome()
-                    self.loginButton.isEnabled = true
+                    //self.loginButton.isEnabled = true
                     do {
                         try managedContext.save()
                     } catch let error as NSError  {
@@ -80,36 +80,24 @@ class ViewController: UIViewController {
     }
     
     func toHome(){
+        
+        let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+        
         let nextVC =
             self.storyboard?.instantiateViewController(withIdentifier:
-                "HomeVC") as! HomeVC
-        self.navigationController?.pushViewController(nextVC, animated: true)
+                "mainTabBarController")
+        
+        
+        appDelegate.window?.rootViewController = nextVC
+        appDelegate.window?.makeKeyAndVisible()
+ 
     }
     
-    //Not doing anything
-    @objc func saveName(_ username: String)
-    {
-        let appDelegate =
-            UIApplication.shared.delegate as! AppDelegate
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let entity =  NSEntityDescription.entity(forEntityName: "User", in:managedContext)
-        let user = User(entity: entity!, insertInto: managedContext)
-        
-        user.username = username
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.setHidesBackButton(true, animated: false)
+        //self.navigationItem.setHidesBackButton(true, animated: false)
         
         userNameTextBox.placeholder = "username"
         passwordTextBox.placeholder = "password"
