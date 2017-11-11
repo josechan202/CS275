@@ -25,7 +25,7 @@ var testClub = MyClub(name: "Super Secret Club", description: "Shhhhhhhh! This c
     
 class ClubPageVC: UIViewController {
     
-    
+    var clubName : String?
     @IBOutlet weak var clubNameLabe: UILabel!
     
     @IBOutlet weak var clubImage: UIImageView!
@@ -78,7 +78,8 @@ class ClubPageVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        clubNameLabe.text = testClub.name
+        //clubNameLabe.text = testClub.name
+        clubNameLabe.text = clubName!
         contentLabel.text = "Description"
         contentBody.text = testClub.description
     }

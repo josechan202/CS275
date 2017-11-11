@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeVC: UIViewController, UITableViewDataSource {
+class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var subscriptionStrings = [String]()
     
@@ -77,8 +77,9 @@ class HomeVC: UIViewController, UITableViewDataSource {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.navigationItem.setHidesBackButton(true, animated: false)
+        //self.tableView.delegate = self
         
         let text = UserSingleton.sharedInstance.user!.getUsername()
         welcomeLabel.text = "Welcome, \(text)"
@@ -112,6 +113,20 @@ class HomeVC: UIViewController, UITableViewDataSource {
         cell!.textLabel!.text = subscriptionStrings[indexPath.row]
         
         return cell!
+    }
+   
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("row selected: " + subscriptionStrings[indexPath.row])
+        let nextVC =
+            self.storyboard?.instantiateViewController(withIdentifier:
+                "ClubPageVC") as! ClubPageVC
+        nextVC.clubName = subscriptionStrings[indexPath.row]
+        self.navigationController?.pushViewController(nextVC, animated: true)
+        
+        
+        
     }
     
     /*
