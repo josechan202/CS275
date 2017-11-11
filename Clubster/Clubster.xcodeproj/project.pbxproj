@@ -30,6 +30,7 @@
 		743EB13B1FA6832C00BC38B8 /* myAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB13A1FA6832C00BC38B8 /* myAccountVC.swift */; };
 		743EB13D1FA685F100BC38B8 /* clubsImMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */; };
 		D6051FD31FA7E0E700739011 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6051FD21FA7E0E700739011 /* SignUpVC.swift */; };
+		D672200C1FB7900800EBF667 /* bad_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D672200B1FB7900800EBF667 /* bad_logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		743EB13A1FA6832C00BC38B8 /* myAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myAccountVC.swift; sourceTree = "<group>"; };
 		743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = clubsImMemberVC.swift; sourceTree = "<group>"; };
 		D6051FD21FA7E0E700739011 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		D672200B1FB7900800EBF667 /* bad_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bad_logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		0DD204E01F8D26AD003A5C19 /* Clubster */ = {
 			isa = PBXGroup;
 			children = (
+				D672200B1FB7900800EBF667 /* bad_logo.png */,
 				0DA630881F9D99DB00EA3AFC /* User.swift */,
 				0DA630891F9D99DB00EA3AFC /* User+CoreDataProperties.swift */,
 				0D2E83F71F99414D002B4BE9 /* Club.swift */,
@@ -179,6 +182,7 @@
 			files = (
 				0DD204FE1F8D5BBB003A5C19 /* Main.storyboard in Resources */,
 				0DD204EF1F8D26AD003A5C19 /* LaunchScreen.storyboard in Resources */,
+				D672200C1FB7900800EBF667 /* bad_logo.png in Resources */,
 				0DD204EC1F8D26AD003A5C19 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
