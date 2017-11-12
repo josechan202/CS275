@@ -79,7 +79,11 @@ class ClubPageVC: UIViewController {
 
         // Do any additional setup after loading the view.
         //clubNameLabe.text = testClub.name
-        clubNameLabe.text = clubName!
+        if let name = clubName{
+            clubNameLabe.text = name
+        } else {
+            clubNameLabe.text = "PLACEHOLDER"
+        }
         contentLabel.text = "Description"
         contentBody.text = testClub.description
     }

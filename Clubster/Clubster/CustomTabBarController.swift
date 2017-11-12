@@ -44,12 +44,11 @@ class CustomTabBarController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        
-        homeViewController = storyboard.instantiateViewController(withIdentifier: "homeNav")
-        searchController = storyboard.instantiateViewController(withIdentifier: "AllClubsVC")
-        settingsController = storyboard.instantiateViewController(withIdentifier: "SettingsPageController")
+        homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "homeNav")
+        searchController = self.storyboard?.instantiateViewController(withIdentifier: "allClubsNav")
+        settingsController = self.storyboard?.instantiateViewController(withIdentifier: "settingsNav")
         viewControllers = [homeViewController, searchController, settingsController]
         
         buttons[selectedIndex].isSelected = true
@@ -57,6 +56,8 @@ class CustomTabBarController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
