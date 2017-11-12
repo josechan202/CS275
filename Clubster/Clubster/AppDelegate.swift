@@ -63,6 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let club_id = (club as! NSDictionary)["club_id"] as! String
                 let club_name = (club as! NSDictionary)["clubname"] as! String
                 Configuration.CLUB_MAP[club_id] = club_name
+                Configuration.REVERSE_CLUB_MAP[club_name] = club_id
+                
             }
             print("Fetched \(Configuration.CLUB_MAP.values.count) clubs")
             

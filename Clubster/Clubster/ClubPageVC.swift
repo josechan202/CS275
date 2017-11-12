@@ -24,7 +24,7 @@ var testClub = MyClub(name: "Super Secret Club", description: "Shhhhhhhh! This c
 
     
 class ClubPageVC: UIViewController {
-    
+    var clubID : Int?
     var clubName : String?
     @IBOutlet weak var clubNameLabe: UILabel!
     
@@ -81,6 +81,8 @@ class ClubPageVC: UIViewController {
         //clubNameLabe.text = testClub.name
         if let name = clubName{
             clubNameLabe.text = name
+            clubID = Int(Configuration.REVERSE_CLUB_MAP[name]!)!
+            print(clubID!)
         } else {
             clubNameLabe.text = "PLACEHOLDER"
         }

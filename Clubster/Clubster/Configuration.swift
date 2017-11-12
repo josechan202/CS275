@@ -13,5 +13,6 @@ class Configuration{
     //For now, explicitly declare the Club Code -> Club Name values. Maybe this can be automated
     //with calls to the DB in the future
     static var CLUB_MAP : [String: String] = [:]
+    static var REVERSE_CLUB_MAP : [String: String] = [:]
     
 }
