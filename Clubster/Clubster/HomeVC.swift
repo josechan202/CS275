@@ -90,8 +90,6 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             let club_name = (club as! Club).name!
             subscriptionStrings.append(club_name)
         }
-        // Do any additional setup after loading the view.
-        subscriptionStrings.append("Hey")
 
     }
     

@@ -22,38 +22,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ho2-Nc-BxP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ho2-Nc-BxP">
                                 <rect key="frame" x="143" y="177" width="89" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KiJ-tF-mrF">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KiJ-tF-mrF">
                                 <rect key="frame" x="67" y="289" width="240" height="202"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="1Oc-Mb-z7M" id="zOL-bG-rms"/>
                                     <outlet property="delegate" destination="1Oc-Mb-z7M" id="eMt-Wn-Sdq"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMk-yc-ltf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMk-yc-ltf">
                                 <rect key="frame" x="102" y="217" width="170" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZ2-Y1-3p0">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZ2-Y1-3p0">
                                 <rect key="frame" x="8" y="168" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="doLogout:" destination="1Oc-Mb-z7M" eventType="touchUpInside" id="EiP-6T-gjZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQA-Ps-XVU">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQA-Ps-XVU">
                                 <rect key="frame" x="131" y="514" width="112" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="112" id="adU-hH-9cB"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="To Club Page"/>
                                 <connections>
                                     <action selector="toClubPage:" destination="1Oc-Mb-z7M" eventType="touchUpInside" id="doL-Lj-x3A"/>
@@ -61,20 +63,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="jMk-yc-ltf" firstAttribute="top" secondItem="ho2-Nc-BxP" secondAttribute="bottom" constant="19" id="0Io-Ca-GOa"/>
-                            <constraint firstItem="oZ2-Y1-3p0" firstAttribute="top" secondItem="0kx-M6-qV1" secondAttribute="bottom" constant="104" id="8K2-qN-LRv"/>
-                            <constraint firstItem="KiJ-tF-mrF" firstAttribute="leading" secondItem="1pJ-Rg-J15" secondAttribute="leadingMargin" constant="51" id="CKa-af-tU1"/>
-                            <constraint firstItem="KiJ-tF-mrF" firstAttribute="centerX" secondItem="fQA-Ps-XVU" secondAttribute="centerX" id="JkN-KI-DZN"/>
-                            <constraint firstItem="oZ2-Y1-3p0" firstAttribute="bottom" secondItem="ho2-Nc-BxP" secondAttribute="bottom" id="KsH-Tt-XM6"/>
-                            <constraint firstItem="fQA-Ps-XVU" firstAttribute="top" secondItem="KiJ-tF-mrF" secondAttribute="bottom" constant="55" id="MiK-VC-M9C"/>
-                            <constraint firstItem="jMk-yc-ltf" firstAttribute="centerX" secondItem="KiJ-tF-mrF" secondAttribute="centerX" id="YUd-As-JCi"/>
-                            <constraint firstItem="jMk-yc-ltf" firstAttribute="centerX" secondItem="1pJ-Rg-J15" secondAttribute="centerX" id="dqM-vX-ryO"/>
-                            <constraint firstItem="ho2-Nc-BxP" firstAttribute="leading" secondItem="oZ2-Y1-3p0" secondAttribute="trailing" constant="87" id="lXg-pe-Fo6"/>
-                            <constraint firstItem="KiJ-tF-mrF" firstAttribute="top" secondItem="jMk-yc-ltf" secondAttribute="bottom" constant="51" id="o1v-BU-vfM"/>
-                            <constraint firstItem="ho2-Nc-BxP" firstAttribute="centerX" secondItem="jMk-yc-ltf" secondAttribute="centerX" id="pDG-ed-bUM"/>
-                            <constraint firstItem="jMk-yc-ltf" firstAttribute="leading" secondItem="1pJ-Rg-J15" secondAttribute="leadingMargin" constant="86" id="xoC-0B-37Y"/>
-                        </constraints>
                     </view>
                     <toolbarItems>
                         <barButtonItem title="Item" id="xdw-HD-5ea"/>
