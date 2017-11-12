@@ -52,9 +52,6 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         } catch let error as NSError  {
             print("Could not logout \(error), \(error.userInfo)")
         }
-        
-        
-        
     }
     
     
@@ -66,18 +63,6 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
-    
-    @IBAction func toSettings(_ sender: Any) {
-        // ! vs ? in the context:
-        // ! will immediately assume the cast is valid, and will attempt
-        // to downcast, throwing an exception if the cast is invalid
-        // ? will try to cast, but will simply evaluate the variable to nil if the cast is invalid
-        let nextVC =
-            storyboard?.instantiateViewController(withIdentifier:
-                "SettingsPageController") as! SettingsPageController
-        //nextVC.stringPassed = myLabel.text! + " press \(ctr2), load \(ctr1)";
-        navigationController?.pushViewController(nextVC, animated: true)
-    }
     @IBAction func toClubPage(_ sender: Any) {
         // ! vs ? in the context:
         // ! will immediately assume the cast is valid, and will attempt
@@ -88,10 +73,11 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 "ClubPageVC") as! ClubPageVC
         navigationController?.pushViewController(nextVC, animated: true)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationItem.setHidesBackButton(true, animated: false)
+        //self.navigationController?.setNavigationBarHidden(true, animated: false)
+        //self.navigationItem.setHidesBackButton(true, animated: false)
         //self.tableView.delegate = self
         
         let text = UserSingleton.sharedInstance.user!.getUsername()
@@ -104,9 +90,23 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             let club_name = (club as! Club).name!
             subscriptionStrings.append(club_name)
         }
-        // Do any additional setup after loading the view.
-    }
 
+    }
+    
+    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Hide the navigation bar for current view controller
+        self.navigationController?.isNavigationBarHidden = true;
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = false;
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
