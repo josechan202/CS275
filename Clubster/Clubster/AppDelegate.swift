@@ -106,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window = UIWindow(frame: UIScreen.main.bounds)
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+            let vc = storyboard.instantiateViewController(withIdentifier: "CustomTabBarController")
             
             window?.rootViewController = UINavigationController(rootViewController: vc)
             self.window?.makeKeyAndVisible()

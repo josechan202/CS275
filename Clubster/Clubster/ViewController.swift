@@ -85,7 +85,7 @@ class ViewController: UIViewController {
         
         let nextVC =
             self.storyboard?.instantiateViewController(withIdentifier:
-                "mainTabBarController")
+                "CustomTabBarController")
         
         
         appDelegate.window?.rootViewController = nextVC

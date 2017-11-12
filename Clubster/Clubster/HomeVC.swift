@@ -91,7 +91,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.setHidesBackButton(true, animated: false)
+        //self.navigationItem.setHidesBackButton(true, animated: false)
         //self.tableView.delegate = self
         
         let text = UserSingleton.sharedInstance.user!.getUsername()
