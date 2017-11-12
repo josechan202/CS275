@@ -66,17 +66,28 @@
 		//extract the results and write them to a string for packaging to JSON
 		$resultString = array();
 	
-	
-		foreach($results as $val){
-			$resultString[] = $val[0];
-		}
+        $resultS = "";
+        //echo $results;
+        
+        foreach($results as $val){
+            for($i = 0; $i < count($val); $i+=1){
+                $resultString[] = $val[$i];
+            }
+        }
+        //echo $resultS;
+        
+		//foreach($results as $val){
+			//$resultString[] = $val;
+		//}
 	
 		echo json_encode(array('club_id' => $resultString[0], 'clubname' => $resultString[1], 'clubDescription' => $resultString[2], 'clubInfo' => $resultString[3], 'bannerURL' => $resultString[4]));
+        //echo json_encode(array('club_id' => $resultString));
+        //echo json_encode(array('club' => $resultString));
 	}
 	
   }
     
-    /*
+    
   //Otherwise, test if we are receiving a POST request
   elseif($_SERVER['REQUEST_METHOD']=="POST")
   {
@@ -131,5 +142,5 @@
   else{
 	header('HTTP/1.1 501: NOT SUPPORTED');
   }
-     */
+    
 ?>
