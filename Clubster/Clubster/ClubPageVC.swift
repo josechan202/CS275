@@ -24,6 +24,11 @@ var testClub = MyClub(name: "Super Secret Club", description: "Shhhhhhhh! This c
 
     
 class ClubPageVC: UIViewController {
+    var clubID = Int()
+    var clubname: String = "Super Secret Club"
+    var clubDescription: String = "Shhhhhhhh! This club is super secret!"
+    var clubInfo: String = "www.super-secret-club.com"
+    var bannerURL: URL!
     
     
     @IBOutlet weak var clubNameLabe: UILabel!
@@ -34,16 +39,13 @@ class ClubPageVC: UIViewController {
     
     @IBOutlet weak var contentBody: UITextView!
     
-    @IBAction func subscribeButton(_ sender: Any) {
-    }
-    
     @IBAction func clubTabBar(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             contentLabel.text = "Description"
-            contentBody.text = testClub.description
+            contentBody.text = self.clubDescription
         } else if sender.selectedSegmentIndex == 1 {
             contentLabel.text = "Info"
-            contentBody.text = testClub.info
+            contentBody.text = self.clubInfo
         }
     }
     
@@ -59,6 +61,9 @@ class ClubPageVC: UIViewController {
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
+    @IBAction func subscribeButton(_ sender: UIButton) {
+        //TODO: Write this function.
+    }
     
     /*
     @IBAction func backToHomePage(_ sender: Any) {
@@ -78,9 +83,27 @@ class ClubPageVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        clubNameLabe.text = testClub.name
+        
+        HTTPRequestHandler.getSingleClub(clubID: clubID) {
+            ( clubname, clubDescription, clubInfo, bannerURL, success ) in
+            if (success) {
+                DispatchQueue.main.async {
+                    self.clubname = clubname!
+                    self.clubDescription = clubDescription!
+                    self.clubInfo = clubInfo!
+                    self.bannerURL = bannerURL!
+                }
+                
+            } else {
+                print("Pretty bad error on the club page.")
+            }
+        }
+        
+        clubNameLabe.text = self.clubname
         contentLabel.text = "Description"
-        contentBody.text = testClub.description
+        contentBody.text = self.clubDescription
+        //TODO: Implement banner image functionality
+        //TODO: set subscribe button label.
     }
 
     override func didReceiveMemoryWarning() {

@@ -96,6 +96,50 @@ public class HTTPRequestHandler {
     }
     
     
+    public class func getSingleClub(clubID : Int, successHandler: @escaping (_ clubname : String?, _ clubDescription: String?, _ clubInfo: String?, _ bannerURL: URL?, _ success: Bool) -> Void)->Void {
+        let url = URL(string: "https://www.uvm.edu/~abarson/rest/club.php?club_id=\(clubID)")!
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                print("error=\(error!)")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(response!)")
+            }
+            
+            let responseString = String(data: data, encoding: .utf8)
+            
+            print("responseString = \(responseString!)")
+            
+            do {
+                // Convert the data to JSON
+                let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+                
+                if let json = jsonSerialized, json["success"] as! Bool{
+                    print("Successfully retrieved club page data for clubID = \(clubID)")
+                    
+                    successHandler(json["clubname"] as! String, json["clubDescription"] as! String, json["clubInfo"] as! String, json["bannerURL"] as! URL, true)
+                } else {
+                    print("not serialized")
+                    successHandler(nil, nil, nil, nil, false)
+                    
+                }
+            }  catch let error as NSError {
+                print(response)
+                successHandler(nil, nil, nil, nil, false)
+            }
+            
+            
+            
+        }
+        
+        task.resume()
+    }
+    
+    
     public class func signUp(username: String?, password : String?,
                              successHandler : @escaping (_ success : Bool, _ message : String?) -> Void) -> Void {
         let url = URL(string: "https://www.uvm.edu/~abarson/rest/signup.php")!
