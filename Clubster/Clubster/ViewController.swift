@@ -54,7 +54,7 @@ class ViewController: UIViewController {
                     let club = Club(entity: entity!, insertInto: managedContext)
                     club.club_code = club_id
                     club.name = club_name
-                    print(club_name!)
+                    //print(club_name!)
                     user.addToSubscriptions(club)
                 }
                 
@@ -62,7 +62,12 @@ class ViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     self.toHome()
-                    self.loginButton.isEnabled = true
+                    //self.loginButton.isEnabled = true
+                    do {
+                        try managedContext.save()
+                    } catch let error as NSError  {
+                        print("Could not save \(error), \(error.userInfo)")
+                    }
                 }
             } else {
                 DispatchQueue.main.async {
@@ -75,96 +80,25 @@ class ViewController: UIViewController {
     }
     
     func toHome(){
+        
+        let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+        
         let nextVC =
             self.storyboard?.instantiateViewController(withIdentifier:
-                "HomeVC") as! HomeVC
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
-    
-    //Not doing anything
-    @objc func saveName(_ username: String)
-    {
-        let appDelegate =
-            UIApplication.shared.delegate as! AppDelegate
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let entity =  NSEntityDescription.entity(forEntityName: "User", in:managedContext)
-        let user = User(entity: entity!, insertInto: managedContext)
-        
-        user.username = username
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
-        }
-    }
-    
-    
-    //Not doing anything at the moment
-    /**
-     Load the user's data from core data, if it exists.
-    */
-    func getUserData(){
-        let appDelegate =
-        UIApplication.shared.delegate as! AppDelegate
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
-
-        
-        do {
-            let results =
-                try managedContext.fetch(fetchRequest)
-            
-            users = results
-            
-            if (true)
-            {
-                for u in users
-                {
-                    for c in u.subscriptions!
-                    {
-                        managedContext.delete(c as! Club)
-                    }
-                    managedContext.delete(u)
-                }
-                try managedContext.save()
-            }
-            else
-            {
-                for u in users
-                {
-                    users.append(u)
-                    for c in u.subscriptions!
-                    {
-                        
-                    }
-                    print(u.username!)
-                }
-                
-            }
-        } catch let error as NSError {
-            print("fetch or save failed \(error), \(error.userInfo)")
-        }
-        
-        print(users.count)
+                "CustomTabBarController")
         
         
+        appDelegate.window?.rootViewController = nextVC
+        appDelegate.window?.makeKeyAndVisible()
+ 
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        //getUserData()
-        HTTPRequestHandler.makeGetRequest(successHandler: {
-            (response) in
-            self.apiCallTest.text = response;
-        })
-        */
+        
+        //self.navigationItem.setHidesBackButton(true, animated: false)
+        
         userNameTextBox.placeholder = "username"
         passwordTextBox.placeholder = "password"
         userNameTextBox.autocorrectionType = UITextAutocorrectionType.no

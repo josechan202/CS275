@@ -91,7 +91,17 @@ class SettingsPageController: UIViewController {
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Hide the navigation bar for current view controller
+        self.navigationController?.isNavigationBarHidden = true;
+    }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = false;
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
