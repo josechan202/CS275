@@ -71,6 +71,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let nextVC =
             storyboard?.instantiateViewController(withIdentifier:
                 "ClubPageVC") as! ClubPageVC
+        // ... myVC.intPassed = myInt
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
@@ -135,7 +136,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let nextVC =
             self.storyboard?.instantiateViewController(withIdentifier:
                 "ClubPageVC") as! ClubPageVC
-        nextVC.clubName = subscriptionStrings[indexPath.row]
+        nextVC.clubname = subscriptionStrings[indexPath.row]
         self.navigationController?.pushViewController(nextVC, animated: true)
         
         
