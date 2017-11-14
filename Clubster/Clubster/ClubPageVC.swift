@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
     
 class ClubPageVC: UIViewController {
     var clubID = Int()
