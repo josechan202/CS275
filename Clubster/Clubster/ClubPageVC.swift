@@ -7,21 +7,6 @@
 //
 
 import UIKit
-
-public class MyClub {
-    var name: String
-    var description: String
-    var info: String
-    
-    init(name: String, description: String, info: String) {
-        self.name = name
-        self.description = description
-        self.info = info
-    }
-}
-
-var testClub = MyClub(name: "Super Secret Club", description: "Shhhhhhhh! This club is super secret!", info: "www.super-secret-club.com")
-
     
 class ClubPageVC: UIViewController {
     var clubID = Int()
@@ -93,7 +78,11 @@ class ClubPageVC: UIViewController {
                     //self.clubname = clubname!
                     self.clubDescription = clubDescription!
                     self.clubInfo = clubInfo!
-                    self.bannerURL = bannerURL!
+                    self.bannerURL = bannerURL
+                    
+                    self.clubNameLabe.text = self.clubname
+                    self.contentLabel.text = "Description"
+                    self.contentBody.text = self.clubDescription
                 }
                 
             } else {
@@ -101,9 +90,6 @@ class ClubPageVC: UIViewController {
             }
         }
         
-        clubNameLabe.text = self.clubname
-        contentLabel.text = "Description"
-        contentBody.text = self.clubDescription
         //TODO: Implement banner image functionality
         //TODO: set subscribe button label.
     }

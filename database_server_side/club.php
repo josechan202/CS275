@@ -80,7 +80,7 @@
 			//$resultString[] = $val;
 		//}
 	
-		echo json_encode(array('club_id' => $resultString[0], 'clubname' => $resultString[1], 'clubDescription' => $resultString[2], 'clubInfo' => $resultString[3], 'bannerURL' => $resultString[4]));
+		echo json_encode(array('success' => true, 'club_id' => $resultString[0], 'clubname' => $resultString[1], 'clubDescription' => $resultString[2], 'clubInfo' => $resultString[3], 'bannerURL' => $resultString[4]));
         //echo json_encode(array('club_id' => $resultString));
         //echo json_encode(array('club' => $resultString));
 	}
