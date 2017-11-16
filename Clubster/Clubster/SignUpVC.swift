@@ -96,10 +96,15 @@ class SignUpVC: UIViewController {
     }
     
     func toHome(){
+        let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+        
         let nextVC =
             self.storyboard?.instantiateViewController(withIdentifier:
-                "HomeVC") as! HomeVC
-        self.navigationController?.pushViewController(nextVC, animated: true)
+                "CustomTabBarController")
+        
+        
+        appDelegate.window?.rootViewController = nextVC
+        appDelegate.window?.makeKeyAndVisible()
     }
     
     override func viewDidLoad() {
