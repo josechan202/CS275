@@ -18,4 +18,13 @@ public class User: NSManagedObject {
     public func getUsername() -> String{
         return username!
     }
+    
+    public func hasClub(club_code : Int) -> Bool {
+        for i in subscriptions! {
+            if (club_code == Int((i as! Club).club_code!)!) {
+                return true
+            }
+        }
+        return false
+    }
 }
