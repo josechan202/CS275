@@ -114,6 +114,17 @@ class Database {
     // Performs a delete query and returns boolean true or false based on 
     // success of query. 
     public function delete($query, $values = "", $wheres = 1, $conditions = 0, $quotes = 0, $symbols = 0, $spacesAllowed = false, $semiColonAllowed = false) {
+//        $logfile = fopen("log.txt", "w") or die("Unable to open file!");
+//        fwrite($logfile, $query);
+//        $txt = "\n$wheres = %s, $conditions = %s, $quotes = %s, $symbols = %s, $spacesAllowed = %s, $semiColonAllowed = %s\n";
+//        $txt1 = sprintf($txt, (string)$wheres, (string)$conditions, (string)$quotes, (string)$spacesAllowed, (string)$semiColonAllowed)
+//        $txt2 = "$this->countWhere($query) = %s\n$this->countConditions($query) = %s\n$this->countQuotes($query) = " + $this->countQuotes($query) + "\n$this->countSymbols($query)" + $this->countSymbols($query) + "\n";
+//        $txt3 = "($quotes == 0 AND $symbols == 0) = " + ($quotes == 0 AND $symbols == 0)
+//        fwrite($logfile, $txt1);
+//        fwrite($logfile, $txt2);
+//        fwrite($logfile, $txt3);
+//        fclose($logfile);
+        
         $success = false;
         if ($wheres != $this->countWhere($query)) {
             return $success;
@@ -143,6 +154,17 @@ class Database {
     // Performs an insert query and returns boolean true or false based on success
     // of query.     
     public function insert($query, $values = "", $wheres = 0, $conditions = 0, $quotes = 0, $symbols = 0, $spacesAllowed = false, $semiColonAllowed = false) {
+//        $logfile = fopen("log.txt", "w") or die("Unable to open file!");
+//        fwrite($logfile, $query + "\n");
+//        fwrite($logfile, $values + "\n");
+//        $txt1 = "$wheres = " + $wheres + ", $conditions = " + $conditions + ", $quotes = " + $quotes + ", $symbols = " + $symbols + ", $spacesAllowed = " + $spacesAllowed + ", $semiColonAllowed = " + $semiColonAllowed + "\n";
+//        $txt2 = "$this->countWhere($query) = " + $this->countWhere($query) + "\n$this->countConditions($query) = " + $this->countConditions($query) + "\n$this->countQuotes($query) = " + $this->countQuotes($query) + "\n$this->countSymbols($query)" + $this->countSymbols($query) + "\n";
+//        $txt3 = "($quotes == 0 AND $symbols == 0) = " + ($quotes == 0 AND $symbols == 0)
+//        fwrite($logfile, $txt1);
+//        fwrite($logfile, $txt2);
+//        fwrite($logfile, $txt3);
+//        fclose($logfile);
+        
         $success = false;
         if ($wheres != $this->countWhere($query)) {
             return $success;
