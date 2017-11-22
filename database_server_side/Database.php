@@ -265,8 +265,10 @@ class Database {
         }
         $statement = $this->db->prepare($query);
         if (is_array($values)) {
+            //echo "\nno error";
             $statement->execute($values);
         } else {
+            //echo "\nerror 1";
             $statement->execute();
         }
         $recordSet = $statement->fetchAll();

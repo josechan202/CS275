@@ -19,9 +19,9 @@ public class User: NSManagedObject {
         return username!
     }
     
-    public func hasClub(club_code : Int) -> Bool {
+    public func hasClub(club_code : String) -> Bool {
         for i in subscriptions! {
-            if (club_code == Int((i as! Club).club_code!)!) {
+            if (club_code == (i as! Club).club_code!) {
                 return true
             }
         }

@@ -88,6 +88,8 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         subList.dataSource = self
         
         for club in UserSingleton.sharedInstance.user!.subscriptions!{
+            print("club code = \((club as! Club).club_code!),\t")
+            print("club name = \((club as! Club).name!)\n")
             let club_name = (club as! Club).name!
             subscriptionStrings.append(club_name)
         }

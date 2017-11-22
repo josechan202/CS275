@@ -11,7 +11,7 @@ import CoreData
 
     
 class ClubPageVC: UIViewController {
-    var clubID = Int()
+    var clubID = String()
     var clubname: String = "Super Secret Club"
     var clubDescription: String = "Shhhhhhhh! This club is super secret!"
     var clubInfo: String = "www.super-secret-club.com"
@@ -59,22 +59,24 @@ class ClubPageVC: UIViewController {
         HTTPRequestHandler.subscribe(username: myUsername, clubID: self.clubID, isSubbing: subAction) {
             (isSubbing, success) in
             if (success) {
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                let managedContext = appDelegate.persistentContainer.viewContext
-                let entity =  NSEntityDescription.entity(forEntityName: "Club", in:managedContext)
+                DispatchQueue.main.async {
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    let managedContext = appDelegate.persistentContainer.viewContext
+                    let entity =  NSEntityDescription.entity(forEntityName: "Club", in:managedContext)
+                    
+                    let club = Club(entity: entity!, insertInto: managedContext)
+                    club.club_code = self.clubID
+                    club.name = self.clubname
                 
-                let club = Club(entity: entity!, insertInto: managedContext)
-                club.club_code = String(self.clubID)
-                club.name = self.clubname
-                
-                if (isSubbing!) {
-                    UserSingleton.sharedInstance.user!.addToSubscriptions(club)
-                    self.subButtonLabel.setTitle("Unsubscribe",for: .normal)
-                    print("User \(myUsername) was successfully subscribed to club \(self.clubname).")
-                } else {
-                    UserSingleton.sharedInstance.user!.removeFromSubscriptions(club)
-                    self.subButtonLabel.setTitle("Subscribe", for: .normal)
-                    print("User \(myUsername) was successfully unsubscribed to club \(self.clubname).")
+                    if (isSubbing!) {
+                        UserSingleton.sharedInstance.user!.addToSubscriptions(club)
+                        self.subButtonLabel.setTitle("Unsubscribe",for: .normal)
+                        print("User \(myUsername) was successfully subscribed to club \(self.clubname).")
+                    } else {
+                        UserSingleton.sharedInstance.user!.removeFromSubscriptions(club)
+                        self.subButtonLabel.setTitle("Subscribe", for: .normal)
+                        print("User \(myUsername) was successfully unsubscribed to club \(self.clubname).")
+                    }
                 }
                 self.subscribed = !(self.subscribed)
             } else { //not success
@@ -102,9 +104,9 @@ class ClubPageVC: UIViewController {
 
         // Do any additional setup after loading the view.
         clubNameLabel.text = clubname
-        clubID = Int(Configuration.REVERSE_CLUB_MAP[clubname]!)!
+        clubID = Configuration.REVERSE_CLUB_MAP[clubname]!
         
-        if (UserSingleton.sharedInstance.user!.hasClub(club_code : clubID)){
+        if (UserSingleton.sharedInstance.user!.hasClub(club_code : self.clubID)){
             //print("User is subscribed to this club!")
             self.subscribed = true
             self.subButtonLabel.setTitle("Unsubscribe",for: .normal)
@@ -134,7 +136,6 @@ class ClubPageVC: UIViewController {
         }
         
         //TODO: Implement banner image functionality
-        //TODO: set subscribe button label.
     }
 
     override func didReceiveMemoryWarning() {
