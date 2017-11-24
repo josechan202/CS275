@@ -40,6 +40,35 @@ public class HTTPRequestHandler {
         task.resume()
     }
     
+    public class func searchClubs(startIndex: Int, groupSize: Int, rawQuery: String, successHandler: @escaping (_ lastGroup: Bool,_ response: NSArray) -> Void)->Void {
+        let query: String = rawQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        let url = URL(string: "https://www.uvm.edu/~\(Constants.ZOO_NAME)/rest/searchClubs.php?startIndex=\(startIndex)&groupSize=\(groupSize)&query=\(query)")
+        
+        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            
+            if let data = data {
+                do {
+                    // Convert the data to JSON
+                    let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+                    
+                    if let json = jsonSerialized, let results = json["clubs"] as? NSArray {
+                        let lastGroup = json["lastGroup"] as! Bool
+                        print(results)
+                        //end = explanation as! String
+                        successHandler(lastGroup, results)
+                    } else {
+                        print("not serialized")
+                    }
+                }  catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        task.resume()
+    }
+    
     public class func makeGetRequest(successHandler: @escaping (_ response: String) -> Void)->Void {
         let url = URL(string: "https://www.uvm.edu/~\(Constants.ZOO_NAME)/rest/example.php?net_id=abarson")
         
@@ -125,7 +154,7 @@ public class HTTPRequestHandler {
     }
     
     
-    public class func getSingleClub(clubID : Int, successHandler: @escaping (_ clubname : String?, _ clubDescription: String?, _ clubInfo: String?, _ bannerURL: URL?, _ success: Bool) -> Void)->Void {
+    public class func getSingleClub(clubID : String, successHandler: @escaping (_ clubname : String?, _ clubDescription: String?, _ clubInfo: String?, _ bannerURL: URL?, _ success: Bool) -> Void)->Void {
         let url = URL(string: "https://www.uvm.edu/~\(Constants.ZOO_NAME)/rest/club.php?club_id=\(clubID)")!
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
@@ -168,6 +197,59 @@ public class HTTPRequestHandler {
         task.resume()
     }
     
+    public class func subscribe(username : String, clubID : String,
+                                successHandler: @escaping (_ success: Bool, _ message: String?) -> Void)->Void {
+        let url = URL(string: "https://www.uvm.edu/~\(Constants.ZOO_NAME)/rest/subscribe.php")!
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        
+        
+        let parameterDictionary = ["username" : username, "clubID" : clubID]
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
+            return
+        }
+        
+        request.httpBody = httpBody
+        print("request = \(request.httpBody)\n")
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print("error=\(error!)")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(response!)")
+            }
+            
+            let responseString = String(data: data, encoding: .utf8)
+            
+            print("json response     = \(responseString!)")
+            
+            do {
+                // Convert the data to JSON
+                let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+                
+                if let json = jsonSerialized, json["success"] as! Bool{
+                    print("Successfully Changed \(username)'s subscription status to clubID = \(clubID) ")
+                    
+                    successHandler(true, json["message"] as! String)
+                } else {
+                    successHandler(false, "not serialized")
+                    
+                }
+            }  catch let error as NSError {
+                successHandler(false, error as! String)
+            }
+            
+            
+            
+        }
+        
+        task.resume()
+    }
+
     
     public class func signUp(username: String?, password : String?,
                              successHandler : @escaping (_ success : Bool, _ message : String?) -> Void) -> Void {
