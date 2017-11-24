@@ -83,7 +83,16 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         let text = UserSingleton.sharedInstance.user!.getUsername()
         welcomeLabel.text = "Welcome, \(text)"
-        
+
+    }
+    
+    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        subscriptionStrings.removeAll()
+        // Hide the navigation bar for current view controller
+        self.navigationController?.isNavigationBarHidden = true;
         subList.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         subList.dataSource = self
         
@@ -93,15 +102,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             let club_name = (club as! Club).name!
             subscriptionStrings.append(club_name)
         }
-
-    }
-    
-    
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Hide the navigation bar for current view controller
-        self.navigationController?.isNavigationBarHidden = true;
+        subList.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

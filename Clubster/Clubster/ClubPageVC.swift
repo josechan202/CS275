@@ -54,34 +54,41 @@ class ClubPageVC: UIViewController {
         //TODO: Finish write this function.
         let myUsername = UserSingleton.sharedInstance.user!.getUsername()
         
-        let subAction = !(self.subscribed)
+        subButtonLabel.isEnabled = false
         
-        HTTPRequestHandler.subscribe(username: myUsername, clubID: self.clubID, isSubbing: subAction) {
-            (isSubbing, success) in
+        HTTPRequestHandler.subscribe(username: myUsername, clubID: self.clubID) {
+            (success, message) in
             if (success) {
                 DispatchQueue.main.async {
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     let managedContext = appDelegate.persistentContainer.viewContext
                     let entity =  NSEntityDescription.entity(forEntityName: "Club", in:managedContext)
                     
-                    let club = Club(entity: entity!, insertInto: managedContext)
-                    club.club_code = self.clubID
-                    club.name = self.clubname
-                
-                    if (isSubbing!) {
+                    if (!self.subscribed!) {
+                        let club = Club(entity: entity!, insertInto: managedContext)
+                        club.club_code = self.clubID
+                        club.name = self.clubname
                         UserSingleton.sharedInstance.user!.addToSubscriptions(club)
                         self.subButtonLabel.setTitle("Unsubscribe",for: .normal)
                         print("User \(myUsername) was successfully subscribed to club \(self.clubname).")
                     } else {
-                        UserSingleton.sharedInstance.user!.removeFromSubscriptions(club)
+                        let club = UserSingleton.sharedInstance.user!.getClub(club_code: self.clubID)
+                        UserSingleton.sharedInstance.user!.removeFromSubscriptions(club!)
                         self.subButtonLabel.setTitle("Subscribe", for: .normal)
-                        print("User \(myUsername) was successfully unsubscribed to club \(self.clubname).")
+                        print("User \(myUsername) was successfully unsubscribed from club \(self.clubname).")
                     }
+                    self.subscribed = !(self.subscribed)
                 }
-                self.subscribed = !(self.subscribed)
+                
             } else { //not success
-                print("Subscription request to \(self.clubname) was unsuccessful.")
+                let m = message!
+                print("Subscription request to \(self.clubname) was unsuccessful: \(m).")
             }
+            DispatchQueue.main.async {
+                self.subButtonLabel.isEnabled = true
+                //UserSingleton.sharedInstance.user!.printClubs()
+            }
+            
         }
     }
     
@@ -101,7 +108,7 @@ class ClubPageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //self.navigationController?.isNavigationBarHidden = true;
         // Do any additional setup after loading the view.
         clubNameLabel.text = clubname
         clubID = Configuration.REVERSE_CLUB_MAP[clubname]!

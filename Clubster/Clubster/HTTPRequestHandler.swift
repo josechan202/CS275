@@ -197,15 +197,15 @@ public class HTTPRequestHandler {
         task.resume()
     }
     
-    public class func subscribe(username : String, clubID : String, isSubbing: Bool,
-                                successHandler: @escaping (_ mode: Bool?, _ success: Bool) -> Void)->Void {
+    public class func subscribe(username : String, clubID : String,
+                                successHandler: @escaping (_ success: Bool, _ message: String?) -> Void)->Void {
         let url = URL(string: "https://www.uvm.edu/~\(Constants.ZOO_NAME)/rest/subscribe.php")!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         
         
-        let parameterDictionary = ["username" : username, "clubID" : clubID, "isSubbing" : String(isSubbing)]
+        let parameterDictionary = ["username" : username, "clubID" : clubID]
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
             return
         }
@@ -234,15 +234,13 @@ public class HTTPRequestHandler {
                 if let json = jsonSerialized, json["success"] as! Bool{
                     print("Successfully Changed \(username)'s subscription status to clubID = \(clubID) ")
                     
-                    successHandler(isSubbing, true)
+                    successHandler(true, json["message"] as! String)
                 } else {
-                    print("not serialized")
-                    successHandler(nil, false)
+                    successHandler(false, "not serialized")
                     
                 }
             }  catch let error as NSError {
-                print(response)
-                successHandler(nil, false)
+                successHandler(false, error as! String)
             }
             
             
