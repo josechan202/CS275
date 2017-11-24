@@ -13,3 +13,14 @@ import CoreData
 public class Club: NSManagedObject {
 
 }
+
+
+public class TempClub {
+    public var name: String?
+    public var club_code: String?
+    public var subbed: Bool?
+    init(name: String, club_code: String) {
+        self.name = name
+        self.club_code = club_code
+    }
+}

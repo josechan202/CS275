@@ -8,50 +8,103 @@
 
 import UIKit
 
-class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     //Populate table with database info and display
-    let list = Array(Configuration.CLUB_MAP.values)
+    //let list = Array(Configuration.CLUB_MAP.values)
+    
+    var groupSize = 10
+    
+    var query = ""
+    
+    var lastGroup = false
+    
+    var myClubs = [TempClub]()
+    
     
     @IBOutlet weak var clubTable: UITableView!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     public func tableView(_ tableview: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return(list.count)
+        return(myClubs.count)
     }
     
+    // Defines what each cell does
     public func tableView(_ tableview: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let ClubName = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "ClubName")
-        ClubName.textLabel?.text = list[indexPath.row]
-        return(ClubName)
+        let clubCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "clubCell")
+        clubCell.textLabel?.text = myClubs[indexPath.row].name
+        return(clubCell)
     }
     
+    // For scrolling pagination
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastItem = myClubs.count - 1
+        if indexPath.row == lastItem {
+            if !self.lastGroup {
+                self.loadMoreData()
+            }
+        }
+    }
     
-    
-    @IBAction func toSettings(_ sender: Any) {
-        // ! vs ? in the context:
-        // ! will immediately assume the cast is valid, and will attempt
-        // to downcast, throwing an exception if the cast is invalid
-        // ? will try to cast, but will simply evaluate the variable to nil if the cast is invalid
+    // For if they click on a cell
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("row selected: " + myClubs[indexPath.row].name!)
         let nextVC =
-            storyboard?.instantiateViewController(withIdentifier:
-                "SettingsPageController") as! SettingsPageController
-        //nextVC.stringPassed = myLabel.text! + " press \(ctr2), load \(ctr1)";
-        navigationController?.pushViewController(nextVC, animated: true)
+            self.storyboard?.instantiateViewController(withIdentifier:
+                "ClubPageVC") as! ClubPageVC
+        nextVC.clubname = myClubs[indexPath.row].name!
+        self.navigationController?.pushViewController(nextVC, animated: true)
+        
     }
     
     
-    /*
-     @IBAction func backToHomePage(_ sender: Any) {
-     // ! vs ? in the context:
-     // ! will immediately assume the cast is valid, and will attempt
-     // to downcast, throwing an exception if the cast is invalid
-     // ? will try to cast, but will simply evaluate the variable to nil if the cast is invalid
-     let nextVC =
-     storyboard?.instantiateViewController(withIdentifier:
-     "HomeVC") as! HomeVC
-     //nextVC.stringPassed = myLabel.text! + " press \(ctr2), load \(ctr1)";
-     navigationController?.pushViewController(nextVC, animated: true)
-     }
-     */
+    // New search every time they type
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.query = searchBar.text!
+        HTTPRequestHandler.searchClubs(startIndex: 0, groupSize: self.groupSize, rawQuery: self.query) {
+            (lastGroup, results) in
+            self.lastGroup = lastGroup
+            self.myClubs.removeAll()
+            for aClub in results {
+                let clubObj = aClub as! [String : Any]
+                let club = TempClub(name: clubObj["clubname"] as! String, club_code: clubObj["club_id"] as! String)
+                if (UserSingleton.sharedInstance.user!.hasClub(club_code : club.club_code!)){
+                    club.subbed = true
+                } else {
+                    //print("User is not yet subscribed.")
+                    club.subbed = false
+                }
+                self.myClubs.append(club)
+            }
+            DispatchQueue.main.async {
+                self.clubTable.reloadData()
+            }
+        }
+    }
+    
+    func loadMoreData() {
+        HTTPRequestHandler.searchClubs(startIndex: myClubs.count, groupSize: self.groupSize, rawQuery: self.query) {
+            (lastGroup, results) in
+            self.lastGroup = lastGroup
+            for aClub in results {
+                let clubObj = aClub as! [String : Any]
+                let club = TempClub(name: clubObj["clubname"] as! String, club_code: clubObj["club_id"] as! String)
+                if (UserSingleton.sharedInstance.user!.hasClub(club_code : club.club_code!)){
+                    club.subbed = true
+                } else {
+                    //print("User is not yet subscribed.")
+                    club.subbed = false
+                }
+                self.myClubs.append(club)
+            }
+            DispatchQueue.main.async {
+                self.clubTable.reloadData()
+            }
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -69,8 +122,33 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         clubTable.delegate = self
         clubTable.dataSource = self
+        searchBar.delegate = self
         
-        // Do any additional setup after loading the view.
+        // Reset search parameters just in c
+        self.query = ""
+        searchBar.text = self.query
+        self.myClubs.removeAll()
+        
+        // Since we just reset the above parameters, this function will return the first 10 results of ALL the clubs in the db.
+        HTTPRequestHandler.searchClubs(startIndex: 0, groupSize: self.groupSize, rawQuery: self.query) {
+            (lastGroup, results) in
+            self.lastGroup = lastGroup
+            self.myClubs.removeAll()
+            for aClub in results {
+                let clubObj = aClub as! [String : Any]
+                let club = TempClub(name: clubObj["clubname"] as! String, club_code: clubObj["club_id"] as! String)
+                if (UserSingleton.sharedInstance.user!.hasClub(club_code : club.club_code!)){
+                    club.subbed = true
+                } else {
+                    //print("User is not yet subscribed.")
+                    club.subbed = false
+                }
+                self.myClubs.append(club)
+            }
+            DispatchQueue.main.async {
+                self.clubTable.reloadData()
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

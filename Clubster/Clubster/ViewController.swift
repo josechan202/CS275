@@ -40,27 +40,28 @@ class ViewController: UIViewController {
         HTTPRequestHandler.login(username: username!, password: password!) {
             ( clubList, success ) in
             if (success){
-                let appDelegate =
-                    UIApplication.shared.delegate as! AppDelegate
-                
-                let managedContext = appDelegate.persistentContainer.viewContext
-                let entity =  NSEntityDescription.entity(forEntityName: "User", in:managedContext)
-                let user = User(entity: entity!, insertInto: managedContext)
-                user.username = username
-                
-                for club_id in clubList!{
-                    let club_name = Configuration.CLUB_MAP[club_id]
-                    let entity =  NSEntityDescription.entity(forEntityName: "Club", in:managedContext)
-                    let club = Club(entity: entity!, insertInto: managedContext)
-                    club.club_code = club_id
-                    club.name = club_name
-                    //print(club_name!)
-                    user.addToSubscriptions(club)
-                }
-                
-                UserSingleton.sharedInstance.setUser(userIn: user)
-                
                 DispatchQueue.main.async {
+                    let appDelegate =
+                        UIApplication.shared.delegate as! AppDelegate
+                
+                    let managedContext = appDelegate.persistentContainer.viewContext
+                    let entity =  NSEntityDescription.entity(forEntityName: "User", in:managedContext)
+                    let user = User(entity: entity!, insertInto: managedContext)
+                    user.username = username
+                
+                    for club_id in clubList!{
+                        let club_name = Configuration.CLUB_MAP[club_id]
+                        let entity =  NSEntityDescription.entity(forEntityName: "Club", in:managedContext)
+                        let club = Club(entity: entity!, insertInto: managedContext)
+                        club.club_code = club_id
+                        club.name = club_name
+                        //print(club_name!)
+                        user.addToSubscriptions(club)
+                    }
+                
+                    UserSingleton.sharedInstance.setUser(userIn: user)
+                
+                
                     self.toHome()
                     //self.loginButton.isEnabled = true
                     do {
