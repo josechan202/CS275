@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,7 +30,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KiJ-tF-mrF">
-                                <rect key="frame" x="67" y="289" width="240" height="202"/>
+                                <rect key="frame" x="0.0" y="265" width="375" height="334"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -539,13 +539,52 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="clubCell" id="EHU-v0-Kcm">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="clubCell" id="EHU-v0-Kcm" customClass="CustomTableViewCell" customModule="Clubster" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EHU-v0-Kcm" id="Vr4-K8-Wxd">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CXO-PZ-Mk0">
+                                                    <rect key="frame" x="311" y="6" width="86" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o1p-lM-dfl">
+                                                            <rect key="frame" x="0.0" y="0.0" width="86" height="50"/>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xQ-Of-t5D">
+                                                    <rect key="frame" x="316" y="-6" width="51" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="ZKp-6U-cpl"/>
+                                                        <constraint firstAttribute="width" constant="45" id="vS7-Na-y9J"/>
+                                                    </constraints>
+                                                    <state key="normal" image="plus-blue-32"/>
+                                                    <connections>
+                                                        <action selector="subButtonPress:" destination="EHU-v0-Kcm" eventType="touchUpInside" id="e9p-5G-R6I"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Club Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFt-Kb-J9H">
+                                                    <rect key="frame" x="16" y="10" width="287" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9xQ-Of-t5D" firstAttribute="top" secondItem="Vr4-K8-Wxd" secondAttribute="top" constant="-6" id="Aym-xk-jWy"/>
+                                                <constraint firstAttribute="bottom" secondItem="9xQ-Of-t5D" secondAttribute="bottom" constant="4.5" id="d8V-A1-8J0"/>
+                                                <constraint firstItem="9xQ-Of-t5D" firstAttribute="centerY" secondItem="Vr4-K8-Wxd" secondAttribute="centerY" id="kcB-kZ-pIz"/>
+                                                <constraint firstItem="JFt-Kb-J9H" firstAttribute="leading" secondItem="Vr4-K8-Wxd" secondAttribute="leadingMargin" constant="8" id="nhi-4l-acV"/>
+                                                <constraint firstItem="JFt-Kb-J9H" firstAttribute="centerY" secondItem="Vr4-K8-Wxd" secondAttribute="centerY" id="xUi-4o-1Go"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="clubCellLabel" destination="JFt-Kb-J9H" id="adB-ba-Xdm"/>
+                                            <outlet property="subButton" destination="9xQ-Of-t5D" id="9CW-5S-Kmp"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -575,24 +614,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uzA-6K-QKu">
-                                <rect key="frame" x="-1" y="36" width="377" height="564"/>
+                                <rect key="frame" x="-1" y="36" width="377" height="566"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfq-Xe-eo6">
-                                <rect key="frame" x="0.0" y="608" width="375" height="59"/>
+                                <rect key="frame" x="0.0" y="610" width="375" height="57"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYy-Xn-YRZ">
-                                        <rect key="frame" x="26" y="9" width="50" height="50"/>
-                                        <state key="normal" image="unnamed.png"/>
-                                        <state key="selected" image="unnamedhighlighted.png"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYy-Xn-YRZ">
+                                        <rect key="frame" x="36" y="1" width="50" height="50"/>
+                                        <state key="normal" image="home-48"/>
+                                        <state key="selected" image="home-blue-48"/>
                                         <connections>
                                             <action selector="didPressTab:" destination="gUA-oK-ln8" eventType="touchUpInside" id="2XA-vu-zf2"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1m-cT-2vZ">
-                                        <rect key="frame" x="161" y="9" width="50" height="50"/>
-                                        <state key="normal" image="search.png"/>
-                                        <state key="selected" image="searchhighlighted.png"/>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1m-cT-2vZ">
+                                        <rect key="frame" x="161" y="1" width="50" height="50"/>
+                                        <state key="normal" image="search-48"/>
+                                        <state key="selected" image="search-blue-48"/>
                                         <state key="highlighted">
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -600,10 +639,10 @@
                                             <action selector="didPressTab:" destination="gUA-oK-ln8" eventType="touchUpInside" id="2zV-6O-2sQ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2L-Rv-FNe">
-                                        <rect key="frame" x="303" y="9" width="50" height="50"/>
-                                        <state key="normal" image="settings.png"/>
-                                        <state key="selected" image="settingshighlighted.png"/>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2L-Rv-FNe">
+                                        <rect key="frame" x="293" y="1" width="50" height="50"/>
+                                        <state key="normal" image="settings-48"/>
+                                        <state key="selected" image="settings-blue-48"/>
                                         <connections>
                                             <action selector="didPressTab:" destination="gUA-oK-ln8" eventType="touchUpInside" id="NiD-Ua-cF2"/>
                                         </connections>
@@ -736,12 +775,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="home-48" width="48" height="48"/>
+        <image name="home-blue-48" width="48" height="48"/>
         <image name="pexels-photo-416160" width="280" height="373"/>
-        <image name="search.png" width="50" height="50"/>
-        <image name="searchhighlighted.png" width="50" height="50"/>
-        <image name="settings.png" width="50" height="50"/>
-        <image name="settingshighlighted.png" width="50" height="50"/>
-        <image name="unnamed.png" width="50" height="50"/>
-        <image name="unnamedhighlighted.png" width="50" height="50"/>
+        <image name="plus-blue-32" width="32" height="32"/>
+        <image name="search-48" width="48" height="48"/>
+        <image name="search-blue-48" width="48" height="48"/>
+        <image name="settings-48" width="48" height="48"/>
+        <image name="settings-blue-48" width="48" height="48"/>
     </resources>
 </document>

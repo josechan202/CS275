@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
@@ -32,8 +33,18 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     // Defines what each cell does
     public func tableView(_ tableview: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let clubCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "clubCell")
-        clubCell.textLabel?.text = myClubs[indexPath.row].name
+        let clubCell = CustomTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "clubCell")
+        //clubCell.clubCellLabel.text = self.myClubs[indexPath.row].name
+        clubCell.textLabel!.text = self.myClubs[indexPath.row].name
+        clubCell.subButton.tag = indexPath.row
+        clubCell.subButton.addTarget(self, action: "subscribe:", for: UIControlEvents.touchUpInside)
+        
+        if (self.myClubs[indexPath.row].subbed!) {
+            clubCell.subButton.setImage(UIImage(named: "check-blue-32"), for: .normal)
+        } else {
+            clubCell.subButton.setImage(UIImage(named: "plus-blue-32"), for: .normal)
+        }
+        
         return(clubCell)
     }
     
@@ -106,6 +117,47 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         }
     }
     
+    func subscribe(_ sender: UIButton) {
+        let myUsername = UserSingleton.sharedInstance.user!.getUsername()
+        
+        sender.isEnabled = false
+        
+        HTTPRequestHandler.subscribe(username: myUsername, clubID: self.myClubs[sender.tag].club_code!) {
+            (success, message) in
+            if (success) {
+                DispatchQueue.main.async {
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    let managedContext = appDelegate.persistentContainer.viewContext
+                    let entity =  NSEntityDescription.entity(forEntityName: "Club", in:managedContext)
+                    
+                    if (!self.myClubs[sender.tag].subbed!) {
+                        let club = Club(entity: entity!, insertInto: managedContext)
+                        club.club_code = self.myClubs[sender.tag].club_code
+                        club.name = self.myClubs[sender.tag].name
+                        UserSingleton.sharedInstance.user!.addToSubscriptions(club)
+                        sender.setImage(UIImage(named: "check-blue-32"), for: .normal)
+                        print("User \(myUsername) was successfully subscribed to club \(self.myClubs[sender.tag].name!).")
+                    } else {
+                        let club = UserSingleton.sharedInstance.user!.getClub(club_code: self.myClubs[sender.tag].club_code!)
+                        UserSingleton.sharedInstance.user!.removeFromSubscriptions(club!)
+                        sender.setImage(UIImage(named: "plus-blue-32"), for: .normal)
+                        print("User \(myUsername) was successfully unsubscribed from club \(self.myClubs[sender.tag].name!).")
+                    }
+                    self.myClubs[sender.tag].subbed = !(self.myClubs[sender.tag].subbed!)
+                }
+                
+            } else { //not success
+                let m = message!
+                print("Subscription request to \(self.myClubs[sender.tag].name!) was unsuccessful: \(m).")
+            }
+            DispatchQueue.main.async {
+                sender.isEnabled = true
+                //UserSingleton.sharedInstance.user!.printClubs()
+            }
+            
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Hide the navigation bar for current view controller
@@ -128,6 +180,7 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         self.query = ""
         searchBar.text = self.query
         self.myClubs.removeAll()
+        
         
         // Since we just reset the above parameters, this function will return the first 10 results of ALL the clubs in the db.
         HTTPRequestHandler.searchClubs(startIndex: 0, groupSize: self.groupSize, rawQuery: self.query) {
