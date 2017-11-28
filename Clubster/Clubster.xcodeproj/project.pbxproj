@@ -31,14 +31,8 @@
 		743EB1391FA682BD00BC38B8 /* messagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB1381FA682BD00BC38B8 /* messagesVC.swift */; };
 		743EB13B1FA6832C00BC38B8 /* myAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB13A1FA6832C00BC38B8 /* myAccountVC.swift */; };
 		743EB13D1FA685F100BC38B8 /* clubsImMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */; };
+		BF6E8F391FCDC7A0008CF2A6 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6E8F381FCDC7A0008CF2A6 /* LoginTextField.swift */; };
 		D6051FD31FA7E0E700739011 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6051FD21FA7E0E700739011 /* SignUpVC.swift */; };
-		D65CEC3A1FB7DECA0027154A /* bad_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D65CEC391FB7DECA0027154A /* bad_logo.png */; };
-		D65CEC431FB7E5030027154A /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = D65CEC3D1FB7E5030027154A /* search.png */; };
-		D65CEC441FB7E5030027154A /* searchhighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = D65CEC3E1FB7E5030027154A /* searchhighlighted.png */; };
-		D65CEC451FB7E5030027154A /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D65CEC3F1FB7E5030027154A /* settings.png */; };
-		D65CEC461FB7E5030027154A /* settingshighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = D65CEC401FB7E5030027154A /* settingshighlighted.png */; };
-		D65CEC471FB7E5030027154A /* unnamed.png in Resources */ = {isa = PBXBuildFile; fileRef = D65CEC411FB7E5030027154A /* unnamed.png */; };
-		D65CEC481FB7E5030027154A /* unnamedhighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = D65CEC421FB7E5030027154A /* unnamedhighlighted.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,14 +62,8 @@
 		743EB1381FA682BD00BC38B8 /* messagesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messagesVC.swift; sourceTree = "<group>"; };
 		743EB13A1FA6832C00BC38B8 /* myAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myAccountVC.swift; sourceTree = "<group>"; };
 		743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = clubsImMemberVC.swift; sourceTree = "<group>"; };
+		BF6E8F381FCDC7A0008CF2A6 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		D6051FD21FA7E0E700739011 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
-		D65CEC391FB7DECA0027154A /* bad_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bad_logo.png; sourceTree = "<group>"; };
-		D65CEC3D1FB7E5030027154A /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
-		D65CEC3E1FB7E5030027154A /* searchhighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchhighlighted.png; sourceTree = "<group>"; };
-		D65CEC3F1FB7E5030027154A /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
-		D65CEC401FB7E5030027154A /* settingshighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingshighlighted.png; sourceTree = "<group>"; };
-		D65CEC411FB7E5030027154A /* unnamed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unnamed.png; sourceTree = "<group>"; };
-		D65CEC421FB7E5030027154A /* unnamedhighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unnamedhighlighted.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,20 +97,14 @@
 			isa = PBXGroup;
 			children = (
 				0DD637091FB7F53D009BF248 /* CustomTabBarController.swift */,
-				D65CEC3D1FB7E5030027154A /* search.png */,
-				D65CEC3E1FB7E5030027154A /* searchhighlighted.png */,
-				D65CEC3F1FB7E5030027154A /* settings.png */,
-				D65CEC401FB7E5030027154A /* settingshighlighted.png */,
-				D65CEC411FB7E5030027154A /* unnamed.png */,
-				D65CEC421FB7E5030027154A /* unnamedhighlighted.png */,
 				0DA630881F9D99DB00EA3AFC /* User.swift */,
 				0DA630891F9D99DB00EA3AFC /* User+CoreDataProperties.swift */,
 				0D2E83F71F99414D002B4BE9 /* Club.swift */,
 				0D2E83F81F99414D002B4BE9 /* Club+CoreDataProperties.swift */,
 				0DD204E11F8D26AD003A5C19 /* AppDelegate.swift */,
 				0DD204E31F8D26AD003A5C19 /* ViewController.swift */,
+				BF6E8F381FCDC7A0008CF2A6 /* LoginTextField.swift */,
 				0DD204EB1F8D26AD003A5C19 /* Assets.xcassets */,
-				D65CEC391FB7DECA0027154A /* bad_logo.png */,
 				0DD204ED1F8D26AD003A5C19 /* LaunchScreen.storyboard */,
 				0DD204FC1F8D5BBB003A5C19 /* Main.storyboard */,
 				0DD204F01F8D26AD003A5C19 /* Info.plist */,
@@ -177,6 +159,7 @@
 				TargetAttributes = {
 					0DD204DD1F8D26AD003A5C19 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -204,15 +187,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D65CEC431FB7E5030027154A /* search.png in Resources */,
-				D65CEC451FB7E5030027154A /* settings.png in Resources */,
-				D65CEC481FB7E5030027154A /* unnamedhighlighted.png in Resources */,
-				D65CEC471FB7E5030027154A /* unnamed.png in Resources */,
-				D65CEC441FB7E5030027154A /* searchhighlighted.png in Resources */,
 				0DD204FE1F8D5BBB003A5C19 /* Main.storyboard in Resources */,
-				D65CEC461FB7E5030027154A /* settingshighlighted.png in Resources */,
 				0DD204EF1F8D26AD003A5C19 /* LaunchScreen.storyboard in Resources */,
-				D65CEC3A1FB7DECA0027154A /* bad_logo.png in Resources */,
 				0DD204EC1F8D26AD003A5C19 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,6 +204,7 @@
 				47D26DE21FBA818F00D74F04 /* Constants.swift in Sources */,
 				0D6C25141F9A810700C891D0 /* UserSingleton.swift in Sources */,
 				0DD204F91F8D5508003A5C19 /* ClubPageVC.swift in Sources */,
+				BF6E8F391FCDC7A0008CF2A6 /* LoginTextField.swift in Sources */,
 				743074E41FA651710061B8AC /* clubsIRunVC.swift in Sources */,
 				743EB1371FA6825700BC38B8 /* nearbyEventsVC.swift in Sources */,
 				0DA6308A1F9D99DB00EA3AFC /* User.swift in Sources */,
@@ -368,10 +345,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Clubster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = UVM.Clubster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -380,6 +359,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Clubster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = UVM.Clubster;
