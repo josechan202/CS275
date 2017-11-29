@@ -11,6 +11,7 @@ import CoreData
 
 class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
+    
     //Populate table with database info and display
     //let list = Array(Configuration.CLUB_MAP.values)
     
@@ -33,11 +34,14 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     // Defines what each cell does
     public func tableView(_ tableview: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let clubCell = CustomTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "clubCell")
-        //clubCell.clubCellLabel.text = self.myClubs[indexPath.row].name
-        clubCell.textLabel!.text = self.myClubs[indexPath.row].name
+        let clubCell = tableview.dequeueReusableCell(withIdentifier: "clubCell", for: indexPath) as! CustomTableViewCell
+        
+        //let clubCell = CustomTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "clubCell")
+        clubCell.clubCellLabel.text = self.myClubs[indexPath.row].name
+        //clubCell.textLabel!.text = self.myClubs[indexPath.row].name
+        
         clubCell.subButton.tag = indexPath.row
-        clubCell.subButton.addTarget(self, action: "subscribe:", for: UIControlEvents.touchUpInside)
+        clubCell.subButton.addTarget(self, action: #selector(self.subscribe), for: UIControlEvents.touchUpInside)
         
         if (self.myClubs[indexPath.row].subbed!) {
             clubCell.subButton.setImage(UIImage(named: "check-blue-32"), for: .normal)
@@ -152,6 +156,8 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             }
             DispatchQueue.main.async {
                 sender.isEnabled = true
+                self.clubTable.reloadData()
+                
                 //UserSingleton.sharedInstance.user!.printClubs()
             }
             
@@ -162,6 +168,29 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         super.viewWillAppear(animated)
         // Hide the navigation bar for current view controller
         self.navigationController?.isNavigationBarHidden = true;
+        
+        self.query = searchBar.text!
+        HTTPRequestHandler.searchClubs(startIndex: 0, groupSize: self.groupSize, rawQuery: self.query) {
+            (lastGroup, results) in
+            self.lastGroup = lastGroup
+            self.myClubs.removeAll()
+            for aClub in results {
+                let clubObj = aClub as! [String : Any]
+                let club = TempClub(name: clubObj["clubname"] as! String, club_code: clubObj["club_id"] as! String)
+                if (UserSingleton.sharedInstance.user!.hasClub(club_code : club.club_code!)){
+                    club.subbed = true
+                } else {
+                    //print("User is not yet subscribed.")
+                    club.subbed = false
+                }
+                self.myClubs.append(club)
+            }
+            DispatchQueue.main.async {
+                self.clubTable.reloadData()
+            }
+        }
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
