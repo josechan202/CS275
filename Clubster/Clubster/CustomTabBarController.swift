@@ -22,6 +22,7 @@ class CustomTabBarController: UIViewController {
         
         buttons[previousIndex].isSelected = false
         let previousVC = viewControllers[previousIndex]
+        (previousVC as! UINavigationController).popToRootViewController(animated: false)
         previousVC.willMove(toParentViewController: nil)
         previousVC.view.removeFromSuperview()
         previousVC.removeFromParentViewController()
