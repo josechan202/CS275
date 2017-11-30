@@ -12,7 +12,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var subscriptionStrings = [String]()
     
-
+    @IBOutlet weak var homeLabel: UILabel!
     
     @IBOutlet weak var subList: UITableView!
     @IBOutlet weak var welcomeLabel: UILabel!
