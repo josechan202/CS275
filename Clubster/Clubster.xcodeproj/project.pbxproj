@@ -25,6 +25,7 @@
 		0DD204FB1F8D5635003A5C19 /* SettingsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD204FA1F8D5635003A5C19 /* SettingsPageController.swift */; };
 		0DD204FE1F8D5BBB003A5C19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DD204FC1F8D5BBB003A5C19 /* Main.storyboard */; };
 		0DD6370A1FB7F53D009BF248 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD637091FB7F53D009BF248 /* CustomTabBarController.swift */; };
+		47A1EDC91FCDE69B00EBC691 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A1EDC81FCDE69700EBC691 /* CustomTableViewCell.swift */; };
 		47D26DE21FBA818F00D74F04 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D26DE11FBA818F00D74F04 /* Constants.swift */; };
 		743074E41FA651710061B8AC /* clubsIRunVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743074E31FA651710061B8AC /* clubsIRunVC.swift */; };
 		743EB1371FA6825700BC38B8 /* nearbyEventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB1361FA6825700BC38B8 /* nearbyEventsVC.swift */; };
@@ -33,6 +34,7 @@
 		743EB13D1FA685F100BC38B8 /* clubsImMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */; };
 		BF6E8F391FCDC7A0008CF2A6 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6E8F381FCDC7A0008CF2A6 /* LoginTextField.swift */; };
 		D6051FD31FA7E0E700739011 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6051FD21FA7E0E700739011 /* SignUpVC.swift */; };
+		D65CEC3A1FB7DECA0027154A /* bad_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D65CEC391FB7DECA0027154A /* bad_logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,7 @@
 		0DD204FA1F8D5635003A5C19 /* SettingsPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPageController.swift; sourceTree = "<group>"; };
 		0DD204FD1F8D5BBB003A5C19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0DD637091FB7F53D009BF248 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		47A1EDC81FCDE69700EBC691 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		47D26DE11FBA818F00D74F04 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		743074E31FA651710061B8AC /* clubsIRunVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = clubsIRunVC.swift; sourceTree = "<group>"; };
 		743EB1361FA6825700BC38B8 /* nearbyEventsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nearbyEventsVC.swift; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 		743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = clubsImMemberVC.swift; sourceTree = "<group>"; };
 		BF6E8F381FCDC7A0008CF2A6 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		D6051FD21FA7E0E700739011 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		D65CEC391FB7DECA0027154A /* bad_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bad_logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 				0DD204EB1F8D26AD003A5C19 /* Assets.xcassets */,
 				0DD204ED1F8D26AD003A5C19 /* LaunchScreen.storyboard */,
 				0DD204FC1F8D5BBB003A5C19 /* Main.storyboard */,
+				47A1EDC81FCDE69700EBC691 /* CustomTableViewCell.swift */,
 				0DD204F01F8D26AD003A5C19 /* Info.plist */,
 				0DD204E81F8D26AD003A5C19 /* Clubster.xcdatamodeld */,
 				0DD204F61F8D32D2003A5C19 /* HomeVC.swift */,
@@ -208,6 +213,7 @@
 				743074E41FA651710061B8AC /* clubsIRunVC.swift in Sources */,
 				743EB1371FA6825700BC38B8 /* nearbyEventsVC.swift in Sources */,
 				0DA6308A1F9D99DB00EA3AFC /* User.swift in Sources */,
+				47A1EDC91FCDE69B00EBC691 /* CustomTableViewCell.swift in Sources */,
 				0DA630791F9D2E1800EA3AFC /* HTTPRequestHandler.swift in Sources */,
 				0DD204EA1F8D26AD003A5C19 /* Clubster.xcdatamodeld in Sources */,
 				0DD6370A1FB7F53D009BF248 /* CustomTabBarController.swift in Sources */,

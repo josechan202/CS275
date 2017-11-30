@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import CoreData
 
 class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    
     
     //Populate table with database info and display
     //let list = Array(Configuration.CLUB_MAP.values)
@@ -32,8 +34,21 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     // Defines what each cell does
     public func tableView(_ tableview: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let clubCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "clubCell")
-        clubCell.textLabel?.text = myClubs[indexPath.row].name
+        let clubCell = tableview.dequeueReusableCell(withIdentifier: "clubCell", for: indexPath) as! CustomTableViewCell
+        
+        //let clubCell = CustomTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "clubCell")
+        clubCell.clubCellLabel.text = self.myClubs[indexPath.row].name
+        //clubCell.textLabel!.text = self.myClubs[indexPath.row].name
+        
+        clubCell.subButton.tag = indexPath.row
+        clubCell.subButton.addTarget(self, action: #selector(self.subscribe), for: UIControlEvents.touchUpInside)
+        
+        if (self.myClubs[indexPath.row].subbed!) {
+            clubCell.subButton.setImage(UIImage(named: "check-blue-32"), for: .normal)
+        } else {
+            clubCell.subButton.setImage(UIImage(named: "plus-blue-32"), for: .normal)
+        }
+        
         return(clubCell)
     }
     
@@ -106,10 +121,76 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         }
     }
     
+    func subscribe(_ sender: UIButton) {
+        let myUsername = UserSingleton.sharedInstance.user!.getUsername()
+        
+        sender.isEnabled = false
+        
+        HTTPRequestHandler.subscribe(username: myUsername, clubID: self.myClubs[sender.tag].club_code!) {
+            (success, message) in
+            if (success) {
+                DispatchQueue.main.async {
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    let managedContext = appDelegate.persistentContainer.viewContext
+                    let entity =  NSEntityDescription.entity(forEntityName: "Club", in:managedContext)
+                    
+                    if (!self.myClubs[sender.tag].subbed!) {
+                        let club = Club(entity: entity!, insertInto: managedContext)
+                        club.club_code = self.myClubs[sender.tag].club_code
+                        club.name = self.myClubs[sender.tag].name
+                        UserSingleton.sharedInstance.user!.addToSubscriptions(club)
+                        sender.setImage(UIImage(named: "check-blue-32"), for: .normal)
+                        print("User \(myUsername) was successfully subscribed to club \(self.myClubs[sender.tag].name!).")
+                    } else {
+                        let club = UserSingleton.sharedInstance.user!.getClub(club_code: self.myClubs[sender.tag].club_code!)
+                        UserSingleton.sharedInstance.user!.removeFromSubscriptions(club!)
+                        sender.setImage(UIImage(named: "plus-blue-32"), for: .normal)
+                        print("User \(myUsername) was successfully unsubscribed from club \(self.myClubs[sender.tag].name!).")
+                    }
+                    self.myClubs[sender.tag].subbed = !(self.myClubs[sender.tag].subbed!)
+                }
+                
+            } else { //not success
+                let m = message!
+                print("Subscription request to \(self.myClubs[sender.tag].name!) was unsuccessful: \(m).")
+            }
+            DispatchQueue.main.async {
+                sender.isEnabled = true
+                self.clubTable.reloadData()
+                
+                //UserSingleton.sharedInstance.user!.printClubs()
+            }
+            
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Hide the navigation bar for current view controller
         self.navigationController?.isNavigationBarHidden = true;
+        
+        self.query = searchBar.text!
+        HTTPRequestHandler.searchClubs(startIndex: 0, groupSize: self.groupSize, rawQuery: self.query) {
+            (lastGroup, results) in
+            self.lastGroup = lastGroup
+            self.myClubs.removeAll()
+            for aClub in results {
+                let clubObj = aClub as! [String : Any]
+                let club = TempClub(name: clubObj["clubname"] as! String, club_code: clubObj["club_id"] as! String)
+                if (UserSingleton.sharedInstance.user!.hasClub(club_code : club.club_code!)){
+                    club.subbed = true
+                } else {
+                    //print("User is not yet subscribed.")
+                    club.subbed = false
+                }
+                self.myClubs.append(club)
+            }
+            DispatchQueue.main.async {
+                self.clubTable.reloadData()
+            }
+        }
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -128,6 +209,7 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         self.query = ""
         searchBar.text = self.query
         self.myClubs.removeAll()
+        
         
         // Since we just reset the above parameters, this function will return the first 10 results of ALL the clubs in the db.
         HTTPRequestHandler.searchClubs(startIndex: 0, groupSize: self.groupSize, rawQuery: self.query) {

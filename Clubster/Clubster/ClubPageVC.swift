@@ -51,7 +51,6 @@ class ClubPageVC: UIViewController {
     }
     
     @IBAction func subscribeButton(_ sender: UIButton) {
-        //TODO: Finish write this function.
         let myUsername = UserSingleton.sharedInstance.user!.getUsername()
         
         subButtonLabel.isEnabled = false
