@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home Feed-->
+        <!--HomeVC-->
         <scene sceneID="mib-ce-W2O">
             <objects>
                 <viewController storyboardIdentifier="HomeVC" id="1Oc-Mb-z7M" customClass="HomeVC" customModule="Clubster" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,6 +23,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ho2-Nc-BxP">
+                                <rect key="frame" x="143" y="72" width="89" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KiJ-tF-mrF">
                                 <rect key="frame" x="0.0" y="265" width="375" height="334"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -34,6 +40,12 @@
                                     <outlet property="delegate" destination="1Oc-Mb-z7M" id="eMt-Wn-Sdq"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMk-yc-ltf">
+                                <rect key="frame" x="102" y="217" width="170" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZ2-Y1-3p0">
                                 <rect key="frame" x="0.0" y="72" width="48" height="30"/>
                                 <state key="normal" title="Logout"/>
@@ -41,104 +53,28 @@
                                     <action selector="doLogout:" destination="1Oc-Mb-z7M" eventType="touchUpInside" id="EiP-6T-gjZ"/>
                                 </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NXy-CE-XDN">
-                                <rect key="frame" x="0.0" y="106" width="375" height="509"/>
-                                <color key="backgroundColor" red="0.93584034974093266" green="0.93584034974093266" blue="0.93584034974093266" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fw0-Mo-H2S">
-                                    <size key="itemSize" width="293" height="175"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Et7-A0-Sgh" customClass="PostCell" customModule="Clubster" customModuleProvider="target">
-                                        <rect key="frame" x="41" y="0.0" width="293" height="175"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="293" height="175"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cbM-sz-Fbn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="26"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="07/27/2017 4:33 pm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMF-Im-OUd">
-                                                            <rect key="frame" x="119" y="0.0" width="174" height="26"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.78535903295249698" green="0.78156502796238825" blue="0.78915303794260561" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="cMF-Im-OUd" secondAttribute="trailing" id="RVu-UN-EwH"/>
-                                                        <constraint firstItem="cMF-Im-OUd" firstAttribute="leading" secondItem="cbM-sz-Fbn" secondAttribute="leading" id="yOJ-Y4-xs5"/>
-                                                    </constraints>
-                                                </view>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bg-5L-Wqq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="119" height="26"/>
-                                                    <color key="backgroundColor" red="0.91991254677276135" green="0.91991254677276135" blue="0.91991254677276135" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <state key="normal" title="Club Name"/>
-                                                </button>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Iko-S4-1iE">
-                                                    <rect key="frame" x="0.0" y="26" width="293" height="149"/>
-                                                    <color key="backgroundColor" red="0.97325111040609136" green="0.97325111040609136" blue="0.97325111040609136" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Iko-S4-1iE" secondAttribute="bottom" id="1Gg-0b-DnC"/>
-                                            <constraint firstAttribute="trailing" secondItem="2bg-5L-Wqq" secondAttribute="trailing" id="CPX-uG-x4X"/>
-                                            <constraint firstItem="2bg-5L-Wqq" firstAttribute="centerY" secondItem="Et7-A0-Sgh" secondAttribute="centerY" id="D5S-5W-ibi"/>
-                                            <constraint firstItem="Iko-S4-1iE" firstAttribute="leading" secondItem="Et7-A0-Sgh" secondAttribute="leading" id="GpM-Bp-qHx"/>
-                                            <constraint firstItem="Iko-S4-1iE" firstAttribute="top" secondItem="2bg-5L-Wqq" secondAttribute="bottom" id="VHY-Jc-Y5d"/>
-                                            <constraint firstItem="Iko-S4-1iE" firstAttribute="leading" secondItem="Et7-A0-Sgh" secondAttribute="leading" id="X3g-cj-UU6"/>
-                                            <constraint firstAttribute="trailing" secondItem="Iko-S4-1iE" secondAttribute="trailing" id="YDR-Yx-my1"/>
-                                            <constraint firstItem="Iko-S4-1iE" firstAttribute="leading" secondItem="Et7-A0-Sgh" secondAttribute="leading" id="bL9-g2-1JI"/>
-                                            <constraint firstItem="Iko-S4-1iE" firstAttribute="top" secondItem="2bg-5L-Wqq" secondAttribute="bottom" id="cy7-2g-sbF"/>
-                                            <constraint firstAttribute="trailing" secondItem="Iko-S4-1iE" secondAttribute="trailing" id="jiL-9o-RC6"/>
-                                            <constraint firstAttribute="bottom" secondItem="Iko-S4-1iE" secondAttribute="bottom" id="sJS-8L-aUw"/>
-                                            <constraint firstItem="2bg-5L-Wqq" firstAttribute="leading" secondItem="Et7-A0-Sgh" secondAttribute="leading" id="vG8-hd-q4H"/>
-                                            <constraint firstAttribute="trailing" secondItem="Iko-S4-1iE" secondAttribute="trailing" id="zss-fs-PuL"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="postBody" destination="Iko-S4-1iE" id="m9S-fI-yne"/>
-                                            <outlet property="timestampLabel" destination="cMF-Im-OUd" id="Fvl-IG-TTG"/>
-                                            <outlet property="toClub" destination="2bg-5L-Wqq" id="JhJ-B1-pfi"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMk-yc-ltf">
-                                <rect key="frame" x="102" y="77" width="170" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NXy-CE-XDN" firstAttribute="leading" secondItem="1pJ-Rg-J15" secondAttribute="leadingMargin" constant="33" id="0Yt-cz-Jvc"/>
-                            <constraint firstItem="NXy-CE-XDN" firstAttribute="top" secondItem="jMk-yc-ltf" secondAttribute="bottom" constant="167" id="18J-ZA-oXS"/>
                             <constraint firstItem="KiJ-tF-mrF" firstAttribute="top" secondItem="jMk-yc-ltf" secondAttribute="bottom" constant="27" id="Ioe-aJ-Nvk"/>
+                            <constraint firstItem="oZ2-Y1-3p0" firstAttribute="top" secondItem="ho2-Nc-BxP" secondAttribute="top" id="KEC-6Z-uNA"/>
                             <constraint firstItem="oZ2-Y1-3p0" firstAttribute="leading" secondItem="KiJ-tF-mrF" secondAttribute="leading" id="PuJ-ty-RWv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="NXy-CE-XDN" secondAttribute="trailing" constant="70" id="Q7I-OE-U1b"/>
                             <constraint firstAttribute="trailing" secondItem="KiJ-tF-mrF" secondAttribute="trailing" id="SjP-33-8U6"/>
                             <constraint firstItem="jMk-yc-ltf" firstAttribute="leading" secondItem="1pJ-Rg-J15" secondAttribute="leadingMargin" constant="86" id="dxY-br-Iwe"/>
                             <constraint firstItem="oZ2-Y1-3p0" firstAttribute="leading" secondItem="1pJ-Rg-J15" secondAttribute="leading" id="eK2-ai-OVP"/>
                             <constraint firstItem="oZ2-Y1-3p0" firstAttribute="top" secondItem="0kx-M6-qV1" secondAttribute="bottom" constant="8" symbolic="YES" id="p3j-2y-MXd"/>
                             <constraint firstItem="OiG-Hk-acv" firstAttribute="top" secondItem="KiJ-tF-mrF" secondAttribute="bottom" constant="24" id="swk-Zt-d6A"/>
                             <constraint firstItem="jMk-yc-ltf" firstAttribute="centerX" secondItem="KiJ-tF-mrF" secondAttribute="centerX" id="v8e-Bt-iIm"/>
+                            <constraint firstItem="ho2-Nc-BxP" firstAttribute="centerX" secondItem="jMk-yc-ltf" secondAttribute="centerX" id="w9b-LW-DjC"/>
                         </constraints>
                     </view>
                     <toolbarItems>
                         <barButtonItem title="Item" id="xdw-HD-5ea"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Home Feed" id="p46-hv-vhS"/>
+                    <navigationItem key="navigationItem" id="p46-hv-vhS"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="homeLabel" destination="ho2-Nc-BxP" id="80E-OH-jcj"/>
                         <outlet property="subList" destination="KiJ-tF-mrF" id="7tZ-nm-EmJ"/>
                         <outlet property="welcomeLabel" destination="jMk-yc-ltf" id="3Eg-Qx-Bsr"/>
                     </connections>
@@ -815,7 +751,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Auc-Ie-AG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1502" y="144"/>
+            <point key="canvasLocation" x="1541.5999999999999" y="143.47826086956522"/>
         </scene>
         <!--Item-->
         <scene sceneID="PoD-Dz-DJv">
@@ -910,9 +846,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="'fba7da61.png'" width="75" height="75"/>
-        <image name="Clubs" width="105" height="42"/>
-        <image name="UVM" width="106" height="41"/>
         <image name="home-48" width="48" height="48"/>
         <image name="home-blue-48" width="48" height="48"/>
         <image name="pexels-photo-416160" width="280" height="373"/>
@@ -921,6 +854,16 @@
         <image name="search-blue-48" width="48" height="48"/>
         <image name="settings-48" width="48" height="48"/>
         <image name="settings-blue-48" width="48" height="48"/>
+        <image name="'fba7da61.png'" width="75" height="75"/>
+        <image name="Clubs" width="105" height="42"/>
+        <image name="UVM" width="106" height="41"/>
+        <image name="pexels-photo-416160" width="280" height="373"/>
+        <image name="search.png" width="50" height="50"/>
+        <image name="searchhighlighted.png" width="50" height="50"/>
+        <image name="settings.png" width="50" height="50"/>
+        <image name="settingshighlighted.png" width="50" height="50"/>
         <image name="signinBG" width="662" height="451"/>
+        <image name="unnamed.png" width="50" height="50"/>
+        <image name="unnamedhighlighted.png" width="50" height="50"/>
     </resources>
 </document>
