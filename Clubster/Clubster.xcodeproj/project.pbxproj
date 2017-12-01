@@ -34,7 +34,6 @@
 		743EB13D1FA685F100BC38B8 /* clubsImMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */; };
 		BF6E8F391FCDC7A0008CF2A6 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6E8F381FCDC7A0008CF2A6 /* LoginTextField.swift */; };
 		D6051FD31FA7E0E700739011 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6051FD21FA7E0E700739011 /* SignUpVC.swift */; };
-		D65CEC3A1FB7DECA0027154A /* bad_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D65CEC391FB7DECA0027154A /* bad_logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +57,7 @@
 		0DD204FA1F8D5635003A5C19 /* SettingsPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPageController.swift; sourceTree = "<group>"; };
 		0DD204FD1F8D5BBB003A5C19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0DD637091FB7F53D009BF248 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		0DDBAC201FD18D6400B7F895 /* Clubster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clubster.entitlements; sourceTree = "<group>"; };
 		47A1EDC81FCDE69700EBC691 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		47D26DE11FBA818F00D74F04 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		743074E31FA651710061B8AC /* clubsIRunVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = clubsIRunVC.swift; sourceTree = "<group>"; };
@@ -67,7 +67,6 @@
 		743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = clubsImMemberVC.swift; sourceTree = "<group>"; };
 		BF6E8F381FCDC7A0008CF2A6 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		D6051FD21FA7E0E700739011 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
-		D65CEC391FB7DECA0027154A /* bad_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bad_logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +99,7 @@
 		0DD204E01F8D26AD003A5C19 /* Clubster */ = {
 			isa = PBXGroup;
 			children = (
+				0DDBAC201FD18D6400B7F895 /* Clubster.entitlements */,
 				0DD637091FB7F53D009BF248 /* CustomTabBarController.swift */,
 				0DA630881F9D99DB00EA3AFC /* User.swift */,
 				0DA630891F9D99DB00EA3AFC /* User+CoreDataProperties.swift */,
@@ -164,8 +164,17 @@
 				TargetAttributes = {
 					0DD204DD1F8D26AD003A5C19 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = F5D895GB5K;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -352,9 +361,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Clubster/Clubster.entitlements;
+				DEVELOPMENT_TEAM = F5D895GB5K;
 				INFOPLIST_FILE = Clubster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = UVM.Clubster;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uvm.cs.Clubster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -366,9 +377,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Clubster/Clubster.entitlements;
+				DEVELOPMENT_TEAM = F5D895GB5K;
 				INFOPLIST_FILE = Clubster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = UVM.Clubster;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uvm.cs.Clubster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
