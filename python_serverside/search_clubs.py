@@ -16,31 +16,41 @@ def application(environ, start_response):
     if environ["REQUEST_METHOD"]== 'GET':
         try:
             par = urlparse.parse_qs(environ['QUERY_STRING'])
-            club_id = par['club_id'][0]
+            startIndex = par['startIndex'][0]
+            groupSize  = par['groupSize'][0]
+            query = ""
+            try:
+                query      = par['query'][0]
+            except:
+                pass
         except:
             start_response("400 argument error", [('Content-Type', 'text/html')])
-            return json.dumps({"success": False, "message": "No club id provided"})
-        cursor = cnx.cursor()
-        rows_count = cursor.execute("SELECT * FROM Club WHERE club_id=%s;",(club_id,))
-        
-        start_response("201 OK", [('Content_Type','application/json')])
-        if rows_count > 0:
-            fetched_club = cursor.fetchall()[0]
-            cursor.close()
-            cnx.close()
-            '''
-            return json.dumps({"success":True, "club_id": fetched_club[0]})
-            '''
-            return json.dumps({"success":True, "club_id":fetched_club[0], "clubname":fetched_club[1],"clubDescription":fetched_club[2],"clubInfo":fetched_club[3],"bannerURL":fetched_club[4]})
-            
-            
-        else:
-            cursor.close()
-            cnx.close()
-            return json.dumps({"success": False, "message": "Club not found"})
+            return json.dumps({"success": False, "message": "Missing arguments"})
 
+        cursor = cnx.cursor()
+
+        sql = "SELECT club_id, clubname FROM Club WHERE clubname LIKE %s LIMIT %s, %s"
+        rows_count = cursor.execute(sql, ("%" + query + "%", int(startIndex), int(groupSize)))
+        if rows_count == 0:
+            pass
+
+        clubs = cursor.fetchall()
+        club_info = []
+        for i in range(rows_count):
+            
+            c = {}
+            c["club_id"] = str(clubs[i][0])
+            c["clubname"] = clubs[i][1]
+            club_info.append(c)
+        start_response("400 argument error", [('Content-Type', 'text/html')])
+        lastGroup = False
+        if (rows_count < int(groupSize)):
+            lastGroup = True
+        return json.dumps({"lastGroup": lastGroup, "clubs": club_info})
+        
     start_response("400 error",[('Content-Type','text/html')])
     return ""
 
 #IMPORTANT!!!! set the request_handler to your response function to get the script to work on silk
 request_handler = application
+
