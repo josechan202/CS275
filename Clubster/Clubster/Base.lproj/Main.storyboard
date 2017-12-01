@@ -54,7 +54,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92460525035858154" green="0.79242527484893799" blue="0.63565528392791748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="KiJ-tF-mrF" firstAttribute="top" secondItem="jMk-yc-ltf" secondAttribute="bottom" constant="27" id="Ioe-aJ-Nvk"/>
                             <constraint firstItem="oZ2-Y1-3p0" firstAttribute="top" secondItem="ho2-Nc-BxP" secondAttribute="top" id="KEC-6Z-uNA"/>
@@ -77,6 +77,7 @@
                         <outlet property="homeLabel" destination="ho2-Nc-BxP" id="80E-OH-jcj"/>
                         <outlet property="subList" destination="KiJ-tF-mrF" id="7tZ-nm-EmJ"/>
                         <outlet property="welcomeLabel" destination="jMk-yc-ltf" id="3Eg-Qx-Bsr"/>
+                        <segue destination="OwH-kG-FCt" kind="show" identifier="swipeLeft1" id="a9T-pC-FJ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUB-AK-Uhi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -332,6 +333,7 @@
                         <outlet property="contentBody" destination="32W-9i-DCE" id="6OQ-EA-yrx"/>
                         <outlet property="contentLabel" destination="nLR-0k-9vd" id="3Gb-1l-hCp"/>
                         <outlet property="subButtonLabel" destination="xBP-t4-gGx" id="D8y-Yk-sXf"/>
+                        <segue destination="OwH-kG-FCt" kind="show" identifier="swipeRight2" id="YAd-nt-vip"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IPs-R9-9SJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -385,34 +387,23 @@
                                     <constraint firstAttribute="height" constant="456" id="xjm-S3-A6I"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="line" textAlignment="natural" minimumFontSize="17" background="'fba7da61.png'" translatesAutoresizingMaskIntoConstraints="NO" id="gp8-jM-eyv" customClass="LoginTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="line" placeholder="username" textAlignment="natural" minimumFontSize="17" background="'fba7da61.png'" translatesAutoresizingMaskIntoConstraints="NO" id="gp8-jM-eyv" customClass="LoginTextField">
                                 <rect key="frame" x="82" y="371" width="209" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.34509803921568627" green="0.396078431372549" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.34509803921568627" green="0.45882352941176469" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" background="'fba7da61.png'" translatesAutoresizingMaskIntoConstraints="NO" id="Rrm-Dq-P1g" customClass="LoginTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="line" placeholder="password" textAlignment="natural" minimumFontSize="17" background="'fba7da61.png'" translatesAutoresizingMaskIntoConstraints="NO" id="Rrm-Dq-P1g" customClass="LoginTextField">
                                 <rect key="frame" x="82" y="435" width="209" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES"/>
+                                </accessibility>
+                                <color key="textColor" red="0.34509803921568627" green="0.45882352941176469" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OE-a9-b9Y">
-                                <rect key="frame" x="143" y="114" width="88" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Login Page">
-                                        <attributes>
-                                            <font key="NSFont" metaFont="system" size="17"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.97888815735133528" green="1" blue="0.96690030718802211" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6G-6M-XvT">
                                 <rect key="frame" x="290" y="124" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -431,7 +422,7 @@
                                 <rect key="frame" x="89" y="371" width="124" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="10"/>
-                                <color key="textColor" red="0.51135410114203572" green="0.86435291564542482" blue="0.58444435487361113" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.50980392156862742" green="0.86274509803921573" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ts9-Ar-wwa">
@@ -654,6 +645,8 @@
                     <connections>
                         <outlet property="clubTable" destination="Gd4-as-S4z" id="iiS-e0-lB9"/>
                         <outlet property="searchBar" destination="Kcb-hq-LvM" id="JOD-O0-a9W"/>
+                        <segue destination="5mA-xC-3mA" kind="show" identifier="swipeLeft2" id="GlB-F2-rZc"/>
+                        <segue destination="1Oc-Mb-z7M" kind="show" identifier="swipeRight1" id="zNb-Ft-Aij"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qe7-fb-XZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -675,6 +668,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uzA-6K-QKu">
                                 <rect key="frame" x="-1" y="36" width="377" height="557"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfq-Xe-eo6">
                                 <rect key="frame" x="0.0" y="616" width="375" height="51"/>
@@ -713,7 +707,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.086986251175403595" green="0.73909956216812134" blue="0.13499408960342407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="g1m-cT-2vZ" firstAttribute="firstBaseline" secondItem="F2L-Rv-FNe" secondAttribute="firstBaseline" id="1My-FB-Khk"/>
                                     <constraint firstItem="sYy-Xn-YRZ" firstAttribute="top" secondItem="g1m-cT-2vZ" secondAttribute="top" id="7tF-h9-zDz"/>
@@ -846,6 +840,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="'fba7da61.png'" width="75" height="75"/>
+        <image name="Clubs" width="105" height="42"/>
+        <image name="UVM" width="106" height="41"/>
         <image name="home-48" width="48" height="48"/>
         <image name="home-blue-48" width="48" height="48"/>
         <image name="pexels-photo-416160" width="280" height="373"/>
@@ -854,16 +851,11 @@
         <image name="search-blue-48" width="48" height="48"/>
         <image name="settings-48" width="48" height="48"/>
         <image name="settings-blue-48" width="48" height="48"/>
-        <image name="'fba7da61.png'" width="75" height="75"/>
-        <image name="Clubs" width="105" height="42"/>
-        <image name="UVM" width="106" height="41"/>
-        <image name="pexels-photo-416160" width="280" height="373"/>
-        <image name="search.png" width="50" height="50"/>
-        <image name="searchhighlighted.png" width="50" height="50"/>
-        <image name="settings.png" width="50" height="50"/>
-        <image name="settingshighlighted.png" width="50" height="50"/>
         <image name="signinBG" width="662" height="451"/>
-        <image name="unnamed.png" width="50" height="50"/>
-        <image name="unnamedhighlighted.png" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="zNb-Ft-Aij"/>
+        <segue reference="a9T-pC-FJ1"/>
+        <segue reference="GlB-F2-rZc"/>
+    </inferredMetricsTieBreakers>
 </document>

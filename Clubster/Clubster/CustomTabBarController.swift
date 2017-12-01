@@ -16,6 +16,7 @@ class CustomTabBarController: UIViewController {
     
     @IBOutlet weak var contentView: UIView!
     
+    
     @IBAction func didPressTab(_ sender: UIButton) {
         let previousIndex = selectedIndex
         selectedIndex = sender.tag
@@ -55,9 +56,35 @@ class CustomTabBarController: UIViewController {
         buttons[selectedIndex].isSelected = true
         didPressTab(buttons[selectedIndex])
         // Do any additional setup after loading the view.
+        
+        let leftSwipe1 = UISwipeGestureRecognizer(target: self, action: #selector(shiftRight(swipe:)))
+        leftSwipe1.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(leftSwipe1)
+        
+        let rightSwipe1 = UISwipeGestureRecognizer(target: self, action: #selector(shiftLeft(swipe:)))
+        rightSwipe1.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(rightSwipe1)
     }
     
+    func shiftRight(swipe:UISwipeGestureRecognizer){
+        if selectedIndex == 0{
+            didPressTab(buttons[1])
+        }
+        else if selectedIndex == 1 {
+            didPressTab(buttons[2])
+        }
     
+    }
+    func shiftLeft(swipe:UISwipeGestureRecognizer){
+        if selectedIndex == 1 {
+            didPressTab(buttons[0])
+        }
+        else if selectedIndex == 2 {
+            didPressTab(buttons[1])
+        }
+        
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

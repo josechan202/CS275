@@ -54,6 +54,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+  
     
     @IBAction func toAllClubs(_ sender: Any) {
         let nextVC =
@@ -83,8 +84,14 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         let text = UserSingleton.sharedInstance.user!.getUsername()
         welcomeLabel.text = "Welcome, \(text)"
+        
+        
+        
 
     }
+    
+    
+    
     
     
 
@@ -155,5 +162,13 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Pass the selected object to the new view controller.
     }
     */
-
+}
+extension UIViewController{
+    func swipeAction(swipe:UISwipeGestureRecognizer){
+        switch swipe.direction.rawValue {
+        case 2: performSegue(withIdentifier: "swipeLeft1", sender: self)
+        default:
+            break
+}
+}
 }
