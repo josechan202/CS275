@@ -8,15 +8,18 @@
 
 import UIKit
 
-class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
 
     var subscriptionStrings = [String]()
+    
+    var myPosts = [Post]()
     
     @IBOutlet weak var homeLabel: UILabel!
     
     @IBOutlet weak var subList: UITableView!
     @IBOutlet weak var welcomeLabel: UILabel!
     
+    @IBOutlet weak var newsFeed: UICollectionView!
     
     @IBAction func doLogout(_ sender: Any) {
         let appDelegate =
@@ -75,11 +78,61 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
+    func toClub(_ sender: UIButton){
+        let nextVC =
+            storyboard?.instantiateViewController(withIdentifier:
+                "ClubPageVC") as! ClubPageVC
+        nextVC.clubname = myPosts[sender.tag].clubname!
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    // get number of posts from data
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return (self.myPosts.count)
+    }
+    
+    // Defines what each cell does
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postCell", for: indexPath) as! PostCell
+        
+        cell.toClub.tag = indexPath.row
+        cell.toClub.addTarget(self, action: #selector(self.toClub), for: UIControlEvents.touchUpInside)
+        cell.toClub.setTitle(myPosts[indexPath.row].clubname!, for: .normal)
+        
+        let date = myPosts[indexPath.row].timestamp!
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, h:mm a"
+        let str = formatter.string(from: date)
+        
+        cell.Timestamp.text = str
+        
+        cell.postBody.text = myPosts[indexPath.row].body!
+        
+        return cell
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.navigationController?.setNavigationBarHidden(true, animated: false)
         //self.navigationItem.setHidesBackButton(true, animated: false)
         //self.tableView.delegate = self
+        newsFeed.delegate = self
+        newsFeed.dataSource = self
+        
+        self.myPosts.removeAll()
+        
+        let test_post = Post(post_id: "1", clubname: "Volleyball", seconds: 1512095949, body: "TOP SECRET: This message will self destruct 10 minutes.")
+        self.myPosts.append(test_post)
+        let test_post2 = Post(post_id: "1", clubname: "Chess", seconds: 1512096783, body: "Chess is lame, but we play it anyway.")
+        self.myPosts.append(test_post2)
+        
+        DispatchQueue.main.async {
+            self.newsFeed.reloadData()
+        }
         
         let text = UserSingleton.sharedInstance.user!.getUsername()
         welcomeLabel.text = "Welcome, \(text)"

@@ -14,3 +14,7 @@ class PostCell: UICollectionViewCell {
     @IBOutlet weak var Timestamp: UILabel!
     @IBOutlet weak var postBody: UITextView!
 }
+
+
+
+
