@@ -69,66 +69,35 @@ public class HTTPRequestHandler {
         task.resume()
     }
     
-    public class func getPosts(startIndex: Int, groupSize: Int, subsOnly: Bool, successHandler: @escaping (_ lastGroup: Bool,_ response: NSArray) -> Void)->Void {
-        let query: String = rawQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        let url = URL(string: "https://www.uvm.edu/~\(Constants.ZOO_NAME)/rest/searchClubs.php?startIndex=\(startIndex)&groupSize=\(groupSize)&subsOnly=\(subsOnly)")
-        
-        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-            
-            if let data = data {
-                do {
-                    // Convert the data to JSON
-                    let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
-                    
-                    if let json = jsonSerialized, let results = json["clubs"] as? NSArray {
-                        let lastGroup = json["lastGroup"] as! Bool
-                        print(results)
-                        //end = explanation as! String
-                        successHandler(lastGroup, results)
-                    } else {
-                        print("not serialized")
-                    }
-                }  catch let error as NSError {
-                    print(error.localizedDescription)
-                }
-            } else if let error = error {
-                print(error.localizedDescription)
-            }
-        }
-        task.resume()
-    }
+//    public class func getPosts(startIndex: Int, groupSize: Int, subsOnly: Bool, successHandler: @escaping (_ lastGroup: Bool,_ response: NSArray) -> Void)->Void {
+//        let query: String = rawQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+//        let url = URL(string: "https://www.uvm.edu/~\(Constants.ZOO_NAME)/rest/searchClubs.php?startIndex=\(startIndex)&groupSize=\(groupSize)&subsOnly=\(subsOnly)")
+//        
+//        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+//            
+//            if let data = data {
+//                do {
+//                    // Convert the data to JSON
+//                    let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+//                    
+//                    if let json = jsonSerialized, let results = json["clubs"] as? NSArray {
+//                        let lastGroup = json["lastGroup"] as! Bool
+//                        print(results)
+//                        //end = explanation as! String
+//                        successHandler(lastGroup, results)
+//                    } else {
+//                        print("not serialized")
+//                    }
+//                }  catch let error as NSError {
+//                    print(error.localizedDescription)
+//                }
+//            } else if let error = error {
+//                print(error.localizedDescription)
+//            }
+//        }
+//        task.resume()
+//    }
     
-    public class func searchClubs(startIndex: Int, groupSize: Int, rawQuery: String, successHandler: @escaping (_ lastGroup: Bool,_ response: NSArray) -> Void)->Void {
-        let query: String = rawQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        let url = URL(string: "https://www.uvm.edu/~\(Constants.ZOO_NAME)/rest/searchClubs.php?startIndex=\(startIndex)&groupSize=\(groupSize)&query=\(query)")
-        
-        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-            
-            if let data = data {
-                do {
-                    // Convert the data to JSON
-                    let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
-                    
-                    if let json = jsonSerialized, let results = json["clubs"] as? NSArray {
-                        let lastGroup = json["lastGroup"] as! Bool
-                        print(results)
-                        //end = explanation as! String
-                        successHandler(lastGroup, results)
-                    } else {
-                        print("not serialized")
-                    }
-                }  catch let error as NSError {
-                    print(error.localizedDescription)
-                }
-            } else if let error = error {
-                print(error.localizedDescription)
-            }
-        }
-        task.resume()
-    }
-    
-    
-
     
     public class func makeGetRequest(successHandler: @escaping (_ response: String) -> Void)->Void {
         let url = URL(string: "https://www.uvm.edu/~\(Constants.ZOO_NAME)/rest/example.php?net_id=abarson")
