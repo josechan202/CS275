@@ -13,8 +13,12 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
     var subscriptionStrings = [String]()
     
     var myPosts = [Post]()
-    
     var subsOnly = true
+    var groupSize = 10
+    var lastGroup = false
+    var currentTime = Double()
+    
+    var refreshControl: UIRefreshControl = UIRefreshControl()
     
     @IBOutlet weak var homeLabel: UILabel!
     
@@ -25,7 +29,13 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
     
     
     @IBAction func toggleSubsTab(_ sender: UISegmentedControl) {
-        // TODO: Code this.
+        if sender.selectedSegmentIndex == 0 {
+            self.subsOnly = true
+            self.refreshNewsFeed()
+        } else if sender.selectedSegmentIndex == 1 {
+            self.subsOnly = false
+            self.refreshNewsFeed()
+        }
     }
     
     @IBAction func doLogout(_ sender: Any) {
@@ -123,6 +133,40 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
         return cell
     }
     
+    // For scrolling pagination
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let lastItem = myPosts.count - 1
+        if indexPath.row == lastItem {
+            if !self.lastGroup {
+                self.loadMoreData()
+            }
+        }
+    }
+    
+    func loadMoreData() {
+        let username = UserSingleton.sharedInstance.user!.getUsername()
+        HTTPRequestHandler.getPosts(username: username, startIndex: self.myPosts.count, groupSize: self.groupSize, subsOnly: self.subsOnly, currentTime: self.currentTime) {
+            (lastGroup, results) in
+            self.lastGroup = lastGroup
+            for aPost in results {
+                let postObj = aPost as! [String : Any]
+                let post = Post(post_id: postObj["post_id"] as! String, clubname: postObj["clubname"] as! String, seconds: postObj["timestamp"] as! Int, body: postObj["body"] as! String)
+                self.myPosts.append(post)
+            }
+            DispatchQueue.main.async {
+                self.newsFeed.reloadData()
+            }
+        }
+    }
+    
+    func refreshNewsFeed() {
+        self.myPosts.removeAll()
+        let t = Date().timeIntervalSince1970
+        self.currentTime = round(t)
+        self.loadMoreData()
+        refreshControl.endRefreshing()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -131,23 +175,40 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
         newsFeed.delegate = self
         newsFeed.dataSource = self
         
-        self.myPosts.removeAll()
+        refreshControl.addTarget(self, action: #selector(HomeVC.refreshNewsFeed), for: UIControlEvents.valueChanged)
         
-        let test_post = Post(post_id: "1", clubname: "Volleyball", seconds: 1512095949, body: "TOP SECRET: This message will self destruct 10 minutes.")
-        self.myPosts.append(test_post)
-        let test_post2 = Post(post_id: "1", clubname: "Chess", seconds: 1512096783, body: "Chess is lame, but we play it anyway.")
-        self.myPosts.append(test_post2)
-        
-        DispatchQueue.main.async {
-            self.newsFeed.reloadData()
+        if #available(iOS 10.0, *) {
+            newsFeed.refreshControl = refreshControl
+        } else {
+            newsFeed.addSubview(refreshControl)
         }
         
-        let text = UserSingleton.sharedInstance.user!.getUsername()
-        welcomeLabel.text = "Welcome, \(text)"
+        self.myPosts.removeAll()
         
+        let username = UserSingleton.sharedInstance.user!.getUsername()
+        welcomeLabel.text = "Welcome, \(username)"
         
+        let t = Date().timeIntervalSince1970
+        self.currentTime = round(t)
         
-
+//        let test_post = Post(post_id: "1", clubname: "Volleyball", seconds: 1512095949, body: "TOP SECRET: This message will self destruct 10 minutes.")
+//        self.myPosts.append(test_post)
+//        let test_post2 = Post(post_id: "1", clubname: "Chess", seconds: 1512096783, body: "Chess is lame, but we play it anyway.")
+//        self.myPosts.append(test_post2)
+        
+        HTTPRequestHandler.getPosts(username: username, startIndex: 0, groupSize: self.groupSize, subsOnly: self.subsOnly, currentTime: self.currentTime) {
+            (lastGroup, results) in
+            self.lastGroup = lastGroup
+            self.myPosts.removeAll()
+            for aPost in results {
+                let postObj = aPost as! [String : Any]
+                let post = Post(post_id: postObj["post_id"] as! String, clubname: postObj["clubname"] as! String, seconds: postObj["timestamp"] as! Int, body: postObj["body"] as! String)
+                self.myPosts.append(post)
+            }
+            DispatchQueue.main.async {
+                self.newsFeed.reloadData()
+            }
+        }
     }
     
     
