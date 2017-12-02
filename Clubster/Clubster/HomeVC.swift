@@ -14,12 +14,19 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
     
     var myPosts = [Post]()
     
+    var subsOnly = true
+    
     @IBOutlet weak var homeLabel: UILabel!
     
     @IBOutlet weak var subList: UITableView!
     @IBOutlet weak var welcomeLabel: UILabel!
     
     @IBOutlet weak var newsFeed: UICollectionView!
+    
+    
+    @IBAction func toggleSubsTab(_ sender: UISegmentedControl) {
+        // TODO: Code this.
+    }
     
     @IBAction func doLogout(_ sender: Any) {
         let appDelegate =
