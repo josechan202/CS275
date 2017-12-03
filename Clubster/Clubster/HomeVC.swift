@@ -206,7 +206,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
             self.myPosts.removeAll()
             for aPost in results {
                 let postObj = aPost as! [String : Any]
-                let post = Post(post_id: postObj["post_id"] as! String, clubname: postObj["clubname"] as! String, seconds: postObj["timestamp"] as! String, body: postObj["body"] as! String)
+                let post = Post(post_id: postObj["notification_id"] as! String, clubname: postObj["clubname"] as! String, seconds: postObj["timestamp"] as! String, body: postObj["body"] as! String)
                 self.myPosts.append(post)
             }
             DispatchQueue.main.async {

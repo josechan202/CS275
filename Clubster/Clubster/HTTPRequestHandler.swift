@@ -70,8 +70,10 @@ public class HTTPRequestHandler {
     }
     
     public class func getPosts(username: String, startIndex: Int, groupSize: Int, subsOnly: Bool, currentTime: String, successHandler: @escaping (_ lastGroup: Bool,_ response: NSArray) -> Void)->Void {
-        let url = URL(string: "https://abarson.w3.uvm.edu/fetch_notifications.py?time=\(currentTime)&startIndex=\(startIndex)&groupSize=\(groupSize)&username=\(username)&subsOnly=\(subsOnly)")
-        
+
+        let timestamp: String = currentTime.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        let url = URL(string: "https://abarson.w3.uvm.edu/fetch_notifications.py?time=\(timestamp)&startIndex=\(startIndex)&groupSize=\(groupSize)&username=\(username)&subsOnly=\(subsOnly)")
+
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             
             if let data = data {
@@ -79,7 +81,7 @@ public class HTTPRequestHandler {
                     // Convert the data to JSON
                     let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
                     
-                    if let json = jsonSerialized, let results = json["posts"] as? NSArray {
+                    if let json = jsonSerialized, let results = json["notifications"] as? NSArray {
                         let lastGroup = json["lastGroup"] as! Bool
                         print(results)
                         //end = explanation as! String
