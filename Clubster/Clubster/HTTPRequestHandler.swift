@@ -69,8 +69,8 @@ public class HTTPRequestHandler {
         task.resume()
     }
     
-    public class func getPosts(username: String, startIndex: Int, groupSize: Int, subsOnly: Bool, currentTime: Double, successHandler: @escaping (_ lastGroup: Bool,_ response: NSArray) -> Void)->Void {
-        let url = URL(string: "https://www.uvm.edu/~\(Constants.ZOO_NAME)/rest/getPosts.php?username=\(username)&startIndex=\(startIndex)&groupSize=\(groupSize)&subsOnly=\(subsOnly)&currentTime=\(currentTime)")
+    public class func getPosts(username: String, startIndex: Int, groupSize: Int, subsOnly: Bool, currentTime: String, successHandler: @escaping (_ lastGroup: Bool,_ response: NSArray) -> Void)->Void {
+        let url = URL(string: "https://abarson.w3.uvm.edu/fetch_notifications.py?time=\(currentTime)&startIndex=\(startIndex)&groupSize=\(groupSize)&username=\(username)&subsOnly=\(subsOnly)")
         
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             

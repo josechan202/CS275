@@ -16,7 +16,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
     var subsOnly = true
     var groupSize = 10
     var lastGroup = false
-    var currentTime = Double()
+    var currentTime = String()
     
     var refreshControl: UIRefreshControl = UIRefreshControl()
     
@@ -150,7 +150,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
             self.lastGroup = lastGroup
             for aPost in results {
                 let postObj = aPost as! [String : Any]
-                let post = Post(post_id: postObj["post_id"] as! String, clubname: postObj["clubname"] as! String, seconds: postObj["timestamp"] as! Int, body: postObj["body"] as! String)
+                let post = Post(post_id: postObj["post_id"] as! String, clubname: postObj["clubname"] as! String, seconds: postObj["timestamp"] as! String, body: postObj["body"] as! String)
                 self.myPosts.append(post)
             }
             DispatchQueue.main.async {
@@ -161,8 +161,10 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
     
     func refreshNewsFeed() {
         self.myPosts.removeAll()
-        let t = Date().timeIntervalSince1970
-        self.currentTime = round(t)
+        let t = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        self.currentTime = formatter.string(from: t)
         self.loadMoreData()
         refreshControl.endRefreshing()
     }
@@ -188,8 +190,10 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
         let username = UserSingleton.sharedInstance.user!.getUsername()
         welcomeLabel.text = "Welcome, \(username)"
         
-        let t = Date().timeIntervalSince1970
-        self.currentTime = round(t)
+        let t = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        self.currentTime = formatter.string(from: t)
         
 //        let test_post = Post(post_id: "1", clubname: "Volleyball", seconds: 1512095949, body: "TOP SECRET: This message will self destruct 10 minutes.")
 //        self.myPosts.append(test_post)
@@ -202,7 +206,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
             self.myPosts.removeAll()
             for aPost in results {
                 let postObj = aPost as! [String : Any]
-                let post = Post(post_id: postObj["post_id"] as! String, clubname: postObj["clubname"] as! String, seconds: postObj["timestamp"] as! Int, body: postObj["body"] as! String)
+                let post = Post(post_id: postObj["post_id"] as! String, clubname: postObj["clubname"] as! String, seconds: postObj["timestamp"] as! String, body: postObj["body"] as! String)
                 self.myPosts.append(post)
             }
             DispatchQueue.main.async {

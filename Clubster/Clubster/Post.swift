@@ -14,10 +14,11 @@ public class Post {
     public var clubname: String?
     public var timestamp: Date?
     public var body: String?
-    init(post_id: String, clubname: String, seconds: Int, body: String) {
+    init(post_id: String, clubname: String, seconds: String, body: String) {
         self.post_id = post_id
         self.clubname = clubname
-        self.timestamp = Date(timeIntervalSince1970: TimeInterval(seconds)) // format will be "MMM d, h:mm a"
+        let formatter = DateFormatter()
+        self.timestamp = formatter.date(from: seconds) // format will be "MMM d, h:mm a"
         self.body = body
     }
 }
