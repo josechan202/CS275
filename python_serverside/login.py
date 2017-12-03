@@ -11,7 +11,7 @@ def application(environ, start_response):
         if not err:
             err = "no data available"
         # use of the start_response function to send text/html data about an error
-        start_response("500 database error", [('Content-Type', 'text/html')])
+        start_response("500 database error", [('Content_Type','application/json')])
         # the text/html payload
         return "Could not connect to database"
     if environ["REQUEST_METHOD"]== 'POST':

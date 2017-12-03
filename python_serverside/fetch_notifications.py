@@ -19,8 +19,7 @@ def application(environ, start_response):
             username   = ""
             startIndex = par['startIndex'][0]
             groupSize  = par['groupSize'][0]
-            subsOnly   = bool(par['subsOnly'])
-            query = ""
+            subsOnly   = str(par['subsOnly'][0])
             try:
                 username = par['username'][0]
             except:
@@ -32,10 +31,12 @@ def application(environ, start_response):
             return json.dumps({"success": False, "message": "Missing arguments"})
 
         cursor = cnx.cursor()
-
-        sql = "select notification_id, Notification.club_id, post_body, time from Subscriptions, Notification where Subscriptions.username = %s AND Subscriptions.club_id = Notification.club_id ORDER BY time DESC LIMIT %s, %s;"
-        rows_count = 0
-        rows_count = cursor.execute(sql, (username, int(startIndex), int(groupSize)))
+        if subsOnly.lower() == "true":
+            sql = "select notification_id, Notification.club_id, post_body, time from Subscriptions, Notification where Subscriptions.username = %s AND Subscriptions.club_id = Notification.club_id ORDER BY time DESC LIMIT %s, %s;"
+            rows_count = cursor.execute(sql, (username, int(startIndex), int(groupSize)))
+        else:
+            sql = "select notification_id, club_id, post_body, time from Notification ORDER BY time DESC LIMIT %s, %s;"
+            rows_count = cursor.execute(sql, (int(startIndex), int(groupSize)))
         if rows_count == 0:
             pass
 
@@ -43,18 +44,18 @@ def application(environ, start_response):
         notif_info = []
         for i in range(rows_count):
             
-            #n = {}
-            #n["notification_id"] = str(notifs[i][0])
-            #n["club_id"] = str(notifs[i][1])
-            #n["post_body"] = str(notifs[i][2])
-            #n["time"] = notifs[i][3]
+            n = {}
+            n["notification_id"] = str(notifs[i][0])
+            n["club_id"] = str(notifs[i][1])
+            n["post_body"] = str(notifs[i][2])
+            n["time"] = str(notifs[i][3])
             
-            notif_info.append("hey")
+            notif_info.append(n)
         start_response("400 argument error", [('Content-Type', 'text/html')])
         lastGroup = False
         if (rows_count < int(groupSize)):
             lastGroup = True
-        return json.dumps({"lastGroup": lastGroup, "notifications": notifs[0][1]})
+        return json.dumps({"lastGroup": lastGroup, "notifications": notif_info})
         
     start_response("400 error",[('Content-Type','text/html')])
     return ""

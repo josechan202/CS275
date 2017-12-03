@@ -24,7 +24,7 @@ def application(environ, start_response):
             except:
                 pass
         except:
-            start_response("400 argument error", [('Content-Type', 'text/html')])
+            start_response("400 argument error", [('Content_Type','application/json')])
             return json.dumps({"success": False, "message": "Missing arguments"})
 
         cursor = cnx.cursor()
@@ -42,7 +42,7 @@ def application(environ, start_response):
             c["club_id"] = str(clubs[i][0])
             c["clubname"] = clubs[i][1]
             club_info.append(c)
-        start_response("400 argument error", [('Content-Type', 'text/html')])
+        start_response("200 success", [('Content_Type','application/json')])
         lastGroup = False
         if (rows_count < int(groupSize)):
             lastGroup = True

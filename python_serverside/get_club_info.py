@@ -28,9 +28,6 @@ def application(environ, start_response):
             fetched_club = cursor.fetchall()[0]
             cursor.close()
             cnx.close()
-            '''
-            return json.dumps({"success":True, "club_id": fetched_club[0]})
-            '''
             return json.dumps({"success":True, "club_id":fetched_club[0], "clubname":fetched_club[1],"clubDescription":fetched_club[2],"clubInfo":fetched_club[3],"bannerURL":fetched_club[4]})
             
             
