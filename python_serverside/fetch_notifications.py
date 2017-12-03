@@ -18,6 +18,7 @@ def application(environ, start_response):
             par = urlparse.parse_qs(environ['QUERY_STRING'])
             username   = ""
             startIndex = par['startIndex'][0]
+            time = par['time'][0]
             groupSize  = par['groupSize'][0]
             subsOnly   = str(par['subsOnly'][0])
             try:
@@ -32,11 +33,11 @@ def application(environ, start_response):
 
         cursor = cnx.cursor()
         if subsOnly.lower() == "true":
-            sql = "select notification_id, Notification.club_id, post_body, time from Subscriptions, Notification where Subscriptions.username = %s AND Subscriptions.club_id = Notification.club_id ORDER BY time DESC LIMIT %s, %s;"
-            rows_count = cursor.execute(sql, (username, int(startIndex), int(groupSize)))
+            sql = "select notification_id, Notification.club_id, post_body, time from Subscriptions, Notification where Subscriptions.username = %s AND Subscriptions.club_id = Notification.club_id AND time < %s ORDER BY time DESC LIMIT %s, %s;"
+            rows_count = cursor.execute(sql, (username, time, int(startIndex), int(groupSize)))
         else:
-            sql = "select notification_id, club_id, post_body, time from Notification ORDER BY time DESC LIMIT %s, %s;"
-            rows_count = cursor.execute(sql, (int(startIndex), int(groupSize)))
+            sql = "select notification_id, club_id, post_body, time from Notification where time < %s ORDER BY time DESC LIMIT %s, %s"
+            rows_count = cursor.execute(sql, (time, int(startIndex), int(groupSize)))
         if rows_count == 0:
             pass
 
