@@ -24,10 +24,10 @@ def application(environ, start_response):
                 username = par['username'][0]
             except:
                 if subsOnly == True:
-                    start_response("400 argument error", [('Content-Type', 'text/html')])
+                    start_response("400 argument error", [('Content_Type','application/json')])
                     return json.dumps({"success": False, "message": "Missing arguments"})
         except:
-            start_response("400 argument error", [('Content-Type', 'text/html')])
+            start_response("400 argument error", [('Content_Type','application/json')])
             return json.dumps({"success": False, "message": "Missing arguments"})
 
         cursor = cnx.cursor()
@@ -51,7 +51,7 @@ def application(environ, start_response):
             n["time"] = str(notifs[i][3])
             
             notif_info.append(n)
-        start_response("400 argument error", [('Content-Type', 'text/html')])
+        start_response("201 success", [('Content_Type','application/json')])
         lastGroup = False
         if (rows_count < int(groupSize)):
             lastGroup = True
