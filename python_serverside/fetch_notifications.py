@@ -36,7 +36,7 @@ def application(environ, start_response):
             sql = "select notification_id, Club.clubname, post_body, time from Subscriptions, Notification, Club where Subscriptions.username = %s AND Subscriptions.club_id = Notification.club_id AND time < %s AND Club.club_id = Notification.club_id ORDER BY time DESC LIMIT %s, %s;"
             rows_count = cursor.execute(sql, (username, time, int(startIndex), int(groupSize)))
         else:
-            sql = "select notification_id, Club.clubname, post_body, time from Notification, Club where time < %s AND AND Club.club_id = Notification.club_id ORDER BY time DESC LIMIT %s, %s"
+            sql = "select notification_id, Club.clubname, post_body, time from Notification, Club where time < %s AND Club.club_id = Notification.club_id ORDER BY time DESC LIMIT %s, %s"
             rows_count = cursor.execute(sql, (time, int(startIndex), int(groupSize)))
         if rows_count == 0:
             pass
