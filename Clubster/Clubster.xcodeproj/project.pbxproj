@@ -34,6 +34,7 @@
 		743EB13B1FA6832C00BC38B8 /* myAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB13A1FA6832C00BC38B8 /* myAccountVC.swift */; };
 		743EB13D1FA685F100BC38B8 /* clubsImMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */; };
 		79A3125F1FD0D4CC008E10C1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3125E1FD0D4CC008E10C1 /* Post.swift */; };
+		79A7DED71FD4EB4B009CD070 /* AdminCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A7DED61FD4EB4B009CD070 /* AdminCell.swift */; };
 		BF6E8F391FCDC7A0008CF2A6 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6E8F381FCDC7A0008CF2A6 /* LoginTextField.swift */; };
 		D6051FD31FA7E0E700739011 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6051FD21FA7E0E700739011 /* SignUpVC.swift */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,7 @@
 		743EB13A1FA6832C00BC38B8 /* myAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myAccountVC.swift; sourceTree = "<group>"; };
 		743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = clubsImMemberVC.swift; sourceTree = "<group>"; };
 		79A3125E1FD0D4CC008E10C1 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		79A7DED61FD4EB4B009CD070 /* AdminCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminCell.swift; sourceTree = "<group>"; };
 		BF6E8F381FCDC7A0008CF2A6 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		D6051FD21FA7E0E700739011 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +132,7 @@
 				743EB1361FA6825700BC38B8 /* nearbyEventsVC.swift */,
 				743EB1381FA682BD00BC38B8 /* messagesVC.swift */,
 				743EB13A1FA6832C00BC38B8 /* myAccountVC.swift */,
+				79A7DED61FD4EB4B009CD070 /* AdminCell.swift */,
 				743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */,
 				0D61A9471FB2626100B9969B /* AllClubsVC.swift */,
 				47F4E3631FD0B256003F1244 /* PostCell.swift */,
@@ -226,6 +229,7 @@
 				0DD204F91F8D5508003A5C19 /* ClubPageVC.swift in Sources */,
 				BF6E8F391FCDC7A0008CF2A6 /* LoginTextField.swift in Sources */,
 				743074E41FA651710061B8AC /* clubsIRunVC.swift in Sources */,
+				79A7DED71FD4EB4B009CD070 /* AdminCell.swift in Sources */,
 				743EB1371FA6825700BC38B8 /* nearbyEventsVC.swift in Sources */,
 				0DA6308A1F9D99DB00EA3AFC /* User.swift in Sources */,
 				47A1EDC91FCDE69B00EBC691 /* CustomTableViewCell.swift in Sources */,

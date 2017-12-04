@@ -8,7 +8,7 @@
 
 import UIKit
 
-class clubsIRunVC: UIViewController, UITableViewDataSource {
+class clubsIRunVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     var clubAdminStrings = [String]()
     let SgaEmail = "sga@uvm.edu"
@@ -20,10 +20,10 @@ class clubsIRunVC: UIViewController, UITableViewDataSource {
     @IBOutlet weak var contactSgaButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        adminTable.delegate = self
+        adminTable.dataSource = self
         
-        //initalize page label
-        pageLabel.text = "Clubs I Run"
-        pageLabel.center.x = self.view.center.x
+        
         
         //initialize table
         adminTable.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
