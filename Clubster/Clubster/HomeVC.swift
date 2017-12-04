@@ -20,6 +20,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
     
     var refreshControl: UIRefreshControl = UIRefreshControl()
     
+
     @IBOutlet weak var homeLabel: UILabel!
     
     @IBOutlet weak var subList: UITableView!
