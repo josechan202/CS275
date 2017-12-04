@@ -14,7 +14,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
     
     var myPosts = [Post]()
     var subsOnly = true
-    var groupSize = 10
+    var groupSize = 4
     var lastGroup = false
     var currentTime = String()
     
@@ -100,7 +100,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
         let nextVC =
             storyboard?.instantiateViewController(withIdentifier:
                 "ClubPageVC") as! ClubPageVC
-        nextVC.clubname = myPosts[sender.tag].clubname!
+        nextVC.clubname = self.myPosts[sender.tag].clubname!
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
@@ -150,7 +150,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
             self.lastGroup = lastGroup
             for aPost in results {
                 let postObj = aPost as! [String : Any]
-                let post = Post(post_id: postObj["post_id"] as! String, clubname: postObj["clubname"] as! String, seconds: postObj["timestamp"] as! String, body: postObj["body"] as! String)
+                let post = Post(post_id: postObj["notification_id"] as! String, clubname: postObj["clubname"] as! String, seconds: postObj["time"] as! String, body: postObj["post_body"] as! String)
                 self.myPosts.append(post)
             }
             DispatchQueue.main.async {
@@ -206,7 +206,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
             self.myPosts.removeAll()
             for aPost in results {
                 let postObj = aPost as! [String : Any]
-                let post = Post(post_id: postObj["notification_id"] as! String, clubname: postObj["clubname"] as! String, seconds: postObj["timestamp"] as! String, body: postObj["body"] as! String)
+                let post = Post(post_id: postObj["notification_id"] as! String, clubname: postObj["clubname"] as! String, seconds: postObj["time"] as! String, body: postObj["post_body"] as! String)
                 self.myPosts.append(post)
             }
             DispatchQueue.main.async {

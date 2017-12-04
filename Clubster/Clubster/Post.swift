@@ -18,6 +18,7 @@ public class Post {
         self.post_id = post_id
         self.clubname = clubname
         let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         self.timestamp = formatter.date(from: seconds) // format will be "MMM d, h:mm a"
         self.body = body
     }
