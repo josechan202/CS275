@@ -11,7 +11,7 @@ import Foundation
 public class HTTPRequestHandler {
     
     public class func getClubs(successHandler: @escaping (_ response: NSArray) -> Void)->Void {
-        let url = URL(string: "https://www.uvm.edu/~\(Constants.ZOO_NAME)/rest/clubexample.php")
+        let url = URL(string: "https://www.uvm.edu/~abarson/rest/clubexample.php")
         
         var end = ""
         
@@ -42,7 +42,7 @@ public class HTTPRequestHandler {
     
     public class func searchClubs(startIndex: Int, groupSize: Int, rawQuery: String, successHandler: @escaping (_ lastGroup: Bool,_ response: NSArray) -> Void)->Void {
         let query: String = rawQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        let url = URL(string: "https://www.uvm.edu/~\(Constants.ZOO_NAME)/rest/searchClubs.php?startIndex=\(startIndex)&groupSize=\(groupSize)&query=\(query)")
+        let url = URL(string: "https://\(Constants.ZOO_NAME).w3.uvm.edu/search_clubs.py?startIndex=\(startIndex)&groupSize=\(groupSize)&query=\(query)")
         
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             
@@ -69,8 +69,41 @@ public class HTTPRequestHandler {
         task.resume()
     }
     
+    public class func getPosts(username: String, startIndex: Int, groupSize: Int, subsOnly: Bool, currentTime: String, successHandler: @escaping (_ lastGroup: Bool,_ response: NSArray) -> Void)->Void {
+
+        let timestamp: String = currentTime.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        let url = URL(string: "https://\(Constants.ZOO_NAME).w3.uvm.edu/fetch_notifications.py?time=\(timestamp)&startIndex=\(startIndex)&groupSize=\(groupSize)&username=\(username)&subsOnly=\(subsOnly)")
+        
+        print("getPosts: requested url = https://\(Constants.ZOO_NAME).w3.uvm.edu/fetch_notifications.py?time=\(timestamp)&startIndex=\(startIndex)&groupSize=\(groupSize)&username=\(username)&subsOnly=\(subsOnly)")
+        
+        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            
+            if let data = data {
+                do {
+                    // Convert the data to JSON
+                    let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+                    
+                    if let json = jsonSerialized, let results = json["notifications"] as? NSArray {
+                        let lastGroup = json["lastGroup"] as! Bool
+                        print(results)
+                        //end = explanation as! String
+                        successHandler(lastGroup, results)
+                    } else {
+                        print("not serialized")
+                    }
+                }  catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        task.resume()
+    }
+    
+    
     public class func makeGetRequest(successHandler: @escaping (_ response: String) -> Void)->Void {
-        let url = URL(string: "https://www.uvm.edu/~\(Constants.ZOO_NAME)/rest/example.php?net_id=abarson")
+        let url = URL(string: "https://www.uvm.edu/~abarson/rest/example.php?net_id=abarson")
         
         var end = ""
         
@@ -101,7 +134,7 @@ public class HTTPRequestHandler {
     
     public class func login(username : String?, password : String?,
                             successHandler: @escaping (_ clubList : [String]?, _ success: Bool) -> Void)->Void {
-        let url = URL(string: "https://www.uvm.edu/~\(Constants.ZOO_NAME)/rest/login.php")!
+        let url = URL(string: "https://\(Constants.ZOO_NAME).w3.uvm.edu/login.py")!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
@@ -155,7 +188,7 @@ public class HTTPRequestHandler {
     
     
     public class func getSingleClub(clubID : String, successHandler: @escaping (_ clubname : String?, _ clubDescription: String?, _ clubInfo: String?, _ bannerURL: URL?, _ success: Bool) -> Void)->Void {
-        let url = URL(string: "https://www.uvm.edu/~\(Constants.ZOO_NAME)/rest/club.php?club_id=\(clubID)")!
+        let url = URL(string: "https://\(Constants.ZOO_NAME).w3.uvm.edu/get_club_info.py?club_id=\(clubID)")!
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
@@ -199,7 +232,7 @@ public class HTTPRequestHandler {
     
     public class func subscribe(username : String, clubID : String,
                                 successHandler: @escaping (_ success: Bool, _ message: String?) -> Void)->Void {
-        let url = URL(string: "https://www.uvm.edu/~\(Constants.ZOO_NAME)/rest/subscribe.php")!
+        let url = URL(string: "https://www.uvm.edu/~abarson/rest/subscribe.php")!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
@@ -253,7 +286,7 @@ public class HTTPRequestHandler {
     
     public class func signUp(username: String?, password : String?,
                              successHandler : @escaping (_ success : Bool, _ message : String?) -> Void) -> Void {
-        let url = URL(string: "https://www.uvm.edu/~\(Constants.ZOO_NAME)/rest/signup.php")!
+        let url = URL(string: "https://www.uvm.edu/~abarson/rest/signup.php")!
         
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")

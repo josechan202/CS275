@@ -36,9 +36,7 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     public func tableView(_ tableview: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let clubCell = tableview.dequeueReusableCell(withIdentifier: "clubCell", for: indexPath) as! CustomTableViewCell
         
-        //let clubCell = CustomTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "clubCell")
         clubCell.clubCellLabel.text = self.myClubs[indexPath.row].name
-        //clubCell.textLabel!.text = self.myClubs[indexPath.row].name
         
         clubCell.subButton.tag = indexPath.row
         clubCell.subButton.addTarget(self, action: #selector(self.subscribe), for: UIControlEvents.touchUpInside)
