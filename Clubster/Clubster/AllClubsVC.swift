@@ -28,6 +28,7 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    // gimme a head count
     public func tableView(_ tableview: UITableView, numberOfRowsInSection section: Int) -> Int {
         return(myClubs.count)
     }
@@ -203,7 +204,7 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         clubTable.dataSource = self
         searchBar.delegate = self
         
-        // Reset search parameters just in c
+        // Reset parameters
         self.query = ""
         searchBar.text = self.query
         self.myClubs.removeAll()
