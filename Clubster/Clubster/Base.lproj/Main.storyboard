@@ -614,15 +614,33 @@
             </objects>
             <point key="canvasLocation" x="4327.536231884058" y="143.47826086956522"/>
         </scene>
-        <!--Edit ClubVC-->
+        <!--Nearby EventsVC-->
         <scene sceneID="wgi-Gs-FGg">
             <objects>
-                <viewController storyboardIdentifier="nearbyEventsVC" id="Gxy-Ut-Z3f" customClass="EditClubVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="nearbyEventsVC" id="Gxy-Ut-Z3f" customClass="nearbyEventsVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="692-TP-hbB"/>
                         <viewControllerLayoutGuide type="bottom" id="mAh-JT-GIg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zu6-Xb-vHx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.97325111040000001" green="0.97325111040000001" blue="0.97325111040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q6q-Vl-Bu4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7571" y="-634"/>
+        </scene>
+        <!--Edit ClubsVC-->
+        <scene sceneID="iIM-f4-F3C">
+            <objects>
+                <viewController storyboardIdentifier="EditClubsVC" id="VaR-hK-0OF" customClass="EditClubsVC" customModule="Clubster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wky-oG-DOM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vjd-Bu-eah"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eSR-Lp-Gso">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -689,6 +707,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90674571699999995" green="0.90674571699999995" blue="0.90674571699999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Finish"/>
+                                <connections>
+                                    <action selector="submit:" destination="VaR-hK-0OF" eventType="touchUpInside" id="NbZ-IJ-bHf"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Banner Image:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAZ-MC-NkO">
                                 <rect key="frame" x="20" y="233" width="111" height="21"/>
@@ -707,10 +728,22 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97325111040000001" green="0.97325111040000001" blue="0.97325111040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
+                    <connections>
+                        <outlet property="bannerField" destination="fbl-gn-GHd" id="KFg-kj-5fR"/>
+                        <outlet property="bannerLabel" destination="BAZ-MC-NkO" id="hvJ-Qe-50f"/>
+                        <outlet property="clubNameField" destination="r87-Qv-gdr" id="0HC-ui-o6t"/>
+                        <outlet property="clubNameLabel" destination="p46-Dh-Lx5" id="4U7-YQ-a2f"/>
+                        <outlet property="descriptionField" destination="eYG-Fn-KOM" id="HYB-dw-uRe"/>
+                        <outlet property="descriptionLabel" destination="eUR-Go-Vwl" id="NIG-Bl-Xqu"/>
+                        <outlet property="infoField" destination="Exs-Oo-m6W" id="cFE-nq-vnM"/>
+                        <outlet property="infoLabel" destination="4lw-Wh-qjR" id="Hkx-c0-O6i"/>
+                        <outlet property="pageLabel" destination="KMW-fm-XWN" id="Q8J-tb-Czp"/>
+                        <outlet property="submitButton" destination="Yds-O1-SK6" id="Z23-cc-GXh"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q6q-Vl-Bu4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adu-ii-Y1W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6463.7681159420299" y="105.97826086956522"/>
+            <point key="canvasLocation" x="6545" y="106"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -1044,6 +1077,24 @@
             </objects>
             <point key="canvasLocation" x="3292" y="917.99100449775119"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="ij5-K4-uan">
+            <objects>
+                <viewController id="I5k-dg-hd1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="68e-rF-JvV"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xa2-6l-GFN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KCf-70-WYS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ORa-ED-E2K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4747" y="1060"/>
+        </scene>
         <!--Custom Tab Bar Controller-->
         <scene sceneID="pvC-Gd-0dz">
             <objects>
@@ -1246,7 +1297,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="GlB-F2-rZc"/>
-        <segue reference="YAd-nt-vip"/>
+        <segue reference="a9T-pC-FJ1"/>
         <segue reference="zNb-Ft-Aij"/>
     </inferredMetricsTieBreakers>
 </document>

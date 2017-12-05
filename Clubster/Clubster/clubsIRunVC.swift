@@ -107,7 +107,7 @@ class clubsIRunVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
         let nextVC =
             self.storyboard?.instantiateViewController(withIdentifier:
-                "EditClubVC") as! EditClubVC
+                "EditClubsVC") as! EditClubsVC
         nextVC.clubname = myClubs[sender.tag].name!
         self.navigationController?.pushViewController(nextVC, animated: true)
         

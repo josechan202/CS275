@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditClubVC: UIViewController {
+class nearbyEventsVC: UIViewController {
     
     var clubname: String?
 
