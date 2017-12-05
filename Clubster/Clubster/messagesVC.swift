@@ -9,7 +9,20 @@
 import UIKit
 
 class messagesVC: UIViewController {
+    var clubname: String?
+    
+    @IBOutlet weak var clubLabel: UILabel!
 
+    @IBOutlet weak var clubNameHere: UILabel!
+    
+    @IBOutlet weak var messageLabel: UILabel!
+    
+    @IBOutlet weak var messageBody: UITextView!
+    
+    @IBAction func publishButton(_ sender: Any) {
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
