@@ -46,7 +46,8 @@ class clubsIRunVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
         
         // Since we just reset the above parameters, this function will return the first 10 results of ALL the clubs in the db.
-        HTTPRequestHandler.searchClubs(startIndex: 0, groupSize: self.groupSize, rawQuery: self.query) {
+        let myUsername = UserSingleton.sharedInstance.user!.getUsername()
+        HTTPRequestHandler.searchAdminClubs(username: myUsername, startIndex: 0, groupSize: self.groupSize, rawQuery: self.query) {
             (lastGroup, results) in
             self.lastGroup = lastGroup
             self.myClubs.removeAll()
@@ -125,7 +126,8 @@ class clubsIRunVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     // New search every time they type
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.query = searchBar.text!
-        HTTPRequestHandler.searchClubs(startIndex: 0, groupSize: self.groupSize, rawQuery: self.query) {
+        let myUsername = UserSingleton.sharedInstance.user!.getUsername()
+        HTTPRequestHandler.searchAdminClubs(username: myUsername, startIndex: 0, groupSize: self.groupSize, rawQuery: self.query) {
             (lastGroup, results) in
             self.lastGroup = lastGroup
             self.myClubs.removeAll()
@@ -147,7 +149,8 @@ class clubsIRunVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     }
     
     func loadMoreData() {
-        HTTPRequestHandler.searchClubs(startIndex: myClubs.count, groupSize: self.groupSize, rawQuery: self.query) {
+        let myUsername = UserSingleton.sharedInstance.user!.getUsername()
+        HTTPRequestHandler.searchAdminClubs(username: myUsername, startIndex: myClubs.count, groupSize: self.groupSize, rawQuery: self.query) {
             (lastGroup, results) in
             self.lastGroup = lastGroup
             for aClub in results {

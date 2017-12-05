@@ -11,17 +11,14 @@ import UIKit
 class EditClubsVC: UIViewController {
     
     var clubname: String?
-    
+    var clubID = String()
+    var banner: URL?
     
     @IBOutlet weak var pageLabel: UILabel!
 
     @IBOutlet weak var clubNameLabel: UILabel!
     
     @IBOutlet weak var clubNameField: UITextField!
-    
-    @IBOutlet weak var bannerLabel: UILabel!
-    
-    @IBOutlet weak var bannerField: UITextField!
     
     @IBOutlet weak var descriptionLabel: UILabel!
     
@@ -40,8 +37,24 @@ class EditClubsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.clubNameField.text = self.clubname
+        self.clubID = Configuration.REVERSE_CLUB_MAP[self.clubname!]!
+        
+        HTTPRequestHandler.getSingleClub(clubID: clubID) {
+            ( clubname, clubDescription, clubInfo, bannerURL, success ) in
+            if (success) {
+                DispatchQueue.main.async {
+                    //self.clubname = clubname!
+                    self.descriptionField.text = clubDescription!
+                    self.infoField.text = clubInfo!
+                    self.banner = bannerURL
+                }
+                
+            } else {
+                print("Pretty bad error on the edit club page.")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

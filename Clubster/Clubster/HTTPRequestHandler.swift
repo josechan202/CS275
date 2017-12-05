@@ -69,6 +69,37 @@ public class HTTPRequestHandler {
         task.resume()
     }
     
+    public class func searchAdminClubs(username: String, startIndex: Int, groupSize: Int, rawQuery: String, successHandler: @escaping (_ lastGroup: Bool,_ response: NSArray) -> Void)->Void {
+        let query: String = rawQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        let url = URL(string: "https://\(Constants.ZOO_NAME).w3.uvm.edu/admin_clubs.py?username=\(username)&startIndex=\(startIndex)&groupSize=\(groupSize)&query=\(query)")
+        
+        print("searchAdminClubs: requested url = https://\(Constants.ZOO_NAME).w3.uvm.edu/admin_clubs.py?username=\(username)&startIndex=\(startIndex)&groupSize=\(groupSize)&query=\(query)")
+        
+        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            
+            if let data = data {
+                do {
+                    // Convert the data to JSON
+                    let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+                    
+                    if let json = jsonSerialized, let results = json["clubs"] as? NSArray {
+                        let lastGroup = json["lastGroup"] as! Bool
+                        print(results)
+                        //end = explanation as! String
+                        successHandler(lastGroup, results)
+                    } else {
+                        print("not serialized")
+                    }
+                }  catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        task.resume()
+    }
+    
     public class func getPosts(username: String, startIndex: Int, groupSize: Int, subsOnly: Bool, currentTime: String, successHandler: @escaping (_ lastGroup: Bool,_ response: NSArray) -> Void)->Void {
 
         let timestamp: String = currentTime.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
