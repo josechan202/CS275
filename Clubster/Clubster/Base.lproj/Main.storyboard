@@ -521,7 +521,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.34509803921568627" green="0.45882352941176469" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USERNAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaC-h4-oMc">
                                 <rect key="frame" x="63" y="284" width="124" height="12"/>
@@ -684,7 +684,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.72549019609999998" green="0.93725490199999995" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="omu-jS-nzh" firstAttribute="trailing" secondItem="MaD-yq-YXV" secondAttribute="trailing" id="1QM-yL-K4y"/>
                             <constraint firstItem="yHa-1N-2Bj" firstAttribute="baseline" secondItem="MaD-yq-YXV" secondAttribute="firstBaseline" id="8qT-HX-fbE"/>
