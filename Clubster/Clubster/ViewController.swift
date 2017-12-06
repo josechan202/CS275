@@ -26,6 +26,7 @@ class ViewController: UIViewController {
         let nextVC =
             self.storyboard?.instantiateViewController(withIdentifier:
                 "SignUpVC") as! SignUpVC
+        self.navigationController?.setNavigationBarHidden(false, animated:    true)
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
@@ -94,7 +95,6 @@ class ViewController: UIViewController {
  
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -104,13 +104,40 @@ class ViewController: UIViewController {
         passwordTextBox.placeholder = "password"
         userNameTextBox.autocorrectionType = UITextAutocorrectionType.no
         passwordTextBox.autocorrectionType = UITextAutocorrectionType.no
+        
+        
+        //to move window up when keyboard comes up
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated:    animated)
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
+    }
 }
 
