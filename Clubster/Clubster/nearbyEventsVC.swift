@@ -1,5 +1,5 @@
 //
-//  nearbyEventsVC.swift
+//  EditClubVC.swift
 //  Clubster
 //
 //  Created by  on 10/29/17.
@@ -9,6 +9,8 @@
 import UIKit
 
 class nearbyEventsVC: UIViewController {
+    
+    var clubname: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
