@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+@IBDesignable
 class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
 
     var subscriptionStrings = [String]()
