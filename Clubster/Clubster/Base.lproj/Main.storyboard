@@ -450,7 +450,6 @@
                                 <rect key="frame" x="20" y="280" width="374" height="151"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -477,6 +476,13 @@
                                     <action selector="publishButton:" destination="2wZ-zD-F6y" eventType="touchUpInside" id="rNG-mI-2SF"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="response message goes here." textAlignment="center" lineBreakMode="wordWrap" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Wwc-X7-BDJ">
+                                <rect key="frame" x="20" y="525" width="374" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.44313725490196076" green="0.69803921568627447" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.97325111040000001" green="0.97325111040000001" blue="0.97325111040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
@@ -485,6 +491,7 @@
                         <outlet property="clubNameHere" destination="RZv-Xf-sxR" id="bJm-y5-zhr"/>
                         <outlet property="messageBody" destination="bVP-nR-IHx" id="X4Y-gg-AFc"/>
                         <outlet property="messageLabel" destination="83a-sM-1Dj" id="KTk-VO-BZ8"/>
+                        <outlet property="responseMessage" destination="Wwc-X7-BDJ" id="fcT-d9-qIQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GCb-0h-e6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
