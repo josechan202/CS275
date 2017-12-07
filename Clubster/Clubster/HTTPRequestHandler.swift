@@ -430,5 +430,66 @@ public class HTTPRequestHandler {
         task.resume()
     }
     
+    public class func appleToken(appleTokenIn: String, username: String,
+                             successHandler : @escaping (_ success : Bool, _ message : String?) -> Void) -> Void {
+        let url = URL(string: "https://rkoudsi.w3.uvm.edu/apple_token.py")!
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        
+        
+        let parameterDictionary = ["appleToken": appleTokenIn, "username": username]
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
+            return
+        }
+        
+        print("inside HTTPReq... appleToken(...)")
+        
+        request.httpBody = httpBody
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print("error=\(error!)")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 201 {
+                print("statusCode should be 201, but is \(httpStatus.statusCode)")
+                print("response = \(response!)")
+            }
+            
+            let responseString = String(data: data, encoding: .utf8)
+            
+            print("responseString = \(responseString!)")
+            
+            do {
+                // Convert the data to JSON
+                let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+                
+                if let json = jsonSerialized, let success = json["success"] as? Bool {
+                    if (success){
+                        print("Token added")
+                        successHandler(true, nil)
+                    } else {
+                        let message = json["message"] as! String
+                        print("Token not added.")
+                        successHandler(false, message)
+                    }
+                } else {
+                    print("not serialized")
+                    successHandler(false, nil)
+                    
+                }
+            }  catch let error as NSError {
+                print(response)
+                successHandler(false, nil)
+            }
+            
+            
+            
+        }
+        
+        task.resume()
+    }
+    
     private init(){}
 }

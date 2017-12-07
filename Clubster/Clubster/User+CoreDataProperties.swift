@@ -18,7 +18,6 @@ extension User {
 
     @NSManaged public var username: String?
     @NSManaged public var subscriptions: NSSet?
-
 }
 
 // MARK: Generated accessors for subscriptions

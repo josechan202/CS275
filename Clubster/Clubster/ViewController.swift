@@ -62,8 +62,11 @@ class ViewController: UIViewController {
                 
                     UserSingleton.sharedInstance.setUser(userIn: user)
                 
+                    //only after login can we associate this app on this phone with this user
+                    Notifications.updateDBwithAppleToken()
                 
                     self.toHome()
+                    
                     //self.loginButton.isEnabled = true
                     do {
                         try managedContext.save()
@@ -92,9 +95,6 @@ class ViewController: UIViewController {
         
         appDelegate.window?.rootViewController = nextVC
         appDelegate.window?.makeKeyAndVisible()
-        
-        //also called after user signs up
-        Notifications().registerForPushNotifications()
     }
     
     override func viewDidLoad() {
