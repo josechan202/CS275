@@ -92,7 +92,9 @@ class ViewController: UIViewController {
         
         appDelegate.window?.rootViewController = nextVC
         appDelegate.window?.makeKeyAndVisible()
- 
+        
+        //also called after user signs up
+        Notifications().registerForPushNotifications()
     }
     
     override func viewDidLoad() {

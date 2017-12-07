@@ -105,6 +105,9 @@ class SignUpVC: UIViewController {
         
         appDelegate.window?.rootViewController = nextVC
         appDelegate.window?.makeKeyAndVisible()
+        
+        //also called after user logs in
+        Notifications().registerForPushNotifications()
     }
     
     override func viewDidLoad() {

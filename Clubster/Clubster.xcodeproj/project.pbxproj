@@ -33,6 +33,7 @@
 		743EB1391FA682BD00BC38B8 /* messagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB1381FA682BD00BC38B8 /* messagesVC.swift */; };
 		743EB13B1FA6832C00BC38B8 /* myAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB13A1FA6832C00BC38B8 /* myAccountVC.swift */; };
 		743EB13D1FA685F100BC38B8 /* clubsImMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */; };
+		7488C7571FD904530041888E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7488C7561FD904530041888E /* Notifications.swift */; };
 		79A3125F1FD0D4CC008E10C1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3125E1FD0D4CC008E10C1 /* Post.swift */; };
 		BF6E8F391FCDC7A0008CF2A6 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6E8F381FCDC7A0008CF2A6 /* LoginTextField.swift */; };
 		D6051FD31FA7E0E700739011 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6051FD21FA7E0E700739011 /* SignUpVC.swift */; };
@@ -68,6 +69,7 @@
 		743EB1381FA682BD00BC38B8 /* messagesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messagesVC.swift; sourceTree = "<group>"; };
 		743EB13A1FA6832C00BC38B8 /* myAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myAccountVC.swift; sourceTree = "<group>"; };
 		743EB13C1FA685F100BC38B8 /* clubsImMemberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = clubsImMemberVC.swift; sourceTree = "<group>"; };
+		7488C7561FD904530041888E /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		79A3125E1FD0D4CC008E10C1 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BF6E8F381FCDC7A0008CF2A6 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		D6051FD21FA7E0E700739011 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				0D61A9471FB2626100B9969B /* AllClubsVC.swift */,
 				47F4E3631FD0B256003F1244 /* PostCell.swift */,
 				79A3125E1FD0D4CC008E10C1 /* Post.swift */,
+				7488C7561FD904530041888E /* Notifications.swift */,
 			);
 			path = Clubster;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				D6051FD31FA7E0E700739011 /* SignUpVC.swift in Sources */,
 				47D26DE21FBA818F00D74F04 /* Constants.swift in Sources */,
 				0D6C25141F9A810700C891D0 /* UserSingleton.swift in Sources */,
+				7488C7571FD904530041888E /* Notifications.swift in Sources */,
 				0DD204F91F8D5508003A5C19 /* ClubPageVC.swift in Sources */,
 				BF6E8F391FCDC7A0008CF2A6 /* LoginTextField.swift in Sources */,
 				743074E41FA651710061B8AC /* clubsIRunVC.swift in Sources */,

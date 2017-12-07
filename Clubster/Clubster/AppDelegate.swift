@@ -115,8 +115,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.makeKeyAndVisible()
         }
         
-        registerForPushNotifications()
-        
         return true
     }
 
@@ -188,42 +186,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
-    // For push notifications
-    func registerForPushNotifications() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
-            (granted, error) in
-            print("Permission granted: \(granted)")
-            
-            guard granted else { return }
-            self.getNotificationSettings()
-        }
-    }
-    
-    func getNotificationSettings() {
-        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-            print("Notification settings: \(settings)")
-            guard settings.authorizationStatus == .authorized else { return }
-            UIApplication.shared.registerForRemoteNotifications()
-        }
-    }
-    
-    func application(_ application: UIApplication,
-                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let tokenParts = deviceToken.map { data -> String in
-            return String(format: "%02.2hhx", data)
-        }
-        
-        let token = tokenParts.joined()
-        
-        //This token should be stored on server as a field for every user. Needed for each notification sent from server
-        print("Device Token: \(token)")
-    }
-    
-    func application(_ application: UIApplication,
-                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Failed to register: \(error)")
-    }
-    // End Push notifications
 }
 
