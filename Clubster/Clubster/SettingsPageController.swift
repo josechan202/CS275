@@ -73,10 +73,10 @@ class SettingsPageController: UIViewController {
         navigationController?.pushViewController(nextVC, animated: true)
     }
     @IBAction func nearbyEventsButton(_ sender: Any) {
-        let nextVC =
-            storyboard?.instantiateViewController(withIdentifier:
-                "nearbyEventsVC") as! nearbyEventsVC
-        navigationController?.pushViewController(nextVC, animated: true)
+//        let nextVC =
+//            storyboard?.instantiateViewController(withIdentifier:
+//                "nearbyEventsVC") as! nearbyEventsVC
+//        navigationController?.pushViewController(nextVC, animated: true)
     }
     @IBAction func messagesButton(_ sender: Any) {
         let nextVC =
