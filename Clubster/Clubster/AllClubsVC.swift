@@ -15,19 +15,44 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     //Populate table with database info and display
     //let list = Array(Configuration.CLUB_MAP.values)
     
+    
     var groupSize = 10
     
     var query = ""
     
     var lastGroup = false
     
-    var myClubs = [TempClub]()
+    var myClubs = [TempClub]() //our data array
     
     
     @IBOutlet weak var clubTable: UITableView!
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    ////////////////////////////////////////////////////////////////////editing
+    
+    var selectedIndex = -1
+    
+        func tableView(_ clubTable: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            if(selectedIndex == indexPath.row){
+                return 120
+            } else {
+                return 50
+            }
+        }
+    @IBAction func gesture(press: UILongPressGestureRecognizer){
+        if press.state == .began{
+            ////////////here
+        }
+    }
+    /////////////////////////////////////////////////////////////////////
+    
+    
+    
+    
+
+
+
     public func tableView(_ tableview: UITableView, numberOfRowsInSection section: Int) -> Int {
         return(myClubs.count)
     }
@@ -63,6 +88,15 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     // For if they click on a cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+//        if(selectedIndex == indexPath.row){
+//            selectedIndex = -1
+//        } else {
+//            selectedIndex = indexPath.row
+//        }
+//        tableView.beginUpdates()
+//        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+//        tableView.endUpdates()
+        
         tableView.deselectRow(at: indexPath, animated: true)
         print("row selected: " + myClubs[indexPath.row].name!)
         let nextVC =
@@ -208,6 +242,10 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         searchBar.text = self.query
         self.myClubs.removeAll()
         
+        //adding code here
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(dispDescription(press:)))
+        longPress.minimumPressDuration = 2.0
+        clubTable.addGestureRecognizer(longPress)
         
         // Since we just reset the above parameters, this function will return the first 10 results of ALL the clubs in the db.
         HTTPRequestHandler.searchClubs(startIndex: 0, groupSize: self.groupSize, rawQuery: self.query) {
@@ -230,7 +268,18 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             }
         }
     }
-    
+    func dispDescription(press:UILongPressGestureRecognizer) -> Bool{
+        var x : Bool = false
+        if (press.state == .began){
+            x = true
+            //tableView.didSelectRowAt(
+        } else {
+            x = false
+        }
+        return x
+    }
+
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
