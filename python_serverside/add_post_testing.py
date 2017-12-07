@@ -31,14 +31,12 @@ def application(environ, start_response):
         start_response("500 database error", [('Content_Type','application/json')])
         # the text/html payload
         return "Could not connect to database"
-    if environ["REQUEST_METHOD"]== 'POST':
+    if environ["REQUEST_METHOD"]== 'GET':
         try:
-            request_body_size = int(environ.get('CONTENT_LENGTH'))
-            request_body = environ['wsgi.input'].read(request_body_size)
-            j = json.loads(request_body)
-            username = j['username']
-            clubname = j['clubname']
-            message = j['message']
+            par = urlparse.parse_qs(environ['QUERY_STRING'])
+            username = par['username'][0]
+            clubname = par['clubname'][0]
+            message = par['message'][0]
         except:
             start_response("400 argument error", [('Content_Type','application/json')])
             return json.dumps({"success": False, "message": "parameters missing j = "})
@@ -65,7 +63,7 @@ def application(environ, start_response):
                 return json.dumps({"success": False, "message": "push notifications not sent."})
             
             try:
-                sql = "SELECT appleToken FROM User WHERE User.username = (SELECT username FROM Subscriptions WHERE club_id = %s);"
+                sql = "SELECT appleToken FROM User WHERE User.username = (SELECT username Subscriptions FROM  WHERE club_id = %s);"
                 rows_count = cursor.execute(sql, (club_id))
                 if rows_count == 0:
                     start_response("500 server error", [('Content_Type','application/json')])
