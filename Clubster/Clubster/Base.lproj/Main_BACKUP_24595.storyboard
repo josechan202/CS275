@@ -113,8 +113,10 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="158" id="vyi-f4-tsK"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                                            <state key="normal" title="Club Name"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                            <state key="normal" title="Club Name">
+                                                                <color key="titleColor" red="0.53307920694351196" green="0.28276538848876953" blue="0.0847468301653862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.89540371192893398" green="0.89540371192893398" blue="0.89540371192893398" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -174,7 +176,7 @@
                                 </connections>
                             </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" red="0.46666666666666667" green="0.82352941176470584" blue="0.36078431372549019" alpha="0.54609910102739723" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.90980392156862744" green="0.81960784313725488" blue="0.68235294117647061" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <toolbarItems>
                         <barButtonItem title="Item" id="xdw-HD-5ea"/>
@@ -215,7 +217,15 @@
                                     <action selector="clubsIRunButton:" destination="bfJ-Se-Ccy" eventType="touchUpInside" id="TkY-7J-qkE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9m-j4-Kdb">
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TiA-bz-cP5">
+                                <rect key="frame" x="16" y="173" width="288" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="clubsImMemberButton:" destination="bfJ-Se-Ccy" eventType="touchUpInside" id="25C-Aa-fcb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9m-j4-Kdb">
                                 <rect key="frame" x="16" y="229" width="288" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -246,16 +256,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TiA-bz-cP5">
-                                <rect key="frame" x="16" y="166" width="288" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="clubsImMemberButton:" destination="bfJ-Se-Ccy" eventType="touchUpInside" id="25C-Aa-fcb"/>
-                                </connections>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.46666666666666667" green="0.82352941176470584" blue="0.36078431372549019" alpha="0.55334974315068497" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.90980392156862744" green="0.81960784313725488" blue="0.68235294117647061" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="Xm0-3H-Z6y"/>
                     <connections>
@@ -371,7 +373,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.46666666666666667" green="0.82352941176470584" blue="0.36078431372549019" alpha="0.5507277397260274" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.72549019609999998" green="0.93725490199999995" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="vD5-7G-seF" firstAttribute="top" secondItem="6QB-LU-exe" secondAttribute="top" constant="45" id="CbO-jL-XNA"/>
                                     <constraint firstAttribute="bottom" secondItem="7q0-dU-ynm" secondAttribute="bottom" id="FGW-eF-fDS"/>
@@ -450,7 +452,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.46666666666666667" green="0.82352941176470584" blue="0.36078431372549019" alpha="0.55000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.72549019609999998" green="0.93725490199999995" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="uSS-lZ-NJY" firstAttribute="bottom" secondItem="NsQ-zR-HSo" secondAttribute="bottomMargin" id="Kmz-T6-6aD"/>
                                     <constraint firstItem="uSS-lZ-NJY" firstAttribute="leading" secondItem="NsQ-zR-HSo" secondAttribute="leadingMargin" id="deO-aK-IYY"/>
@@ -581,7 +583,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" indicatorStyle="black" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="32W-9i-DCE">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" indicatorStyle="black" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="32W-9i-DCE">
                                 <rect key="frame" x="0.0" y="193" width="320" height="375"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.91841570480000001" green="0.91841570480000001" blue="0.91841570480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -589,18 +591,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBP-t4-gGx">
-                                <rect key="frame" x="0.0" y="80" width="320" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.41176155821917809" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <state key="normal" title="Subscribe"/>
-                                <connections>
-                                    <action selector="subscribeButton:" destination="5mA-xC-3mA" eventType="touchUpInside" id="2Bf-QJ-NAR"/>
-                                </connections>
-                            </button>
+<<<<<<< HEAD
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nyW-8h-FjN">
-                                <rect key="frame" x="0.0" y="118" width="320" height="29"/>
+                                <rect key="frame" x="0.0" y="128" width="320" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Description"/>
@@ -610,15 +603,55 @@
                                     <action selector="clubTabBar:" destination="5mA-xC-3mA" eventType="valueChanged" id="dXg-7o-P6s"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBP-t4-gGx">
+                                <rect key="frame" x="0.0" y="82" width="320" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+=======
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLR-0k-9vd">
+                                <rect key="frame" x="0.0" y="164" width="98" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="98" id="vDH-ya-N2r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBP-t4-gGx">
+                                <rect key="frame" x="0.0" y="80" width="98" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.41176155821917809" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="98" id="HXC-qS-nc6"/>
+                                </constraints>
+>>>>>>> a72cc17e19d41fd3cad8d958dc4a56e72fdc7ec1
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <state key="normal" title="Subscribe"/>
+                                <connections>
+                                    <action selector="subscribeButton:" destination="5mA-xC-3mA" eventType="touchUpInside" id="2Bf-QJ-NAR"/>
+                                </connections>
+                            </button>
+<<<<<<< HEAD
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLR-0k-9vd">
-                                <rect key="frame" x="9" y="164" width="98" height="21"/>
+                                <rect key="frame" x="10" y="164" width="310" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+=======
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nyW-8h-FjN">
+                                <rect key="frame" x="0.0" y="118" width="320" height="29"/>
+                                <segments>
+                                    <segment title="Description"/>
+                                    <segment title="Info"/>
+                                </segments>
+                                <connections>
+                                    <action selector="clubTabBar:" destination="5mA-xC-3mA" eventType="valueChanged" id="dXg-7o-P6s"/>
+                                </connections>
+                            </segmentedControl>
+>>>>>>> a72cc17e19d41fd3cad8d958dc4a56e72fdc7ec1
                         </subviews>
-                        <color key="backgroundColor" red="0.46666666666666667" green="0.82352941176470584" blue="0.36078431372549019" alpha="0.55182470034246578" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.92911046743392944" green="0.8170088529586792" blue="0.66420918703079224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="BdN-8r-3hI"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -665,6 +698,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9FX-G8-2SF">
+                                <rect key="frame" x="0.0" y="20" width="414" height="84"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Club" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMW-fm-XWN">
+                                        <rect key="frame" x="8" y="45" width="191" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="191" id="uwY-DL-fln"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.72549019609999998" green="0.93725490199999995" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="KMW-fm-XWN" firstAttribute="top" secondItem="9FX-G8-2SF" secondAttribute="top" constant="45" id="016-K4-Czt"/>
+                                    <constraint firstItem="KMW-fm-XWN" firstAttribute="bottom" secondItem="9FX-G8-2SF" secondAttribute="bottomMargin" id="GnN-CU-GhX"/>
+                                    <constraint firstItem="KMW-fm-XWN" firstAttribute="leading" secondItem="9FX-G8-2SF" secondAttribute="leadingMargin" id="KB6-sA-4wl"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p46-Dh-Lx5">
                                 <rect key="frame" x="20" y="152" width="100" height="21"/>
                                 <constraints>
@@ -735,26 +788,6 @@
                                     <action selector="submit:" destination="VaR-hK-0OF" eventType="touchUpInside" id="NbZ-IJ-bHf"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9FX-G8-2SF">
-                                <rect key="frame" x="0.0" y="20" width="320" height="84"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Club" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMW-fm-XWN">
-                                        <rect key="frame" x="8" y="45" width="191" height="31"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="191" id="uwY-DL-fln"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.46666666666666667" green="0.82352941176470584" blue="0.36078431372549019" alpha="0.55000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="KMW-fm-XWN" firstAttribute="top" secondItem="9FX-G8-2SF" secondAttribute="top" constant="45" id="016-K4-Czt"/>
-                                    <constraint firstItem="KMW-fm-XWN" firstAttribute="bottom" secondItem="9FX-G8-2SF" secondAttribute="bottomMargin" id="GnN-CU-GhX"/>
-                                    <constraint firstItem="KMW-fm-XWN" firstAttribute="leading" secondItem="9FX-G8-2SF" secondAttribute="leadingMargin" id="KB6-sA-4wl"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.97325111040000001" green="0.97325111040000001" blue="0.97325111040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -856,8 +889,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Srk-N4-IFC">
-                                <rect key="frame" x="140" y="383" width="38" height="32"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Srk-N4-IFC">
+                                <rect key="frame" x="141" y="377" width="38" height="32"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.89167365549789779" green="0.90935741865615749" blue="0.93117773532867432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -871,6 +904,15 @@
                                     <constraint firstAttribute="height" constant="83" id="nFM-Xu-dNS"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6G-6M-XvT">
+                                <rect key="frame" x="132" y="423" width="55" height="30"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" red="0.92423137078605855" green="0.90226586858054514" blue="0.93117773532867432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="toSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r2c-O5-NI4"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ts9-Ar-wwa">
                                 <rect key="frame" x="67" y="328" width="74" height="21"/>
                                 <constraints>
@@ -887,15 +929,6 @@
                                     <constraint firstAttribute="height" constant="72" id="5kC-Km-x0r"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6G-6M-XvT">
-                                <rect key="frame" x="133" y="411" width="55" height="30"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleColor" red="0.92423137078605855" green="0.90226586858054514" blue="0.93117773532867432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="toSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r2c-O5-NI4"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1130,6 +1163,10 @@
                                                             <rect key="frame" x="0.0" y="2" width="92" height="60"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" red="0.21018401019999999" green="0.17810204360000001" blue="0.034399916230000001" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ui-TH-E99">
+                                                            <rect key="frame" x="0.0" y="-5" width="100" height="69"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1406,7 +1443,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zNb-Ft-Aij"/>
-        <segue reference="YAd-nt-vip"/>
-        <segue reference="MFA-VK-7Bg"/>
+        <segue reference="a9T-pC-FJ1"/>
+        <segue reference="GlB-F2-rZc"/>
     </inferredMetricsTieBreakers>
 </document>

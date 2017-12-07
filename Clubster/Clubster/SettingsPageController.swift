@@ -47,11 +47,11 @@ class SettingsPageController: UIViewController {
         clubsIRunButton.setImage(UIImage(named: "images/settingsPage/clubsIRun.png"), for: .normal)
         
         clubsImMemberButton.layer.borderColor = UIColor.black.cgColor
-        clubsImMemberButton.setTitle("Clubs I'm a member of", for: .normal)
+        clubsImMemberButton.setTitle("Contact SGA!", for: .normal)
         clubsImMemberButton.setImage(UIImage(named: "images/settingsPage/clubsImMember.png"), for: .normal)
         nearbyEventsButton.setTitle("Nearby Events", for: .normal)
         nearbyEventsButton.setImage(UIImage(named: "images/settingsPage/nearbyEvents.png"), for: .normal)
-        messagesButton.setTitle("Messages", for: .normal)
+        messagesButton.setTitle("Help", for: .normal)
         messagesButton.setImage(UIImage(named: "images/settingsPage/messages.png"), for: .normal)
         myAccountButton.setTitle("My Account", for: .normal)
         myAccountButton.setImage(UIImage(named: "images/settingsPage/myAccount.png"), for: .normal)
@@ -73,10 +73,10 @@ class SettingsPageController: UIViewController {
         navigationController?.pushViewController(nextVC, animated: true)
     }
     @IBAction func nearbyEventsButton(_ sender: Any) {
-        let nextVC =
-            storyboard?.instantiateViewController(withIdentifier:
-                "nearbyEventsVC") as! nearbyEventsVC
-        navigationController?.pushViewController(nextVC, animated: true)
+//        let nextVC =
+//            storyboard?.instantiateViewController(withIdentifier:
+//                "nearbyEventsVC") as! nearbyEventsVC
+//        navigationController?.pushViewController(nextVC, animated: true)
     }
     @IBAction func messagesButton(_ sender: Any) {
         let nextVC =

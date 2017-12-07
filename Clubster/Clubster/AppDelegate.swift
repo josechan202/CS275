@@ -71,38 +71,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
-        /*
-         //if no user found, go straight to login screen
-         if user == nil {
-         self.window = UIWindow(frame: UIScreen.main.bounds)
-         
-         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-         let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-         
-         window?.rootViewController = UINavigationController(rootViewController: vc)
-         self.window?.makeKeyAndVisible()
-         } else { //if user found, go to home page
-         UserSingleton.sharedInstance.setUser(userIn: user!)
-         
-         self.window = UIWindow(frame: UIScreen.main.bounds)
-         
-         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-         let vc = storyboard.instantiateViewController(withIdentifier: "HomeVC")
-         
-         window?.rootViewController = UINavigationController(rootViewController: vc)
-         self.window?.makeKeyAndVisible()
-         }
-        */
-        
         //if no user found, go straight to login screen
         if user == nil {
             self.window = UIWindow(frame: UIScreen.main.bounds)
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-        
+            
             window?.rootViewController = UINavigationController(rootViewController: vc)
             self.window?.makeKeyAndVisible()
+            
+            registerForPushNotifications()
+            
         } else { //if user found, go to home page
             UserSingleton.sharedInstance.setUser(userIn: user!)
             
@@ -184,6 +164,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+        }
+    }
+    
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let tokenParts = deviceToken.map { data -> String in
+            return String(format: "%02.2hhx", data)
+        }
+        
+        let token = tokenParts.joined()
+        Notifications.appleToken = token
+        //This token should be stored on server as a field for every user. Needed for each notification sent from server
+        print("Device Token: \(token)")
+    }
+    
+    func application(_ application: UIApplication,
+                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register: \(error)")
+    }
+    
+    public func registerForPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            print("Permission granted: \(granted)")
+            
+            guard granted else { return }
+            self.getNotificationSettings()
+        }
+    }
+    
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            print("Notification settings: \(settings)")
+            guard settings.authorizationStatus == .authorized else { return }
+            UIApplication.shared.registerForRemoteNotifications()
         }
     }
 }
