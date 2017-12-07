@@ -53,3 +53,4 @@ def application(environ, start_response):
 
 #IMPORTANT!!!! set the request_handler to your response function to get the script to work on silk
 request_handler = application
+
