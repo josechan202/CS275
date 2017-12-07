@@ -8,7 +8,8 @@ def application(environ, start_response):
         cnx = MySQLdb.connect(user="abarson_admin", passwd="dmnFKw6KSiW9",host="webdb.uvm.edu",db="ABARSON_TEST")
     
     except MySQLdb.Error, err:
-        if not err:
+        raise ValueError(err)
+	if not err:
             err = "no data available"
         # use of the start_response function to send text/html data about an error
         start_response("500 database error", [('Content_Type','application/json')])
@@ -25,6 +26,9 @@ def application(environ, start_response):
             start_response("400 argument error", [('Content_Type','application/json')])
             return json.dumps({"success": False, "message": "parameters missing"})
         cursor = cnx.cursor()
+	
+	#for debugging
+
         sql = "UPDATE User SET appleToken=%s WHERE username=%s;"
 
         rows_count = cursor.execute(sql, (appleToken, username))
@@ -35,8 +39,8 @@ def application(environ, start_response):
         return json.dumps({"success": True, "message": "Message inserted"})
 
 
-start_response("400 error",[('Content-Type','text/html')])
-    return ""
+    start_response("400 error",[('Content-Type','text/html')])
+    return "grass"
 
 #IMPORTANT!!!! set the request_handler to your response function to get the script to work on silk
 request_handler = application

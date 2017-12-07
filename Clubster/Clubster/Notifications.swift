@@ -17,9 +17,9 @@ public class Notifications {
     {
         
         //sanity check. runs if user didnt allow notifications
-//        if((appleToken ?? "").isEmpty){
-//            return
-//        }
+        if((appleToken ?? "").isEmpty){
+            return
+        }
         
         let username = UserSingleton.sharedInstance.user!.getUsername()
         
