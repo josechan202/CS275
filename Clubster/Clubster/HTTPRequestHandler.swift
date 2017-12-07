@@ -145,6 +145,7 @@ public class HTTPRequestHandler {
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
             return
         }
+        
         print("request = \(parameterDictionary)")
         
         request.httpBody = httpBody
@@ -167,7 +168,7 @@ public class HTTPRequestHandler {
             do {
                 // Convert the data to JSON
                 let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
-                
+                print ("the json     = \(String(describing: jsonSerialized))")
                 if let json = jsonSerialized, json["success"] as! Bool{
                     print("Successfully Changed \(username)'s post for status to club \(clubname) ")
                     

@@ -33,9 +33,9 @@ class messagesVC: UIViewController, UITextViewDelegate {
             self.responseMessage.isHidden = false
             if (success) {
                 self.messageBody.text = ""
-                self.responseMessage.textColor = UIColor(red: 113, green: 178, blue: 126, alpha: 1.0)
+                self.responseMessage.textColor = UIColor(red: CGFloat(0.462), green: CGFloat(0.721), blue: CGFloat(0.509), alpha: CGFloat(1.0))
             } else {
-                self.responseMessage.textColor = UIColor(red: 215, green: 96, blue: 86, alpha: 1.0)
+                self.responseMessage.textColor = UIColor(red: CGFloat(0.847), green: CGFloat(0.380), blue: CGFloat(0.337), alpha: CGFloat(1.0))
             }
         }
     }
