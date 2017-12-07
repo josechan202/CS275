@@ -6,6 +6,6 @@ import sys
 token_hex = sys.argv[1]
 message = sys.argv[2]
 
-apns = APNs(use_sandbox=True, cert_file='certfile.pem', key_file='keyfile.pem')
+apns = APNs(use_sandbox=True, cert_file='pushKeys/certfile.pem', key_file='pushKeys/keyfile.pem')
 payload = Payload(alert=message, sound="default", badge=1)
 apns.gateway_server.send_notification(token_hex, payload)
