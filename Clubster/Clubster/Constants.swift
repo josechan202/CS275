@@ -10,7 +10,7 @@ import Foundation
 
 struct Constants {
     //App Constants
-    static let ZOO_NAME = "jfhurley"
+    static let ZOO_NAME = "jfhurly"
 }
 
 

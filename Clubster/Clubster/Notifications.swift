@@ -49,6 +49,24 @@ public class Notifications {
     
     func updateDBwithAppleToken(_ appleTokenIn: String)
     {
+        let username = UserSingleton.sharedInstance.user!.getUsername()
+        
+        HTTPRequestHandler.appleToken(appleTokenIn: "j5tjk5tiutiutknjrt", username: username) {
+            (success, message) in
+            if (success) {
+                print (message)
+                
+            } else { //not success
+                print (message)
+            }
+        }
+
+        
+        
+        
+        
+        
+        
         
     }
 }
