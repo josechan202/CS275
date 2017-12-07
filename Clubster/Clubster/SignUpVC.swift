@@ -13,7 +13,7 @@ class SignUpVC: UIViewController {
     let USERNAME_WRONG : String = "Invalid username"
     let USERNAME_TAKEN : String = "Username taken"
     let PASSWORD_INV   : String = "Password invalid"
-    let CON_PASS_INV   : String = "Passwords different"
+    let CON_PASS_INV   : String = "Passwords differ"
     
     
     @IBOutlet weak var usernameField: UITextField!
@@ -116,13 +116,8 @@ class SignUpVC: UIViewController {
         confirmPasswordField.placeholder = "confirm pass"
         confirmPasswordField.autocorrectionType = UITextAutocorrectionType.no
         
-        usernameFeedback.font = UIFont.init(name: "arial", size: 10)
         usernameFeedback.textColor = UIColor.red
-        
-        passwordFeedback.font = UIFont.init(name: "arial", size: 10)
         passwordFeedback.textColor = UIColor.red
-        
-        confirmPasswordFeedback.font = UIFont.init(name: "arial", size: 10)
         confirmPasswordFeedback.textColor = UIColor.red
         
         //to move window up when keyboard comes up

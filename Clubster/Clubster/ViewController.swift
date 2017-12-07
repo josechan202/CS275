@@ -100,8 +100,6 @@ class ViewController: UIViewController {
         
         //self.navigationItem.setHidesBackButton(true, animated: false)
         
-        userNameTextBox.placeholder = "username"
-        passwordTextBox.placeholder = "password"
         userNameTextBox.autocorrectionType = UITextAutocorrectionType.no
         passwordTextBox.autocorrectionType = UITextAutocorrectionType.no
         
