@@ -38,6 +38,7 @@ public class Notifications {
         let token = tokenParts.joined()
         
         //This token should be stored on server as a field for every user. Needed for each notification sent from server
+        updateDBwithAppleToken(token)
         print("Device Token: \(token)")
     }
     
@@ -46,5 +47,8 @@ public class Notifications {
         print("Failed to register: \(error)")
     }
     
-
+    func updateDBwithAppleToken(_ appleTokenIn: String)
+    {
+        
+    }
 }
