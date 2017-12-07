@@ -352,7 +352,7 @@ public class HTTPRequestHandler {
         request.httpMethod = "POST"
         
         
-        let parameterDictionary = ["appleTokenIn": appleTokenIn, "username": username]
+        let parameterDictionary = ["appleToken": appleTokenIn, "username": username]
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
             return
         }

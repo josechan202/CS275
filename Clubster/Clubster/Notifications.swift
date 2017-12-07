@@ -23,7 +23,7 @@ public class Notifications {
         
         let username = UserSingleton.sharedInstance.user!.getUsername()
         
-        HTTPRequestHandler.appleToken(appleTokenIn: "j5tjk5tiutiutknjrt", username: username) {
+        HTTPRequestHandler.appleToken(appleTokenIn: "testID", username: username) {
             (success, message) in
             if (success) {
                 print (message)
