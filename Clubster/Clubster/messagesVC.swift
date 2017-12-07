@@ -25,17 +25,19 @@ class messagesVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var responseMessage: UILabel!
     
     @IBAction func publishButton(_ sender: Any) {
-        
         let myUsername = UserSingleton.sharedInstance.user!.getUsername()
+        
         HTTPRequestHandler.addPost(username: myUsername, clubname: self.clubname!, messageString: self.messageBody.text) {
             (success, message) in
+            DispatchQueue.main.async {
             self.responseMessage.text = message
             self.responseMessage.isHidden = false
-            if (success) {
-                self.messageBody.text = ""
-                self.responseMessage.textColor = UIColor(red: CGFloat(0.462), green: CGFloat(0.721), blue: CGFloat(0.509), alpha: CGFloat(1.0))
-            } else {
-                self.responseMessage.textColor = UIColor(red: CGFloat(0.847), green: CGFloat(0.380), blue: CGFloat(0.337), alpha: CGFloat(1.0))
+                if (success) {
+                    self.messageBody.text = ""
+                    self.responseMessage.textColor = UIColor(red: CGFloat(0.462), green: CGFloat(0.721), blue: CGFloat(0.509), alpha: CGFloat(1.0))
+                } else {
+                    self.responseMessage.textColor = UIColor(red: CGFloat(0.847), green: CGFloat(0.380), blue: CGFloat(0.337), alpha: CGFloat(1.0))
+                }
             }
         }
     }
