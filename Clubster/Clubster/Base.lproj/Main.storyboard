@@ -215,20 +215,20 @@
                                     <action selector="clubsIRunButton:" destination="bfJ-Se-Ccy" eventType="touchUpInside" id="TkY-7J-qkE"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TiA-bz-cP5">
+                                <rect key="frame" x="16" y="166" width="288" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="clubsImMemberButton:" destination="bfJ-Se-Ccy" eventType="touchUpInside" id="25C-Aa-fcb"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9m-j4-Kdb">
                                 <rect key="frame" x="16" y="229" width="288" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="nearbyEventsButton:" destination="bfJ-Se-Ccy" eventType="touchUpInside" id="H7x-dG-CHT"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1I-xv-vcx">
-                                <rect key="frame" x="16" y="285" width="288" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="messagesButton:" destination="bfJ-Se-Ccy" eventType="touchUpInside" id="bic-V1-yXO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F48-CC-xcB">
@@ -246,12 +246,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TiA-bz-cP5">
-                                <rect key="frame" x="16" y="166" width="288" height="48"/>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1I-xv-vcx">
+                                <rect key="frame" x="16" y="278" width="288" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="clubsImMemberButton:" destination="bfJ-Se-Ccy" eventType="touchUpInside" id="25C-Aa-fcb"/>
+                                    <action selector="messagesButton:" destination="bfJ-Se-Ccy" eventType="touchUpInside" id="bic-V1-yXO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1142,7 +1142,7 @@
                                                         <constraint firstItem="9xQ-Of-t5D" firstAttribute="top" secondItem="OEQ-lo-vSn" secondAttribute="top" id="qn2-7k-NQD"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Club Motto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkf-HU-OiS" userLabel="Club Cell Description">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Club Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkf-HU-OiS" userLabel="Club Cell Description">
                                                     <rect key="frame" x="8" y="72" width="274" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -1406,7 +1406,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zNb-Ft-Aij"/>
-        <segue reference="YAd-nt-vip"/>
-        <segue reference="MFA-VK-7Bg"/>
+        <segue reference="a9T-pC-FJ1"/>
+        <segue reference="GlB-F2-rZc"/>
     </inferredMetricsTieBreakers>
 </document>
