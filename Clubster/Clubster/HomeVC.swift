@@ -161,13 +161,15 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
     }
     
     func refreshNewsFeed() {
-        self.myPosts.removeAll()
-        let t = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        self.currentTime = formatter.string(from: t)
-        self.loadMoreData()
-        refreshControl.endRefreshing()
+        DispatchQueue.main.async {
+            self.myPosts.removeAll()
+            let t = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            self.currentTime = formatter.string(from: t)
+            self.loadMoreData()
+            self.refreshControl.endRefreshing()
+        }
     }
     
     override func viewDidLoad() {

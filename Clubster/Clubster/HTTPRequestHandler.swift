@@ -432,7 +432,7 @@ public class HTTPRequestHandler {
     
     public class func appleToken(appleTokenIn: String, username: String,
                              successHandler : @escaping (_ success : Bool, _ message : String?) -> Void) -> Void {
-        let url = URL(string: "https://rkoudsi.w3.uvm.edu/apple_token.py")!
+        let url = URL(string: "https://\(Constants.ZOO_NAME).w3.uvm.edu/apple_token.py")!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
