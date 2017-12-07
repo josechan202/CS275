@@ -37,7 +37,7 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             if(selectedIndex == indexPath.row){
                 return 120
             } else {
-                return 50
+                return 60
             }
         }
     @IBAction func gesture(press: UILongPressGestureRecognizer){
@@ -88,22 +88,27 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     // For if they click on a cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-//        if(selectedIndex == indexPath.row){
-//            selectedIndex = -1
-//        } else {
-//            selectedIndex = indexPath.row
-//        }
-//        tableView.beginUpdates()
-//        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-//        tableView.endUpdates()
+      //  var held = dispDescription()
+      //  if(held == false){
+            if(selectedIndex == indexPath.row){
+                selectedIndex = -1
+                tableView.deselectRow(at: indexPath, animated: true)
+                print("row selected: " + myClubs[indexPath.row].name!)
+                let nextVC =
+                    self.storyboard?.instantiateViewController(withIdentifier:
+                        "ClubPageVC") as! ClubPageVC
+                nextVC.clubname = myClubs[indexPath.row].name!
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            } else {
+                selectedIndex = indexPath.row
+                
+            }
+            tableView.beginUpdates()
+            tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            tableView.endUpdates()
+            
+       // }
         
-        tableView.deselectRow(at: indexPath, animated: true)
-        print("row selected: " + myClubs[indexPath.row].name!)
-        let nextVC =
-            self.storyboard?.instantiateViewController(withIdentifier:
-                "ClubPageVC") as! ClubPageVC
-        nextVC.clubname = myClubs[indexPath.row].name!
-        self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
     
@@ -268,11 +273,12 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             }
         }
     }
-    func dispDescription(press:UILongPressGestureRecognizer) -> Bool{
+    func dispDescription(press:UILongPressGestureRecognizer) -> Bool {
         var x : Bool = false
+        
         if (press.state == .began){
             x = true
-            //tableView.didSelectRowAt(
+            
         } else {
             x = false
         }

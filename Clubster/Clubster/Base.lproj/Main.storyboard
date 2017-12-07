@@ -190,7 +190,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUB-AK-Uhi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationItem id="Okw-KY-QRG"/>
             </objects>
-            <point key="canvasLocation" x="2310" y="142.6056338028169"/>
+            <point key="canvasLocation" x="2333" y="144"/>
         </scene>
         <!--Settings Page Controller-->
         <scene sceneID="RDc-o2-EMP">
@@ -784,57 +784,56 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="121" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gd4-as-S4z">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="138" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gd4-as-S4z">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="clubCell" rowHeight="121" id="EHU-v0-Kcm" customClass="CustomTableViewCell" customModule="Clubster" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="121"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="clubCell" rowHeight="138" id="EHU-v0-Kcm" customClass="CustomTableViewCell" customModule="Clubster" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="138"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="EHU-v0-Kcm" id="Vr4-K8-Wxd">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="120.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EHU-v0-Kcm" id="Vr4-K8-Wxd">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="137.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OEQ-lo-vSn" userLabel="FirstView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OEQ-lo-vSn" userLabel="FirstView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Club Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFt-Kb-J9H">
-                                                            <rect key="frame" x="104" y="11" width="82" height="24"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xQ-Of-t5D">
-                                                            <rect key="frame" x="272" y="0.0" width="48" height="32"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xQ-Of-t5D">
+                                                            <rect key="frame" x="264" y="0.0" width="56" height="63"/>
                                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="48" id="i8X-tL-QgD"/>
+                                                                <constraint firstAttribute="width" constant="56" id="Q4B-yN-TXL"/>
+                                                                <constraint firstAttribute="height" constant="63" id="Y0O-H6-BjL"/>
                                                             </constraints>
                                                             <state key="normal" image="plus-blue-32"/>
                                                         </button>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="generatedtext" translatesAutoresizingMaskIntoConstraints="NO" id="naN-Hc-COU">
-                                                            <rect key="frame" x="8" y="3" width="92" height="41"/>
-                                                            <color key="backgroundColor" red="0.21018401015228427" green="0.17810204357600964" blue="0.034399916231509502" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Club Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkf-HU-OiS" userLabel="Club Cell Description">
-                                                            <rect key="frame" x="8" y="71" width="82" height="24"/>
+                                                            <rect key="frame" x="8" y="70" width="82" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFt-Kb-J9H">
+                                                            <rect key="frame" x="108" y="21" width="82" height="24"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="generatedtext" translatesAutoresizingMaskIntoConstraints="NO" id="1S1-Ez-gIC">
+                                                            <rect key="frame" x="0.0" y="2" width="92" height="60"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.21018401019999999" green="0.17810204360000001" blue="0.034399916230000001" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.85927585659898476" green="0.85927585659898476" blue="0.85927585659898476" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
-                                                        <constraint firstItem="naN-Hc-COU" firstAttribute="top" secondItem="OEQ-lo-vSn" secondAttribute="top" constant="3" id="8MC-Tf-oH0"/>
-                                                        <constraint firstAttribute="height" constant="50" id="9Ic-xy-le6"/>
-                                                        <constraint firstItem="JFt-Kb-J9H" firstAttribute="leading" secondItem="OEQ-lo-vSn" secondAttribute="leadingMargin" constant="96" id="Chh-ta-zgu"/>
-                                                        <constraint firstItem="naN-Hc-COU" firstAttribute="leading" secondItem="OEQ-lo-vSn" secondAttribute="leadingMargin" id="KGH-tL-ulU"/>
-                                                        <constraint firstItem="JFt-Kb-J9H" firstAttribute="centerY" secondItem="OEQ-lo-vSn" secondAttribute="centerY" constant="-2" id="fNH-Um-4b8"/>
-                                                        <constraint firstAttribute="trailingMargin" secondItem="9xQ-Of-t5D" secondAttribute="trailing" constant="-8" id="hxr-gh-9EG"/>
-                                                        <constraint firstItem="JFt-Kb-J9H" firstAttribute="leading" secondItem="naN-Hc-COU" secondAttribute="trailing" constant="4" id="kbf-WJ-z5V"/>
-                                                        <constraint firstItem="9xQ-Of-t5D" firstAttribute="top" secondItem="OEQ-lo-vSn" secondAttribute="topMargin" constant="-8" id="wl9-xL-tf8"/>
-                                                        <constraint firstItem="naN-Hc-COU" firstAttribute="centerY" secondItem="JFt-Kb-J9H" secondAttribute="centerY" id="xS3-8n-kAK"/>
+                                                        <constraint firstAttribute="height" constant="64" id="9Ic-xy-le6"/>
+                                                        <constraint firstItem="JFt-Kb-J9H" firstAttribute="leading" secondItem="OEQ-lo-vSn" secondAttribute="leadingMargin" constant="100" id="Chh-ta-zgu"/>
+                                                        <constraint firstAttribute="trailing" secondItem="9xQ-Of-t5D" secondAttribute="trailing" id="Fg6-Zh-Mwn"/>
+                                                        <constraint firstItem="9xQ-Of-t5D" firstAttribute="centerY" secondItem="OEQ-lo-vSn" secondAttribute="centerY" constant="-0.5" id="cYT-Cz-Lz2"/>
+                                                        <constraint firstItem="JFt-Kb-J9H" firstAttribute="centerY" secondItem="OEQ-lo-vSn" secondAttribute="centerY" constant="1" id="fNH-Um-4b8"/>
+                                                        <constraint firstItem="9xQ-Of-t5D" firstAttribute="top" secondItem="OEQ-lo-vSn" secondAttribute="top" id="qn2-7k-NQD"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -846,7 +845,6 @@
                                                 <constraint firstItem="OEQ-lo-vSn" firstAttribute="leading" secondItem="Vr4-K8-Wxd" secondAttribute="leading" id="DLA-Hy-iL3"/>
                                                 <constraint firstItem="OEQ-lo-vSn" firstAttribute="leading" secondItem="Vr4-K8-Wxd" secondAttribute="leading" id="Gzv-QV-IdI"/>
                                                 <constraint firstAttribute="trailing" secondItem="OEQ-lo-vSn" secondAttribute="trailing" id="odD-bx-tT5"/>
-                                                <constraint firstAttribute="bottom" secondItem="OEQ-lo-vSn" secondAttribute="bottom" constant="59.5" id="t53-b0-xWf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -886,7 +884,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qe7-fb-XZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3290.625" y="917.95774647887322"/>
+            <point key="canvasLocation" x="3288.75" y="916.90140845070425"/>
         </scene>
         <!--Custom Tab Bar Controller-->
         <scene sceneID="pvC-Gd-0dz">
@@ -1024,7 +1022,7 @@
         <!--Navigation Controller-->
         <scene sceneID="eeP-US-EX2">
             <objects>
-                <navigationController storyboardIdentifier="allClubsNav" automaticallyAdjustsScrollViewInsets="NO" id="BlN-MA-bRe" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="allClubsNav" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="BlN-MA-bRe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cLt-Hm-exH">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1094,8 +1092,8 @@
         <image name="signinBG" width="662" height="451"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zNb-Ft-Aij"/>
-        <segue reference="a9T-pC-FJ1"/>
         <segue reference="GlB-F2-rZc"/>
+        <segue reference="a9T-pC-FJ1"/>
+        <segue reference="Lja-hY-lFL"/>
     </inferredMetricsTieBreakers>
 </document>
