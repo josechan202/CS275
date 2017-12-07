@@ -53,6 +53,9 @@ class SignUpVC: UIViewController {
                         
                         UserSingleton.sharedInstance.setUser(userIn: user)
                         
+                        //only after login can we associate this app on this phone with this user
+                        Notifications.updateDBwithAppleToken()
+                        
                         DispatchQueue.main.async {
                             self.toHome()
                             self.signUpButton.isEnabled = true
@@ -106,8 +109,8 @@ class SignUpVC: UIViewController {
         appDelegate.window?.rootViewController = nextVC
         appDelegate.window?.makeKeyAndVisible()
         
-        //also called after user logs in
-        Notifications().registerForPushNotifications()
+        
+
     }
     
     override func viewDidLoad() {
