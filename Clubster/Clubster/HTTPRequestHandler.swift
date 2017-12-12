@@ -135,7 +135,7 @@ public class HTTPRequestHandler {
     
     public class func addPost(username : String, clubname: String, messageString: String,
                                 successHandler: @escaping (_ success: Bool, _ message: String?) -> Void)->Void {
-        let url = URL(string: "https://\(Constants.ZOO_NAME).w3.uvm.edu/add_post.py")!
+        let url = URL(string: "https://abarson.w3.uvm.edu/add_post.py")!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
@@ -178,7 +178,7 @@ public class HTTPRequestHandler {
                     
                 }
             }  catch let error as NSError {
-                successHandler(false, error as! String)
+                successHandler(false, "error as! String")
             }
             
             
