@@ -249,6 +249,7 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         self.myClubs.removeAll()
         
         //adding code here
+        
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(dispDescription(press:)))
         longPress.minimumPressDuration = 2.0
         clubTable.addGestureRecognizer(longPress)
@@ -273,8 +274,16 @@ class AllClubsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 self.clubTable.reloadData()
             }
         }
+        //let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        //view.addGestureRecognizer(tap)
+    }
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     func dispDescription(press:UILongPressGestureRecognizer) -> Bool {
+        //view.endEditing(true)
+        //dismissKeyboard()
         var x : Bool = false
         
         if (press.state == .began){
