@@ -117,7 +117,7 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
     // Defines what each cell does
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postCell", for: indexPath) as! PostCell
-        
+        print(indexPath.row)
         cell.toClub.tag = indexPath.row
         cell.toClub.addTarget(self, action: #selector(self.toClub), for: UIControlEvents.touchUpInside)
         cell.toClub.setTitle(myPosts[indexPath.row].clubname!, for: .normal)
@@ -161,13 +161,17 @@ class HomeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICo
     }
     
     func refreshNewsFeed() {
+        print("Removing all!")
         self.myPosts.removeAll()
         let t = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         self.currentTime = formatter.string(from: t)
+        self.subList.reloadData()
+        self.newsFeed.reloadData()
         self.loadMoreData()
         refreshControl.endRefreshing()
+        print("Done refreshing.")
     }
     
     override func viewDidLoad() {
